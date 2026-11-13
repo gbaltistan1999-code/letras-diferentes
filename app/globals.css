@@ -7,9 +7,10 @@
   --color-line: #e5e1db;
   --color-ink: #23211f;
   --color-ink-soft: #57534e;
-  --color-accent: #3d6b66;
-  --color-accent-strong: #2f5550;
-  --color-accent-soft: #e7efed;
+  /* Brand purple from the logo (contrast on white ≈ 7.8:1). */
+  --color-accent: #7a2e9e;
+  --color-accent-strong: #5c1f7a;
+  --color-accent-soft: #f4eafa;
 
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Noto Sans", sans-serif;

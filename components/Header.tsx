@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteNav } from "@/components/SiteNav";
 import { stylePages } from "@/data/style-pages";
@@ -8,9 +9,16 @@ export function Header() {
   return (
     <header className="relative border-b border-line bg-surface">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="text-lg font-bold tracking-tight">
-          {siteConfig.name}
-          <span className="text-accent">.</span>
+        <Link href="/" aria-label={`${siteConfig.name} — página inicial`} className="shrink-0">
+          <Image
+            src="/logo.png"
+            alt={siteConfig.name}
+            width={2036}
+            height={475}
+            priority
+            sizes="180px"
+            className="h-9 w-auto sm:h-10"
+          />
         </Link>
         <SiteNav links={mainNav} styleLinks={styleLinks} />
       </div>
