@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fbfaf8;
+  --color-surface: #ffffff;
+  --color-warm: #f3f1ed;
+  --color-line: #e5e1db;
+  --color-ink: #23211f;
+  --color-ink-soft: #57534e;
+  --color-accent: #3d6b66;
+  --color-accent-strong: #2f5550;
+  --color-accent-soft: #e7efed;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+  /* Fonts that ship with most systems and cover Unicode math/enclosed symbols. */
+  --font-symbols: system-ui, -apple-system, "Segoe UI", "Segoe UI Symbol", "Cambria Math",
+    "Noto Sans Math", "Noto Sans Symbols 2", "Noto Sans", "Apple Symbols", "STIX Two Math",
+    sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Long-form content (legal pages, guides). */
+.prose-content h2 {
+  font-size: 1.375rem;
+  font-weight: 650;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.prose-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-content p,
+.prose-content ul,
+.prose-content ol {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+.prose-content ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose-content ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.prose-content li {
+  margin-bottom: 0.35rem;
+}
+.prose-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-content strong {
+  color: var(--color-ink);
+}
+
+dialog::backdrop {
+  background: rgb(35 33 31 / 0.45);
+}
