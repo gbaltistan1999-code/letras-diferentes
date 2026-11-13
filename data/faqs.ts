@@ -24,7 +24,7 @@ export const homeFaqs: FaqItem[] = [
   {
     question: "Funciona com acentos e ç?",
     answer:
-      "Sim. O Unicode não tem versões estilizadas de letras acentuadas, então o gerador usa a letra estilizada e adiciona o acento como um sinal combinável. Assim “ã”, “é” e “ç” não desaparecem. Em alguns apps o acento pode ficar levemente deslocado.",
+      "Sim, e os acentos nunca somem. Como o Unicode não tem versões estilizadas de letras acentuadas, por padrão “ã”, “é”, “ç” e similares ficam na forma normal, o que garante que apareçam certos em qualquer aparelho. Se quiser tudo estilizado, marque “Estilizar também as letras com acento”: a letra é estilizada e o acento é encaixado sobre ela, mas em alguns aparelhos (como no Windows) ele pode aparecer ao lado da letra.",
   },
   {
     question: "Por que aparecem quadradinhos ou pontos de interrogação?",

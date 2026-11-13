@@ -139,9 +139,12 @@ export default function HomePage() {
               sublinhados usam sinais combináveis, que desenham uma linha sobre a letra anterior.
             </p>
             <p>
-              Como o Unicode não tem versões estilizadas de letras com acento, o gerador separa
-              o acento da letra, estiliza a letra e devolve o acento logo em seguida. Assim,
-              palavras como “coração” e “você” mantêm a acentuação. Mais detalhes no site do{" "}
+              O Unicode não tem versões estilizadas de letras com acento. Por isso, por padrão,
+              o gerador deixa “á”, “ã”, “ç” e as demais letras acentuadas na forma normal e
+              estiliza o resto da palavra: “coração” continua com a acentuação certa e aparece
+              bem em qualquer aparelho. Se preferir tudo estilizado, marque a opção “Estilizar
+              também as letras com acento” — o gerador estiliza a letra e encaixa o acento por
+              cima, mas em algumas fontes ele pode aparecer ao lado. Mais detalhes no site do{" "}
               <a href="https://home.unicode.org/" target="_blank" rel="noopener noreferrer">
                 Unicode Consortium
               </a>
@@ -201,7 +204,8 @@ export default function HomePage() {
                 busca das plataformas como palavras normais.
               </li>
               <li>
-                <strong>Acentos:</strong> em algumas fontes, o acento combinado pode ficar
+                <strong>Acentos:</strong> letras acentuadas ficam normais por padrão. Se você
+                ativar a opção de estilizá-las, em algumas fontes o acento pode ficar
                 levemente deslocado.
               </li>
             </ul>

@@ -47,7 +47,7 @@ export const stylePages: StylePage[] = [
       {
         heading: "Acentos e ç nas letras cursivas",
         paragraphs: [
-          "O Unicode não tem versões cursivas de “ã”, “é” ou “ç”. Para não perder a acentuação, o gerador usa a letra cursiva base e adiciona o acento como um sinal combinável (por exemplo, a cursiva “a” seguida do til). Na maioria dos celulares o resultado aparece certinho; em alguns apps o acento pode ficar um pouco deslocado.",
+          "O Unicode não tem versões cursivas de “ã”, “é” ou “ç”. Por padrão, o gerador deixa essas letras na forma normal e escreve o resto da palavra em cursiva — assim a acentuação aparece certa em qualquer aparelho. Se preferir a palavra inteira em cursiva, marque “Estilizar também as letras com acento”: o gerador usa a letra cursiva e encaixa o acento por cima, mas em algumas fontes (como as do Windows) ele pode aparecer ao lado da letra.",
         ],
       },
       {
@@ -215,9 +215,9 @@ export const stylePages: StylePage[] = [
           "Depende do jogo. Muitos aceitam símbolos Unicode no nome, mas alguns recusam certos caracteres ou contam cada símbolo como mais de um caractere. Teste no campo do jogo antes de confirmar uma troca paga.",
       },
       {
-        question: "Por que o acento fica estranho na letra gótica?",
+        question: "Por que as letras com acento não ficam góticas?",
         answer:
-          "Não existem letras góticas acentuadas no Unicode, então o acento é adicionado como um sinal separado sobre a letra. Algumas fontes de sistema posicionam esse sinal um pouco fora do lugar.",
+          "Não existem letras góticas acentuadas no Unicode. Por isso, por padrão, letras como “ã” e “é” ficam na forma normal, para aparecerem certas em qualquer aparelho. Se quiser, marque “Estilizar também as letras com acento”: a letra vira gótica e o acento é encaixado sobre ela, mas algumas fontes o posicionam fora do lugar.",
       },
     ],
     related: ["letras-para-free-fire", "simbolos", "letras-cursivas"],
@@ -279,7 +279,7 @@ export const stylePages: StylePage[] = [
       {
         question: "As letras pequenas aceitam acentos?",
         answer:
-          "Sim. O gerador mantém o acento sobre a letra pequena usando sinais combináveis do Unicode, então “ã” e “ç” não somem.",
+          "Sim, os acentos nunca somem. Por padrão, letras como “ã” e “ç” ficam na forma normal, porque o Unicode não tem versões pequenas delas. Marcando “Estilizar também as letras com acento”, a letra fica pequena e o acento é encaixado sobre ela, o que pode sair do lugar em algumas fontes.",
       },
     ],
     related: ["letras-para-instagram", "letras-bonitas", "simbolos"],

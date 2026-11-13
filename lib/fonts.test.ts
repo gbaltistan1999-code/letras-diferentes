@@ -45,11 +45,18 @@ describe.each(STYLES.map((s) => [s.id, s] as const))("style %s", (_id, style) =>
     expect(style.transform("")).toBe("");
   });
 
-  it("never drops Portuguese accents or ç", () => {
-    const out = style.transform(PT_ACCENTS).normalize("NFD");
+  it.each(["plain", "combine"] as const)("never drops Portuguese accents or ç (%s)", (accents) => {
+    const out = style.transform(PT_ACCENTS, { accents }).normalize("NFD");
     for (const mark of ["̃", "̂", "́", "̀", "̈", "̧"]) {
       expect(out, `missing mark U+${mark.codePointAt(0)!.toString(16)}`).toContain(mark);
     }
+  });
+
+  it("plain mode (default) keeps accented letters as precomposed characters", () => {
+    const out = style.transform("ãéç");
+    expect(out).toContain("ã");
+    expect(out).toContain("é");
+    expect(out).toContain("ç");
   });
 
   it("keeps emojis intact (no broken surrogate pairs)", () => {
@@ -81,8 +88,14 @@ describe("clusters", () => {
 describe("specific outputs", () => {
   it("bold", () => {
     expect(t("negrito", "Ab9")).toBe("𝐀𝐛𝟗");
-    expect(t("negrito", "ã")).toBe("𝐚̃");
-    expect(t("negrito", "ç")).toBe("𝐜̧");
+  });
+
+  it("accent modes", () => {
+    expect(t("negrito", "Olá")).toBe("𝐎𝐥á");
+    expect(getStyle("negrito").transform("Olá", { accents: "combine" })).toBe("𝐎𝐥𝐚́");
+    expect(getStyle("negrito").transform("ç", { accents: "combine" })).toBe("𝐜̧");
+    expect(t("moldura-classica", "pão")).toBe("꧁༺ 𝓹ã𝓸 ༻꧂");
+    expect(getStyle("moldura-classica").transform("pão", { accents: "combine" })).toBe("꧁༺ 𝓹𝓪̃𝓸 ༻꧂");
   });
 
   it("fills reserved code points in script", () => {
@@ -135,12 +148,13 @@ describe("specific outputs", () => {
 
   it("strikethrough skips spaces and keeps accents", () => {
     expect(t("riscado", "a b")).toBe("a̶ b̶");
-    expect(t("riscado", "ã")).toBe("ã̶");
+    expect(t("riscado", "ã")).toBe("ã̶");
   });
 
   it("upside down reverses and keeps accents attached to their letter", () => {
     expect(t("de-cabeca-para-baixo", "abc")).toBe("ɔqɐ");
-    expect(t("de-cabeca-para-baixo", "não")).toBe("oɐ̃u");
+    expect(t("de-cabeca-para-baixo", "não")).toBe("oãu");
+    expect(getStyle("de-cabeca-para-baixo").transform("não", { accents: "combine" })).toBe("oɐ̃u");
     expect(t("de-cabeca-para-baixo", "a👍🏽")).toBe("👍🏽ɐ");
   });
 

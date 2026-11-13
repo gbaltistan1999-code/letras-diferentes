@@ -14,13 +14,25 @@ export interface Category {
   label: string;
 }
 
+export interface TransformOptions {
+  /**
+   * How accented letters (á, ã, ç…) are handled:
+   * - "plain" (default): kept as normal accented letters. Always displays
+   *   correctly, but the letter isn't styled (𝐎𝐥á).
+   * - "combine": the base letter is styled and the accent is attached as a
+   *   combining mark (𝐎𝐥𝐚́). Fully styled, but many fonts (notably on
+   *   Windows) draw the accent beside the letter instead of above it.
+   */
+  accents?: "plain" | "combine";
+}
+
 export interface TextStyle {
   /** Stable id, used in URLs, tests and data files. */
   id: string;
   /** Portuguese label shown to users. */
   name: string;
   category: CategoryId;
-  transform: (input: string) => string;
+  transform: (input: string, options?: TransformOptions) => string;
 }
 
 export interface FaqItem {

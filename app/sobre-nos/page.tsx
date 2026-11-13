@@ -34,8 +34,9 @@ export default function AboutPage() {
       </p>
       <p>
         Uma atenção especial foi dada ao português: como o Unicode não tem letras estilizadas com
-        acento, o gerador mantém acentos e cedilha usando sinais combináveis, em vez de
-        simplesmente apagá-los.
+        acento, o gerador nunca apaga acentos nem a cedilha. Por padrão, as letras acentuadas
+        ficam na forma normal, para aparecer certas em qualquer aparelho; quem quiser pode
+        estilizá-las também, com o acento encaixado sobre a letra.
       </p>
 
       <h2>Nossos princípios</h2>

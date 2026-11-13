@@ -7,15 +7,20 @@
  * "Enclosed Alphanumerics" blocks).
  *
  * Portuguese accents: the input is split into clusters (a base character plus
- * any combining marks). "ã" becomes "a" + U+0303, the base "a" is mapped and
- * the combining tilde is kept, so the accent survives in every style. When a
- * style has no replacement for a base character, the original cluster is kept
- * unchanged (documented fallback — nothing is ever dropped).
+ * any combining marks; "ã" becomes "a" + U+0303). Unicode has no styled
+ * accented letters, so there are two modes (see TransformOptions):
+ *  - "plain" (default): accented letters stay as normal letters (𝐎𝐥á). This
+ *    always renders correctly on every device.
+ *  - "combine": the base letter is styled and the combining accent is kept
+ *    (𝐎𝐥𝐚́). Fully styled, but many fonts (e.g. on Windows) draw the accent
+ *    next to the letter instead of above it.
+ * When a style has no replacement for a base character, the original cluster
+ * is kept unchanged (documented fallback — nothing is ever dropped).
  *
  * Iteration is always by code point (Array.from), so emojis and other
  * surrogate pairs are never split.
  */
-import type { Category, CategoryId, TextStyle } from "@/types";
+import type { Category, CategoryId, TextStyle, TransformOptions } from "@/types";
 
 type CharMap = Record<string, string>;
 
@@ -54,17 +59,24 @@ export function toClusters(text: string): string[] {
   return clusters;
 }
 
-/** Map the base of each cluster, keeping its combining marks. */
-function mapClusters(text: string, map: CharMap): string[] {
+/**
+ * Map the base of each cluster. Accented clusters are kept as the original
+ * letter ("plain", default) or styled with the accent re-attached ("combine").
+ */
+function mapClusters(text: string, map: CharMap, options: TransformOptions = {}): string[] {
+  const combine = options.accents === "combine";
   return toClusters(text).map((cluster) => {
     const [base, ...marks] = Array.from(cluster);
     const mapped = map[base];
-    if (mapped === undefined) return cluster.normalize("NFC");
+    if (mapped === undefined || (marks.length > 0 && !combine)) return cluster.normalize("NFC");
     return mapped + marks.join("");
   });
 }
 
-const applyMap = (map: CharMap) => (text: string) => mapClusters(text, map).join("");
+type Transform = (text: string, options?: TransformOptions) => string;
+
+const applyMap = (map: CharMap): Transform => (text, options) =>
+  mapClusters(text, map, options).join("");
 
 /** Build a map from the first code point of each consecutive Unicode run. */
 function rangeMap(opts: {
@@ -194,15 +206,15 @@ export const MAPS = {
 /** Add a combining mark after every non-space cluster. */
 const withMark = (mark: string) => (text: string) =>
   toClusters(text)
-    .map((c) => (/\s/.test(c) ? c : c + mark))
+    .map((c) => (/\s/.test(c) ? c : c.normalize("NFC") + mark))
     .join("");
 
 /** Wrap a (possibly styled) text in decorative symbols. */
-const wrap = (left: string, right: string, inner: (t: string) => string = (t) => t) =>
-  (text: string) => (text.trim() === "" ? text : `${left}${inner(text)}${right}`);
+const wrap = (left: string, right: string, inner: Transform = (t) => t): Transform =>
+  (text, options) => (text.trim() === "" ? text : `${left}${inner(text, options)}${right}`);
 
-const upsideDown = (text: string) =>
-  mapClusters(text, MAPS.upsideDown).reverse().join("");
+const upsideDown: Transform = (text, options) =>
+  mapClusters(text, MAPS.upsideDown, options).reverse().join("");
 
 const spaced = (text: string) =>
   toClusters(text)
@@ -224,12 +236,12 @@ export const CATEGORIES: Category[] = [
   { id: "especiais", label: "Especiais" },
 ];
 
-const s = (
-  id: string,
-  name: string,
-  category: CategoryId,
-  transform: (t: string) => string,
-): TextStyle => ({ id, name, category, transform });
+const s = (id: string, name: string, category: CategoryId, transform: Transform): TextStyle => ({
+  id,
+  name,
+  category,
+  transform,
+});
 
 export const STYLES: TextStyle[] = [
   // Negrito

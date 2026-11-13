@@ -29,6 +29,8 @@ export function Generator({
   const hintId = useId();
   const [text, setText] = useState("");
   const [filter, setFilter] = useState<CategoryId | "todos">("todos");
+  // Off by default: accented letters stay plain so they display correctly everywhere.
+  const [styleAccents, setStyleAccents] = useState(false);
 
   // Keep typing responsive on slow phones: results render from a deferred value.
   const deferredText = useDeferredValue(text);
@@ -41,10 +43,10 @@ export function Generator({
   );
   const visible = filter === "todos" ? styles : styles.filter((s) => s.category === filter);
 
-  const results = useMemo(
-    () => visible.map((style) => ({ id: style.id, name: style.name, output: style.transform(source) })),
-    [visible, source],
-  );
+  const results = useMemo(() => {
+    const options = { accents: styleAccents ? "combine" : "plain" } as const;
+    return visible.map((style) => ({ id: style.id, name: style.name, output: style.transform(source, options) }));
+  }, [visible, source, styleAccents]);
 
   return (
     <section aria-label="Gerador de letras" className="w-full">
@@ -86,6 +88,22 @@ export function Generator({
             {text.length}/{MAX_LENGTH}
           </span>
         </div>
+        <label className="mt-3 flex cursor-pointer items-start gap-2.5 border-t border-line pt-3 text-sm">
+          <input
+            type="checkbox"
+            checked={styleAccents}
+            onChange={(e) => setStyleAccents(e.target.checked)}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--color-accent)]"
+          />
+          <span>
+            <span className="font-medium">Estilizar também as letras com acento (á, ã, ç…)</span>
+            <span className="block text-xs text-ink-soft">
+              Desligado, as letras acentuadas ficam normais e aparecem certas em qualquer aparelho.
+              Ligado, todas as letras são estilizadas, mas em alguns aparelhos (como no Windows) o
+              acento pode aparecer ao lado da letra.
+            </span>
+          </span>
+        </label>
       </div>
 
       {showFilter && availableCategories.length > 1 && (
