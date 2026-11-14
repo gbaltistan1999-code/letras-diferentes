@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
+import { Logo } from "@/components/Logo";
 import { stylePages } from "@/data/style-pages";
 import { legalNav, siteConfig } from "@/lib/site-config";
 
@@ -9,15 +9,8 @@ export function Footer() {
     <footer className="mt-20 border-t border-line bg-surface">
       <div className="mx-auto grid max-w-5xl gap-8 px-4 py-10 sm:grid-cols-3">
         <div>
-          <Image
-            src="/logo.png"
-            alt={siteConfig.name}
-            width={2036}
-            height={475}
-            sizes="150px"
-            className="h-8 w-auto"
-          />
-          <p className="mt-2 text-sm text-ink-soft">
+          <Logo sizes="150px" className="h-8 w-auto" />
+          <p className="mt-3 text-sm leading-relaxed text-ink-soft">
             Gerador gratuito de letras diferentes para copiar e colar. O texto é convertido no
             seu navegador. Não somos afiliados a nenhuma rede social ou jogo.
           </p>

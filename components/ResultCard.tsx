@@ -12,10 +12,11 @@ export function ResultCard({
 }: {
   name: string;
   output: string;
-  plain: string;
+  /** Plain text for screen readers; omitted for the preview sample. */
+  plain?: string;
 }) {
   return (
-    <li className="flex min-h-[5.25rem] items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3">
+    <li className="flex min-h-[5.25rem] items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3 transition-colors hover:border-ink-soft/40">
       <div className="min-w-0 flex-1">
         <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">{name}</p>
         <p
@@ -24,7 +25,7 @@ export function ResultCard({
         >
           {output}
         </p>
-        <span className="sr-only">{`Estilo ${name}: ${plain}`}</span>
+        <span className="sr-only">{plain ? `Estilo ${name}: ${plain}` : `Exemplo do estilo ${name}`}</span>
       </div>
       <CopyButton text={output} label={`Copiar texto no estilo ${name}`} />
     </li>

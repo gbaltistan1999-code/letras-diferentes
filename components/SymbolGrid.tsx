@@ -35,7 +35,7 @@ export function SymbolGrid({ groups }: { groups: { title: string; symbols: strin
                       aria-label={`Copiar ${symbol}`}
                       className={`inline-flex h-12 min-w-12 items-center justify-center rounded-lg border px-2.5 font-[family-name:var(--font-symbols)] text-xl transition-colors ${
                         isCopied
-                          ? "border-accent bg-accent text-white"
+                          ? "border-accent bg-accent text-on-accent"
                           : "border-line bg-surface hover:border-accent"
                       }`}
                     >

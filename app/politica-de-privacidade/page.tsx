@@ -32,7 +32,7 @@ export default function PrivacyPage() {
         <li>O texto que você digita no gerador é convertido no seu navegador e <strong>não é enviado nem armazenado</strong> por nós.</li>
         <li>Não há cadastro, login ou conta de usuário.</li>
         <li>Não usamos cookies de análise, de publicidade ou de rastreamento.</li>
-        <li>Guardamos no seu navegador apenas a sua escolha sobre cookies.</li>
+        <li>Guardamos no seu navegador apenas as suas preferências: a escolha sobre cookies e o tema (claro ou escuro).</li>
       </ul>
 
       <h2>2. Texto digitado no gerador</h2>
@@ -46,10 +46,11 @@ export default function PrivacyPage() {
 
       <h2>3. Armazenamento local (localStorage)</h2>
       <p>
-        Usamos o armazenamento local do navegador para guardar uma única informação: a sua
-        preferência sobre cookies (quais categorias foram aceitas ou recusadas e a data da
-        escolha). Esse dado fica no seu dispositivo, não é enviado para nós e serve apenas para não
-        mostrar o aviso de cookies em toda visita. Detalhes na{" "}
+        Usamos o armazenamento local do navegador para guardar duas preferências: a sua escolha
+        sobre cookies (quais categorias foram aceitas ou recusadas e a data da escolha) e, se você
+        usar o botão de tema, se prefere o tema claro ou escuro. Esses dados ficam no seu
+        dispositivo, não são enviados para nós e servem apenas para lembrar essas escolhas nas
+        próximas visitas. Detalhes na{" "}
         <Link href="/politica-de-cookies">Política de cookies</Link>.
       </p>
 

@@ -5,6 +5,14 @@ import type { FaqItem } from "@/types";
 export const absoluteUrl = (path = "/") => (path === "/" ? siteConfig.url : `${siteConfig.url}${path}`);
 
 /** Shared metadata builder so every page gets title, canonical and OG tags. */
+/** Shared social preview image (app/opengraph-image.png). */
+const shareImage = {
+  url: "/opengraph-image.png",
+  width: 1200,
+  height: 630,
+  alt: `${siteConfig.name} — gerador de letras para copiar e colar`,
+};
+
 export function buildMetadata(opts: {
   title: string;
   description: string;
@@ -27,11 +35,13 @@ export function buildMetadata(opts: {
       title: fullTitle,
       description: opts.description,
       url,
+      images: [shareImage],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: fullTitle,
       description: opts.description,
+      images: [shareImage.url],
     },
   };
 }

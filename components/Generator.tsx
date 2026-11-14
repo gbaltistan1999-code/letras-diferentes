@@ -34,7 +34,8 @@ export function Generator({
 
   // Keep typing responsive on slow phones: results render from a deferred value.
   const deferredText = useDeferredValue(text);
-  const source = deferredText.trim() === "" ? sampleText : deferredText;
+  const isSample = deferredText.trim() === "";
+  const source = isSample ? sampleText : deferredText;
 
   const styles = useMemo(() => selectStyles({ categories, styleIds }), [categories, styleIds]);
   const availableCategories = useMemo(
@@ -118,7 +119,7 @@ export function Generator({
                 onClick={() => setFilter(cat.id)}
                 className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${
                   active
-                    ? "border-accent bg-accent text-white"
+                    ? "border-accent bg-accent text-on-accent"
                     : "border-line bg-surface text-ink-soft hover:border-accent hover:text-ink"
                 }`}
               >
@@ -131,7 +132,7 @@ export function Generator({
 
       <ul className="mt-4 grid gap-2.5" aria-label={`${results.length} estilos de letras`}>
         {results.map((r) => (
-          <ResultCard key={r.id} name={r.name} output={r.output} plain={source} />
+          <ResultCard key={r.id} name={r.name} output={r.output} plain={isSample ? undefined : source} />
         ))}
       </ul>
     </section>

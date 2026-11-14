@@ -53,7 +53,7 @@ export function MailtoForm({ email }: { email: string }) {
       </div>
       <button
         type="submit"
-        className="inline-flex h-11 items-center rounded-lg bg-ink px-5 text-sm font-semibold text-white hover:bg-black"
+        className="inline-flex h-11 items-center rounded-lg bg-ink px-5 text-sm font-semibold text-paper hover:opacity-90"
       >
         Abrir no meu app de e-mail
       </button>

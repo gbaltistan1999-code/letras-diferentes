@@ -6,10 +6,12 @@
 export const siteConfig = {
   name: "Letras Diferentes",
   /**
-   * Canonical domain, without a trailing slash.
-   * TODO(owner): replace with the real domain before launch.
+   * Canonical domain, without a trailing slash. In Vercel, add both
+   * diferentesletras.com and www.diferentesletras.com and redirect www here.
    */
-  url: "https://example.com.br",
+  url: "https://diferentesletras.com",
+  /** Google Search Console ownership verification (public by design). */
+  googleSiteVerification: "sG3CUbiVbemCYQr_PXKtX8J7l2O7fILdFwayOLwdEpg",
   locale: "pt_BR",
   language: "pt-BR",
   description:

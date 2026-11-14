@@ -30,7 +30,7 @@ export function TextPage({
 /** Shown wherever the owner's email is required but not configured yet. */
 export function MissingEmailNotice() {
   return (
-    <span className="rounded bg-amber-50 px-1.5 py-0.5 text-amber-900">
+    <span className="rounded bg-amber-50 px-1.5 py-0.5 text-amber-900 dark:bg-amber-950 dark:text-amber-200">
       [e-mail de contato ainda não configurado]
     </span>
   );

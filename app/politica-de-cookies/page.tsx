@@ -4,6 +4,7 @@ import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { TextPage } from "@/components/TextPage";
 import { CONSENT_STORAGE_KEY } from "@/lib/consent";
 import { buildMetadata } from "@/lib/seo";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
 import { legalLastUpdated, siteConfig } from "@/lib/site-config";
 
 const title = "Política de cookies";
@@ -26,8 +27,9 @@ export default function CookiePolicyPage() {
 
       <h2>O que usamos hoje</h2>
       <p>
-        Atualmente, o site usa <strong>apenas armazenamento necessário</strong>. Não usamos
-        cookies de análise, de publicidade, de redes sociais ou de rastreamento.
+        Atualmente, o site usa <strong>apenas armazenamento local para lembrar suas
+        preferências</strong> (a escolha sobre cookies e o tema). Não usamos cookies de análise,
+        de publicidade, de redes sociais ou de rastreamento.
       </p>
       <div className="not-prose my-5 overflow-x-auto rounded-xl border border-line">
         <table className="w-full min-w-[32rem] text-left text-sm">
@@ -44,6 +46,15 @@ export default function CookiePolicyPage() {
               <td className="px-4 py-3 font-mono text-xs">{CONSENT_STORAGE_KEY}</td>
               <td className="px-4 py-3">Necessário (localStorage, primário)</td>
               <td className="px-4 py-3">Guardar a sua escolha sobre cookies para não repetir o aviso.</td>
+              <td className="px-4 py-3">Até você limpar os dados do navegador.</td>
+            </tr>
+            <tr className="border-t border-line">
+              <td className="px-4 py-3 font-mono text-xs">{THEME_STORAGE_KEY}</td>
+              <td className="px-4 py-3">Preferência (localStorage, primário)</td>
+              <td className="px-4 py-3">
+                Lembrar o tema claro ou escuro que você escolheu. Só é criado se você usar o botão de
+                tema.
+              </td>
               <td className="px-4 py-3">Até você limpar os dados do navegador.</td>
             </tr>
           </tbody>

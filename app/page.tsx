@@ -8,7 +8,7 @@ import { homeFaqs } from "@/data/faqs";
 import { CATEGORIES, STYLES } from "@/lib/fonts";
 import { buildMetadata, webApplicationSchema } from "@/lib/seo";
 
-const title = "Letras Diferentes para Copiar e Colar — Gerador Online Grátis";
+const title = "Letras Diferentes para Copiar e Colar | Gerador Grátis";
 const description = `Digite seu texto e copie em ${STYLES.length} estilos de letras diferentes: cursivas, góticas, negrito, bolhas e mais. Para Instagram, Free Fire, WhatsApp e TikTok.`;
 
 export const metadata = buildMetadata({ title, description, path: "/", absoluteTitle: true });
@@ -43,7 +43,13 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-8 sm:pt-12">
       <header className="mb-6 text-center sm:mb-8">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Letras diferentes para copiar e colar</h1>
+        <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-soft">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+          Grátis · Sem cadastro · Seu texto não sai do navegador
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-balance sm:text-[2.6rem] sm:leading-tight">
+          Letras diferentes para copiar e colar
+        </h1>
         <p className="mx-auto mt-3 max-w-xl text-ink-soft">
           Digite seu texto e veja-o na hora em {STYLES.length} estilos. Toque em “Copiar” e cole no
           Instagram, no WhatsApp, no TikTok ou no nick do seu jogo.
@@ -63,8 +69,8 @@ export default function HomePage() {
               normais não podem ser trocadas, como bios, nomes de perfil, legendas e nicks.
             </p>
             <p>
-              Não é preciso instalar aplicativo nem criar conta. Tudo acontece nesta página, no
-              seu navegador.
+              Não é preciso instalar aplicativo nem criar conta: o gerador de letras diferentes
+              funciona direto nesta página, no seu navegador, no celular ou no computador.
             </p>
           </div>
         </section>

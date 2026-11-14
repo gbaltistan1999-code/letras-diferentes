@@ -20,7 +20,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-6 inline-flex h-11 items-center rounded-lg bg-ink px-5 text-sm font-semibold text-white hover:bg-black"
+        className="mt-6 inline-flex h-11 items-center rounded-lg bg-ink px-5 text-sm font-semibold text-paper hover:opacity-90"
       >
         Ir para o gerador de letras diferentes
       </Link>

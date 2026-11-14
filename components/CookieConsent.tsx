@@ -76,7 +76,7 @@ export function CookieConsent() {
 
   const buttonBase =
     "inline-flex h-10 items-center justify-center rounded-lg px-4 text-sm font-semibold transition-colors";
-  const primary = `${buttonBase} bg-ink text-white hover:bg-black`;
+  const primary = `${buttonBase} bg-ink text-paper hover:opacity-90`;
   const secondary = `${buttonBase} border border-line bg-surface text-ink hover:border-ink`;
 
   return (
@@ -85,7 +85,7 @@ export function CookieConsent() {
         <section
           ref={bannerRef}
           aria-labelledby="cookie-banner-title"
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] backdrop-blur"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 shadow-[0_-4px_20px_rgb(0_0_0/0.08)] backdrop-blur"
         >
           <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:gap-6">
             <div className="flex-1 text-sm text-ink-soft">
@@ -93,8 +93,8 @@ export function CookieConsent() {
                 Cookies e armazenamento
               </h2>
               <p>
-                Usamos apenas o armazenamento local do navegador necessário para lembrar esta
-                escolha.{" "}
+                Usamos apenas o armazenamento local do navegador para lembrar suas preferências,
+                como esta escolha e o tema claro ou escuro.{" "}
                 {enabledOptional.length === 0
                   ? "Não usamos cookies de análise nem de marketing."
                   : "Cookies opcionais só são ativados com a sua permissão."}{" "}
@@ -152,8 +152,8 @@ export function CookieConsent() {
                 </span>
               </div>
               <p className="mt-1 text-sm text-ink-soft">
-                Guardam apenas a sua escolha sobre cookies (no armazenamento local do navegador).
-                Sem eles, este aviso apareceria em toda visita.
+                Guardam apenas as suas preferências no armazenamento local do navegador: esta
+                escolha sobre cookies e o tema (claro ou escuro), se você o alterar.
               </p>
             </li>
 
