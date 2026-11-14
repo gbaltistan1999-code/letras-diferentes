@@ -52,7 +52,8 @@ export default function HomePage() {
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-ink-soft">
           Digite seu texto e veja-o na hora em {STYLES.length} estilos. Toque em “Copiar” e cole no
-          Instagram, no WhatsApp, no TikTok ou no nick do seu jogo.
+          Instagram, no WhatsApp, no TikTok ou no nick do seu jogo. Aqui você encontra diferentes
+          letras e estilos para deixar seu nome, nick ou bio com outra cara.
         </p>
       </header>
 

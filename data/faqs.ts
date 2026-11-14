@@ -3,6 +3,11 @@ import type { FaqItem } from "@/types";
 /** FAQs shown on the homepage (focused on the main tool). */
 export const homeFaqs: FaqItem[] = [
   {
+    question: "O que são letras diferentes?",
+    answer:
+      "Letras diferentes são caracteres especiais do padrão Unicode que imitam estilos como cursiva, negrito, gótica ou bolhas. Elas não são fontes: cada letra estilizada é um símbolo próprio, por isso essas diferentes letras mantêm o visual quando você copia e cola em outro app, desde que o aparelho consiga exibir os caracteres.",
+  },
+  {
     question: "Como usar o gerador de letras diferentes?",
     answer:
       "Digite seu texto na caixa no topo da página. Os estilos aparecem na hora logo abaixo. Toque em “Copiar” no estilo que quiser e cole no app de destino, como Instagram, WhatsApp ou o seu jogo.",
