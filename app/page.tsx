@@ -60,7 +60,7 @@ export default function HomePage() {
 
       <article className="mt-16 space-y-14">
         <section aria-labelledby="o-que-e">
-          <H2 id="o-que-e">O que este gerador de letras faz</H2>
+          <H2 id="o-que-e">O que este gerador de letras faz?</H2>
           <div className="prose-content mt-4">
             <p>
               O gerador transforma o texto que você digita em versões estilizadas: letras
@@ -98,7 +98,7 @@ export default function HomePage() {
         </section>
 
         <section aria-labelledby="onde-funciona">
-          <H2 id="onde-funciona">Onde as letras diferentes funcionam</H2>
+          <H2 id="onde-funciona">Onde as letras diferentes funcionam?</H2>
           <div className="prose-content mt-4">
             <p>
               Os estilos podem ser colados na maioria dos apps e sites que aceitam texto,
@@ -125,7 +125,7 @@ export default function HomePage() {
         </section>
 
         <section aria-labelledby="como-funciona">
-          <H2 id="como-funciona">Como funciona: Unicode, não fontes</H2>
+          <H2 id="como-funciona">Como as letras diferentes funcionam?</H2>
           <div className="prose-content mt-4">
             <p>
               Quando você muda a fonte em um editor de texto, só a aparência muda; ao copiar

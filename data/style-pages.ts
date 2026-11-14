@@ -27,14 +27,14 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "O que são letras cursivas no gerador",
+        heading: "O que são letras cursivas no gerador?",
         paragraphs: [
           "Aqui, “letra cursiva” é um conjunto de caracteres Unicode chamado Mathematical Script (escrita matemática cursiva). Ele foi criado para fórmulas, mas como cada letra tem um traço inclinado e arredondado, ficou popular para dar um ar manuscrito a nomes e frases.",
           "Diferente de uma fonte instalada no computador, esses caracteres viajam junto com o texto. Por isso, quando você cola em outro app, a aparência cursiva continua — desde que o aparelho de quem lê tenha símbolos para exibi-los.",
         ],
       },
       {
-        heading: "Qual estilo cursivo escolher",
+        heading: "Qual estilo cursivo escolher?",
         list: [
           "Cursiva: traço fino e elegante, bom para nomes e frases curtas.",
           "Cursiva em negrito: mais legível em telas pequenas e em fundos escuros, como nos stories.",
@@ -51,7 +51,7 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "Onde a cursiva pode não funcionar",
+        heading: "Onde a cursiva pode não funcionar?",
         paragraphs: [
           "Campos de usuário (o @ do Instagram ou do TikTok, por exemplo) aceitam apenas letras comuns, números e alguns sinais, então as cursivas não são aceitas ali. Também há aparelhos antigos que mostram quadradinhos no lugar de algumas letras. Teste antes de usar em algo importante.",
         ],
@@ -104,7 +104,7 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "O que deixa uma letra “bonita” aqui",
+        heading: "O que deixa uma letra “bonita” aqui?",
         paragraphs: [
           "Nesta página reunimos combinações que unem um alfabeto estilizado a pequenos enfeites, como ♡, ★, ꧁ ꧂ ou 『 』. O efeito é mais decorativo do que no gerador principal, que mostra todos os estilos sem enfeites.",
           "Como tudo é feito com caracteres Unicode, o texto continua sendo texto: dá para colar em praticamente qualquer campo que aceite símbolos.",
@@ -120,7 +120,7 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "Como deixar o resultado mais legível",
+        heading: "Como deixar o resultado mais legível?",
         steps: [
           "Use o estilo decorado em poucas palavras — o nome ou uma frase curta.",
           "Mantenha o resto do texto em letras normais para facilitar a leitura.",
@@ -177,7 +177,7 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "De onde vem a letra gótica",
+        heading: "De onde vem a letra gótica?",
         paragraphs: [
           "A escrita gótica (blackletter) foi usada em manuscritos e nos primeiros livros impressos na Europa. O estilo fraktur, uma de suas variações, é o que o Unicode inclui no bloco Mathematical Alphanumeric Symbols, por isso conseguimos reproduzi-lo como texto.",
           "Hoje ela é comum em logos, capas de álbum, camisetas e nicks de jogos que querem passar uma ideia de força ou de algo antigo.",
@@ -257,7 +257,7 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "Como usar letras pequenas sem perder a leitura",
+        heading: "Como usar letras pequenas sem perder a leitura?",
         steps: [
           "Use letras pequenas em frases curtas, como um apelido ou uma localização.",
           "Combine com o texto normal: o contraste deixa a parte pequena mais charmosa.",
@@ -310,7 +310,7 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "Onde as letras diferentes funcionam no Instagram",
+        heading: "Onde as letras diferentes funcionam no Instagram?",
         list: [
           "Bio: aceita letras estilizadas e símbolos. É o lugar mais comum para usar.",
           "Nome (o nome exibido acima da bio): costuma aceitar letras estilizadas.",
@@ -319,7 +319,7 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "Como colocar letras diferentes na bio do Instagram",
+        heading: "Como colocar letras diferentes na bio do Instagram?",
         steps: [
           "Digite seu texto no gerador acima e toque em “Copiar” no estilo que preferir.",
           "Abra o Instagram e vá até o seu perfil.",
@@ -396,7 +396,7 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "Como trocar o nick no Free Fire",
+        heading: "Como trocar o nick no Free Fire?",
         steps: [
           "Crie o nick aqui no gerador e toque em “Copiar”.",
           "Abra o Free Fire e toque na sua foto de perfil, no canto da tela inicial.",
@@ -409,7 +409,7 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "O que testar antes de confirmar",
+        heading: "O que testar antes de confirmar?",
         list: [
           "Tamanho: o campo de nick tem limite de caracteres, e símbolos estilizados podem ocupar mais espaço. Se o jogo cortar o nome, use um nome mais curto ou menos enfeites.",
           "Caracteres recusados: o jogo pode não aceitar certos símbolos. Se aparecer um aviso de nome inválido, tente outro estilo.",
@@ -477,7 +477,7 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "Como o texto riscado funciona",
+        heading: "Como o texto riscado funciona?",
         paragraphs: [
           "Estes estilos não trocam as letras. Eles adicionam, depois de cada letra, um sinal combinável do Unicode: uma linha no meio (U+0336), uma barra (U+0338), uma linha embaixo (U+0332) ou em cima (U+0305). O aparelho desenha esse sinal sobre a letra anterior.",
           "Por isso o texto continua legível e os acentos são mantidos. A desvantagem é que a linha pode ficar com pequenas falhas entre as letras, dependendo da fonte.",
@@ -542,13 +542,13 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "De onde vêm esses símbolos",
+        heading: "De onde vêm esses símbolos?",
         paragraphs: [
           "Todos os símbolos desta página são caracteres do padrão Unicode, o mesmo que permite escrever em qualquer idioma no celular. Alguns vêm de blocos de símbolos gráficos (como ★ e ♡), outros de escritas de outros idiomas — o 亗 e o 乂 são caracteres chineses e o ꧁ ꧂ vem do alfabeto javanês.",
         ],
       },
       {
-        heading: "Como combinar símbolos com letras diferentes",
+        heading: "Como combinar símbolos com letras diferentes?",
         steps: [
           "Escolha um estilo de letra no gerador e copie.",
           "Cole no app de destino.",

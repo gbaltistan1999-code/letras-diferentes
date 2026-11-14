@@ -19,14 +19,14 @@ export default function AboutPage() {
         nome de perfil, mensagens ou o nick de um jogo sem instalar aplicativos nem criar conta.
       </p>
 
-      <h2>O que o site oferece</h2>
+      <h2>O que o site oferece?</h2>
       <ul>
         <li>Um gerador com {STYLES.length} estilos de letras, atualizados em tempo real enquanto você digita.</li>
         <li>Páginas dedicadas a estilos e usos específicos, como letras cursivas e nicks para Free Fire.</li>
         <li>Explicações honestas sobre como os caracteres funcionam e onde podem falhar.</li>
       </ul>
 
-      <h2>Como o gerador funciona</h2>
+      <h2>Como o gerador funciona?</h2>
       <p>
         As letras não são fontes: são caracteres do padrão Unicode que se parecem com letras
         estilizadas. A conversão é feita por código que roda no seu próprio navegador. O texto que

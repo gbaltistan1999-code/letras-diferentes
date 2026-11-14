@@ -25,7 +25,7 @@ export default function CookiePolicyPage() {
         orientações da ANPD sobre cookies.
       </p>
 
-      <h2>O que usamos hoje</h2>
+      <h2>O que usamos hoje?</h2>
       <p>
         Atualmente, o site usa <strong>apenas armazenamento local para lembrar suas
         preferências</strong> (a escolha sobre cookies e o tema). Não usamos cookies de análise,
@@ -83,7 +83,7 @@ export default function CookiePolicyPage() {
         permita, e esta página será atualizada com os detalhes de cada um.
       </p>
 
-      <h2>Como alterar ou retirar o consentimento</h2>
+      <h2>Como alterar ou retirar o consentimento?</h2>
       <p>
         Você pode rever a sua escolha a qualquer momento: <CookieSettingsButton />. Também é
         possível apagar os dados do site nas configurações do seu navegador — nesse caso, o aviso
