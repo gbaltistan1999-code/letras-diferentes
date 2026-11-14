@@ -16,12 +16,8 @@ export const siteConfig = {
   language: "pt-BR",
   description:
     "Gerador de letras diferentes para copiar e colar: digite seu texto e copie em dezenas de estilos para Instagram, Free Fire, WhatsApp, TikTok e Discord.",
-  /**
-   * Contact email shown on /contato and in the legal pages.
-   * TODO(owner): fill in before launch. While empty, the site shows a notice
-   * instead of an address.
-   */
-  contactEmail: "",
+  /** Contact email shown on /contato, /sobre-nos and the legal pages. */
+  contactEmail: "alyihemd1999@gmail.com",
   /**
    * Optional cookie categories. Keep both `false` unless a real service is
    * configured. When `true`, the category appears in the cookie settings and
