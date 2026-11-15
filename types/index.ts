@@ -7,6 +7,7 @@ export type CategoryId =
   | "bolhas"
   | "riscadas"
   | "decorativas"
+  | "glitch"
   | "especiais";
 
 export interface Category {

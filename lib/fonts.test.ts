@@ -175,6 +175,40 @@ describe("specific outputs", () => {
     expect(t("subscrito", "abc2")).toBe("ₐbc₂");
   });
 
+  it("reversed text keeps accents on their letters", () => {
+    expect(t("texto-invertido", "Olá mundo")).toBe("odnum álO");
+    expect(t("texto-invertido", "pão")).toBe("oãp");
+  });
+
+  it("hearts and brackets skip spaces", () => {
+    expect(t("coracoes-entre-letras", "oi tu")).toBe("o♡i t♡u");
+    expect(t("entre-colchetes", "ab c")).toBe("[a][b] [c]");
+  });
+
+  it("fairy sparkles wrap script text", () => {
+    expect(t("brilho-de-fada", "a")).toBe("✧･ﾟ: *✧･ﾟ:* 𝒶 *:･ﾟ✧*:･ﾟ✧");
+  });
+
+  it("mixed styles cycle per letter, ignoring spaces", () => {
+    expect(t("mistura", "aa a")).toBe("𝓪𝔞 𝕒");
+  });
+
+  it("emoji letters never merge into flags", () => {
+    const out = t("letras-emoji", "BR");
+    expect(out).toBe("🇧​🇷");
+    expect(toClusters(out).filter((c) => /[\u{1f1e6}-\u{1f1ff}]/u.test(c))).toHaveLength(2);
+    expect(t("letras-emoji", "a b")).toBe("🇦 🇧");
+  });
+
+  it("zalgo is deterministic, adds marks only after letters, and heavy > light", () => {
+    const light = t("zalgo", "Oi tudo");
+    expect(t("zalgo", "Oi tudo")).toBe(light);
+    expect(light.normalize("NFD").replace(/[̀-ͯ]/g, "")).toBe("Oi tudo");
+    expect(light).not.toMatch(/^[̀-ͯ]/);
+    expect(t("zalgo-pesado", "Oi tudo").length).toBeGreaterThan(light.length);
+    expect(t("zalgo", "a b").split(" ")).toHaveLength(2);
+  });
+
   it("all maps cover every letter they claim", () => {
     expect(Object.keys(MAPS.bold)).toHaveLength(62);
     expect(Object.keys(MAPS.smallCaps)).toHaveLength(52);

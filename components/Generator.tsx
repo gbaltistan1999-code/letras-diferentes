@@ -46,7 +46,12 @@ export function Generator({
 
   const results = useMemo(() => {
     const options = { accents: styleAccents ? "combine" : "plain" } as const;
-    return visible.map((style) => ({ id: style.id, name: style.name, output: style.transform(source, options) }));
+    return visible.map((style) => ({
+      id: style.id,
+      name: style.name,
+      tall: style.category === "glitch",
+      output: style.transform(source, options),
+    }));
   }, [visible, source, styleAccents]);
 
   return (
@@ -132,7 +137,7 @@ export function Generator({
 
       <ul className="mt-4 grid gap-2.5" aria-label={`${results.length} estilos de letras`}>
         {results.map((r) => (
-          <ResultCard key={r.id} name={r.name} output={r.output} plain={isSample ? undefined : source} />
+          <ResultCard key={r.id} name={r.name} output={r.output} tall={r.tall} plain={isSample ? undefined : source} />
         ))}
       </ul>
     </section>

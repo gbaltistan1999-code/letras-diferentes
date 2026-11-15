@@ -63,14 +63,16 @@ export function toClusters(text: string): string[] {
  * Map the base of each cluster. Accented clusters are kept as the original
  * letter ("plain", default) or styled with the accent re-attached ("combine").
  */
+function mapCluster(cluster: string, map: CharMap, combine: boolean): string {
+  const [base, ...marks] = Array.from(cluster);
+  const mapped = map[base];
+  if (mapped === undefined || (marks.length > 0 && !combine)) return cluster.normalize("NFC");
+  return mapped + marks.join("");
+}
+
 function mapClusters(text: string, map: CharMap, options: TransformOptions = {}): string[] {
   const combine = options.accents === "combine";
-  return toClusters(text).map((cluster) => {
-    const [base, ...marks] = Array.from(cluster);
-    const mapped = map[base];
-    if (mapped === undefined || (marks.length > 0 && !combine)) return cluster.normalize("NFC");
-    return mapped + marks.join("");
-  });
+  return toClusters(text).map((cluster) => mapCluster(cluster, map, combine));
 }
 
 type Transform = (text: string, options?: TransformOptions) => string;
@@ -221,6 +223,84 @@ const spaced = (text: string) =>
     .map((c) => c.normalize("NFC"))
     .join(" ");
 
+/** Reverse the order of characters, keeping accents attached ("abc" → "cba"). */
+const reversed = (text: string) =>
+  toClusters(text)
+    .map((c) => c.normalize("NFC"))
+    .reverse()
+    .join("");
+
+/** Put a separator between letters (not around spaces): "ab c" → "a♡b c". */
+const between = (separator: string) => (text: string) => {
+  const clusters = toClusters(text).map((c) => c.normalize("NFC"));
+  return clusters
+    .map((c, i) => {
+      const next = clusters[i + 1];
+      return next !== undefined && !/\s/.test(c) && !/\s/.test(next) ? c + separator : c;
+    })
+    .join("");
+};
+
+/** Wrap every non-space character: "ab" → "[a][b]". */
+const eachIn = (left: string, right: string) => (text: string) =>
+  toClusters(text)
+    .map((c) => (/\s/.test(c) ? c : `${left}${c.normalize("NFC")}${right}`))
+    .join("");
+
+/** Cycle through several alphabets letter by letter ("AlphaMix"). */
+const mixed = (maps: CharMap[]): Transform => (text, options) => {
+  const combine = options?.accents === "combine";
+  let letter = 0;
+  return toClusters(text)
+    .map((c) => (/\s/.test(c) ? c : mapCluster(c, maps[letter++ % maps.length], combine)))
+    .join("");
+};
+
+/**
+ * Letters as emoji "regional indicator" symbols (🇦 🇧 🇨). A zero-width space
+ * separates them, otherwise pairs like "B"+"R" would merge into a flag (🇧🇷).
+ */
+const REGIONAL: CharMap = {};
+for (let i = 0; i < 26; i++) {
+  REGIONAL[UPPER[i]] = cp(0x1f1e6 + i);
+  REGIONAL[LOWER[i]] = cp(0x1f1e6 + i);
+}
+const isRegional = (s: string) => /^[\u{1f1e6}-\u{1f1ff}]$/u.test(s);
+const emojiLetters: Transform = (text, options) => {
+  const parts = mapClusters(text, REGIONAL, options);
+  return parts.map((c, i) => (isRegional(c) && isRegional(parts[i + 1] ?? "") ? c + "​" : c)).join("");
+};
+
+/* Zalgo / glitch: combining marks stacked above and below each letter. */
+const range = (from: number, to: number) => Array.from({ length: to - from + 1 }, (_, i) => cp(from + i));
+const ZALGO_UP = [...range(0x0300, 0x0315), ...range(0x033d, 0x0344), "͆", ...range(0x034a, 0x034c), ...range(0x0350, 0x0352), "͗", "͛", ...range(0x0363, 0x036f)];
+const ZALGO_DOWN = [...range(0x0316, 0x0319), ...range(0x031c, 0x0333), ...range(0x0339, 0x033c), "ͅ", ...range(0x0347, 0x0349), "͍", "͎", ...range(0x0353, 0x0356), "͙", "͚"];
+const ZALGO_MID = ["̴", "̵", "̶", "̷", "̸", "̕", "̛", "͘", "͠", "͡"];
+
+/**
+ * Deterministic pseudo-random marks (same input → same output), so the result
+ * doesn't flicker while the user types and tests are stable.
+ */
+const zalgo = (intensity: { up: number; down: number; mid: number }) => (text: string) => {
+  let seed = 7;
+  const next = (n: number) => {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return seed % n;
+  };
+  const pick = (list: string[], count: number) => Array.from({ length: count }, () => list[next(list.length)]).join("");
+  return toClusters(text)
+    .map((c) => {
+      if (/\s/.test(c)) return c;
+      return (
+        c.normalize("NFC") +
+        pick(ZALGO_UP, intensity.up + next(intensity.up + 1)) +
+        pick(ZALGO_MID, intensity.mid) +
+        pick(ZALGO_DOWN, intensity.down + next(intensity.down + 1))
+      );
+    })
+    .join("");
+};
+
 /* -------------------------------------------------------------------------- */
 /* Public style list                                                          */
 /* -------------------------------------------------------------------------- */
@@ -233,6 +313,7 @@ export const CATEGORIES: Category[] = [
   { id: "bolhas", label: "Bolhas e quadrados" },
   { id: "riscadas", label: "Riscadas e sublinhadas" },
   { id: "decorativas", label: "Decorativas" },
+  { id: "glitch", label: "Glitch e efeitos" },
   { id: "especiais", label: "Especiais" },
 ];
 
@@ -290,6 +371,15 @@ export const STYLES: TextStyle[] = [
   s("estilo-grego", "Estilo grego", "decorativas", applyMap(MAPS.greek)),
   s("estilo-oriental", "Estilo oriental", "decorativas", applyMap(MAPS.asian)),
   s("estilo-moedas", "Estilo moedas", "decorativas", applyMap(MAPS.currency)),
+  s("coracoes-entre-letras", "Corações entre as letras", "decorativas", between("♡")),
+  s("brilho-de-fada", "Brilho de fada ✧", "decorativas", wrap("✧･ﾟ: *✧･ﾟ:* ", " *:･ﾟ✧*:･ﾟ✧", applyMap(MAPS.script))),
+  s("entre-colchetes", "Letras entre colchetes", "decorativas", eachIn("[", "]")),
+
+  // Glitch e efeitos
+  s("zalgo", "Zalgo (glitch leve)", "glitch", zalgo({ up: 1, down: 1, mid: 0 })),
+  s("zalgo-pesado", "Zalgo pesado (glitch forte)", "glitch", zalgo({ up: 3, down: 3, mid: 1 })),
+  s("texto-invertido", "Texto invertido (ao contrário)", "glitch", reversed),
+  s("mistura", "Mistura de estilos", "glitch", mixed([MAPS.boldScript, MAPS.fraktur, MAPS.doubleStruck, MAPS.sansBoldItalic, MAPS.monospace])),
 
   // Especiais
   s("contorno", "Contorno (duplo traço)", "especiais", applyMap(MAPS.doubleStruck)),
@@ -298,6 +388,7 @@ export const STYLES: TextStyle[] = [
   s("largura-total", "Largura total", "especiais", applyMap(MAPS.fullwidth)),
   s("de-cabeca-para-baixo", "De cabeça para baixo", "especiais", upsideDown),
   s("espacado", "Espaçado", "especiais", spaced),
+  s("letras-emoji", "Letras em emoji 🇦 🇧 🇨", "especiais", emojiLetters),
 ];
 
 const STYLE_BY_ID = new Map(STYLES.map((style) => [style.id, style]));
