@@ -20,23 +20,33 @@ export function buildMetadata(opts: {
   /** Use the title as-is (homepage) instead of appending the site name. */
   absoluteTitle?: boolean;
   noIndex?: boolean;
+  /** Blog posts: marks the page as an article for social previews. */
+  article?: { publishedTime: string; modifiedTime?: string; author: string };
 }): Metadata {
   const url = absoluteUrl(opts.path);
   const fullTitle = opts.absoluteTitle ? opts.title : `${opts.title} | ${siteConfig.name}`;
+  const base = {
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: fullTitle,
+    description: opts.description,
+    url,
+    images: [shareImage],
+  };
   return {
     title: opts.absoluteTitle ? { absolute: opts.title } : opts.title,
     description: opts.description,
     alternates: { canonical: url },
     robots: opts.noIndex ? { index: false, follow: true } : { index: true, follow: true },
-    openGraph: {
-      type: "website",
-      locale: siteConfig.locale,
-      siteName: siteConfig.name,
-      title: fullTitle,
-      description: opts.description,
-      url,
-      images: [shareImage],
-    },
+    openGraph: opts.article
+      ? {
+          ...base,
+          type: "article",
+          publishedTime: opts.article.publishedTime,
+          modifiedTime: opts.article.modifiedTime ?? opts.article.publishedTime,
+          authors: [opts.article.author],
+        }
+      : { ...base, type: "website" },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
@@ -89,6 +99,33 @@ export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
     name: item.name,
     item: absoluteUrl(item.path),
   })),
+});
+
+export const blogPostingSchema = (opts: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  author: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: opts.title,
+  description: opts.description,
+  url: absoluteUrl(opts.path),
+  mainEntityOfPage: absoluteUrl(opts.path),
+  datePublished: opts.datePublished,
+  dateModified: opts.dateModified ?? opts.datePublished,
+  inLanguage: siteConfig.language,
+  image: absoluteUrl("/opengraph-image.png"),
+  author: { "@type": "Organization", name: opts.author, url: siteConfig.url },
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: { "@type": "ImageObject", url: absoluteUrl("/logo.png") },
+  },
 });
 
 export const faqSchema = (faqs: FaqItem[]) => ({

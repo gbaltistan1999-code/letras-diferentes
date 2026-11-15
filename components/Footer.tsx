@@ -38,6 +38,11 @@ export function Footer() {
               </li>
             ))}
             <li>
+              <Link href="/blog" className="text-ink-soft underline-offset-4 hover:text-ink hover:underline">
+                Blog
+              </Link>
+            </li>
+            <li>
               <Link href="/perguntas-frequentes" className="text-ink-soft underline-offset-4 hover:text-ink hover:underline">
                 Perguntas frequentes
               </Link>

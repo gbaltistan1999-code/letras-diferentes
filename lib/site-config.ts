@@ -33,6 +33,7 @@ export const siteConfig = {
 
 export const mainNav = [
   { href: "/", label: "Início" },
+  { href: "/blog", label: "Blog" },
   { href: "/sobre-nos", label: "Sobre nós" },
   { href: "/perguntas-frequentes", label: "Perguntas frequentes" },
 ] as const;

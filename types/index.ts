@@ -41,6 +41,20 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface BlogPost {
+  slug: string;
+  title: string;
+  /** Meta description and card excerpt. */
+  description: string;
+  /** ISO date (YYYY-MM-DD). */
+  datePublished: string;
+  dateModified?: string;
+  /** Tool page this post supports; shown as a call to action. */
+  relatedTool: { href: string; label: string };
+  /** Body in a small Markdown subset — see lib/markdown.ts. */
+  body: string;
+}
+
 export interface ContentSection {
   heading: string;
   paragraphs?: string[];
