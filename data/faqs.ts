@@ -8,6 +8,31 @@ export const homeFaqs: FaqItem[] = [
       "Letras diferentes são caracteres especiais do padrão Unicode que imitam estilos como cursiva, negrito, gótica ou bolhas. Elas não são fontes: cada letra estilizada é um símbolo próprio, por isso essas diferentes letras mantêm o visual quando você copia e cola em outro app, desde que o aparelho consiga exibir os caracteres.",
   },
   {
+    question: "O que é fonte de letras?",
+    answer:
+      "No dia a dia, “fonte” é o desenho das letras, como Arial ou Times. Neste site, os estilos não são arquivos de fonte: são letras diferentes feitas com caracteres Unicode, que parecem fontes estilizadas e podem ser copiadas e coladas em qualquer app.",
+  },
+  {
+    question: "Como copiar uma fonte de letras diferentes?",
+    answer:
+      "Digite seu texto no gerador, encontre o estilo que você gostou e toque em “Copiar”. O texto vai para a área de transferência do seu aparelho; depois é só pressionar o campo de texto no app desejado e escolher “Colar”.",
+  },
+  {
+    question: "A fonte de letras funciona no Instagram e no WhatsApp?",
+    answer:
+      "Sim. No Instagram, as letras diferentes funcionam na bio, no nome do perfil e nas legendas (o @ não aceita). No WhatsApp, funcionam no nome, no recado e nas mensagens. Em celulares muito antigos, alguns estilos podem aparecer como quadradinhos.",
+  },
+  {
+    question: "Preciso instalar alguma fonte?",
+    answer:
+      "Não. Como os estilos são caracteres Unicode, e não fontes, você não precisa instalar nada no celular nem no computador. Basta copiar e colar.",
+  },
+  {
+    question: "A fonte de letras é grátis?",
+    answer:
+      "Sim. Todos os estilos de letras diferentes são gratuitos, sem cadastro e sem limite de uso. A conversão acontece no seu navegador.",
+  },
+  {
     question: "Como usar o gerador de letras diferentes?",
     answer:
       "Digite seu texto na caixa no topo da página. Os estilos aparecem na hora logo abaixo. Toque em “Copiar” no estilo que quiser e cole no app de destino, como Instagram, WhatsApp ou o seu jogo.",
