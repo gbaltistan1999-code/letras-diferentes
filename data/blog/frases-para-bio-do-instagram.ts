@@ -9,6 +9,10 @@ export const frasesParaBio: BlogPost = {
   description:
     "40 frases para bio do Instagram curtas e prontas para copiar: de fé, amor-próprio, engraçadas, profissionais e com letras diferentes. Veja dicas para montar a sua bio.",
   datePublished: "2026-11-15",
+  cover: {
+    src: "/blog/frases-para-bio-do-instagram.png",
+    alt: "Capa do artigo Frases para bio do Instagram, com a frase Seja luz em letra cursiva",
+  },
   relatedTool: { href: "/letras-para-instagram", label: "Deixar minha bio com letras diferentes" },
   body: `
 A bio do Instagram tem só 150 caracteres para dizer quem você é. Uma frase curta e marcante ajuda muito. Separamos 40 frases para bio do Instagram, organizadas por tema, todas prontas para copiar — algumas já com letras diferentes para dar destaque.

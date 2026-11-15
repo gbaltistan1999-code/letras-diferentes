@@ -22,16 +22,19 @@ export function buildMetadata(opts: {
   noIndex?: boolean;
   /** Blog posts: marks the page as an article for social previews. */
   article?: { publishedTime: string; modifiedTime?: string; author: string };
+  /** Page-specific 1200×630 share image (defaults to the site image). */
+  image?: { src: string; alt: string };
 }): Metadata {
   const url = absoluteUrl(opts.path);
   const fullTitle = opts.absoluteTitle ? opts.title : `${opts.title} | ${siteConfig.name}`;
+  const image = opts.image ? { url: opts.image.src, width: 1200, height: 630, alt: opts.image.alt } : shareImage;
   const base = {
     locale: siteConfig.locale,
     siteName: siteConfig.name,
     title: fullTitle,
     description: opts.description,
     url,
-    images: [shareImage],
+    images: [image],
   };
   return {
     title: opts.absoluteTitle ? { absolute: opts.title } : opts.title,
@@ -51,7 +54,7 @@ export function buildMetadata(opts: {
       card: "summary_large_image",
       title: fullTitle,
       description: opts.description,
-      images: [shareImage.url],
+      images: [image.url],
     },
   };
 }
@@ -108,6 +111,7 @@ export const blogPostingSchema = (opts: {
   datePublished: string;
   dateModified?: string;
   author: string;
+  image: string;
 }) => ({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -118,7 +122,7 @@ export const blogPostingSchema = (opts: {
   datePublished: opts.datePublished,
   dateModified: opts.dateModified ?? opts.datePublished,
   inLanguage: siteConfig.language,
-  image: absoluteUrl("/opengraph-image.png"),
+  image: { "@type": "ImageObject", url: absoluteUrl(opts.image), width: 1200, height: 630 },
   author: { "@type": "Organization", name: opts.author, url: siteConfig.url },
   publisher: {
     "@type": "Organization",

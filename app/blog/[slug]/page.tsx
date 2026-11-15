@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.description,
     path: `/blog/${post.slug}`,
     article: { publishedTime: post.datePublished, modifiedTime: post.dateModified, author: BLOG_AUTHOR },
+    image: post.cover,
   });
 }
 
@@ -62,6 +64,16 @@ export default async function BlogPostPage({ params }: Props) {
             · {readingMinutes(post.body)} min de leitura
           </p>
         </header>
+
+        <Image
+          src={post.cover.src}
+          alt={post.cover.alt}
+          width={1200}
+          height={630}
+          priority
+          sizes="(max-width: 768px) 100vw, 720px"
+          className="mb-8 h-auto w-full rounded-2xl border border-line"
+        />
 
         {toc.length > 2 && (
           <nav aria-label="Neste artigo" className="mb-8 rounded-2xl border border-line bg-surface p-5">
@@ -105,6 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
           datePublished: post.datePublished,
           dateModified: post.dateModified,
           author: BLOG_AUTHOR,
+          image: post.cover.src,
         })}
       />
     </div>

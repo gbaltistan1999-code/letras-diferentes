@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -37,21 +38,34 @@ export default function BlogIndexPage() {
         <ul className="grid gap-4">
           {blogPosts.map((post) => (
             <li key={post.slug}>
-              <article className="group relative rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-accent">
-                <p className="text-xs text-ink-soft">
-                  <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time> ·{" "}
-                  {readingMinutes(post.body)} min de leitura
-                </p>
-                <h2 className="mt-2 text-xl font-semibold tracking-tight">
-                  <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0">
-                    {post.title}
-                  </Link>
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{post.description}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent" aria-hidden="true">
-                  Ler artigo
-                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
-                </span>
+              <article className="group relative grid overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-accent sm:grid-cols-[15rem_1fr]">
+                {/* Decorative thumbnail: the title right next to it already names the post. */}
+                <div className="p-4 pb-0 sm:self-center sm:pb-4 sm:pr-0">
+                  <Image
+                    src={post.cover.src}
+                    alt=""
+                    width={1200}
+                    height={630}
+                    sizes="(max-width: 640px) 100vw, 240px"
+                    className="h-auto w-full rounded-xl border border-line"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-xs text-ink-soft">
+                    <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time> ·{" "}
+                    {readingMinutes(post.body)} min de leitura
+                  </p>
+                  <h2 className="mt-2 text-xl font-semibold tracking-tight">
+                    <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0">
+                      {post.title}
+                    </Link>
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{post.description}</p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent" aria-hidden="true">
+                    Ler artigo
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </div>
               </article>
             </li>
           ))}
@@ -71,6 +85,7 @@ export default function BlogIndexPage() {
             headline: p.title,
             url: absoluteUrl(`/blog/${p.slug}`),
             datePublished: p.datePublished,
+            image: absoluteUrl(p.cover.src),
           })),
         }}
       />

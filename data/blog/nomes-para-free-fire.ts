@@ -10,6 +10,10 @@ export const nomesParaFreeFire: BlogPost = {
   description:
     "40 ideias de nomes para Free Fire prontas para copiar: nicks com letras diferentes e símbolos, femininos, masculinos, curtos e engraçados. Dicas para criar o seu.",
   datePublished: "2026-11-15",
+  cover: {
+    src: "/blog/nomes-para-free-fire.png",
+    alt: "Capa do artigo Nomes para Free Fire: 40 ideias de nick, com o nick Lobo entre os símbolos ꧁ ꧂",
+  },
   relatedTool: { href: "/letras-para-free-fire", label: "Criar meu nick no gerador de Free Fire" },
   body: `
 Escolher um bom nome para Free Fire faz diferença: é a primeira coisa que os outros jogadores veem no lobby, no ranking e no kill feed. Reunimos 40 ideias de nick prontas para copiar, já com letras diferentes e símbolos. Use como estão ou como inspiração para criar o seu.

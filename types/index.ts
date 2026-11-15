@@ -49,6 +49,8 @@ export interface BlogPost {
   /** ISO date (YYYY-MM-DD). */
   datePublished: string;
   dateModified?: string;
+  /** 1200×630 cover in public/blog (create with scripts/blog-cover.mjs). */
+  cover: { src: string; alt: string };
   /** Tool page this post supports; shown as a call to action. */
   relatedTool: { href: string; label: string };
   /** Body in a small Markdown subset — see lib/markdown.ts. */

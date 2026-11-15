@@ -9,6 +9,10 @@ export const quadradinhosUnicode: BlogPost = {
   description:
     "Suas letras diferentes aparecem como quadradinhos ou pontos de interrogação? Entenda o que é o Unicode, por que isso acontece e como resolver em cada caso.",
   datePublished: "2026-11-15",
+  cover: {
+    src: "/blog/letras-diferentes-quadradinhos-unicode.png",
+    alt: "Capa do artigo Por que as letras viram quadradinhos, mostrando um quadradinho virando a letra A em negrito",
+  },
   relatedTool: { href: "/", label: "Testar estilos no gerador de letras diferentes" },
   body: `
 Você copia um nick estiloso, cola no app e… aparece □□□ ou ??? no lugar das letras. Isso acontece com muita gente e tem uma explicação simples. Neste guia você entende o que são as letras diferentes por dentro, por que às vezes elas viram quadradinhos e o que fazer em cada caso.

@@ -1,7 +1,11 @@
 /**
- * Blog posts. To add a post: create a file in this folder exporting a
- * `BlogPost` (see an existing one), then add it to the list below. The blog
- * page, post route, sitemap and structured data update automatically.
+ * Blog posts. To add a post:
+ *   1. Create a file in this folder exporting a `BlogPost` (copy an existing one).
+ *   2. Make its cover image:
+ *        node scripts/blog-cover.mjs <slug> "Title line 1|Title line 2" "decorative text"
+ *      and set `cover: { src: "/blog/<slug>.png", alt: "..." }` in the post.
+ *   3. Add the post to the list below.
+ * The blog page, post route, sitemap, share image and structured data update automatically.
  */
 import type { BlogPost } from "@/types";
 import { frasesParaBio } from "./frases-para-bio-do-instagram";
