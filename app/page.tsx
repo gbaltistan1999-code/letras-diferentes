@@ -3,6 +3,7 @@ import { Examples, LinkGrid } from "@/components/ContentBlocks";
 import { Faq } from "@/components/Faq";
 import { Generator } from "@/components/Generator";
 import { JsonLd } from "@/components/JsonLd";
+import { blogPosts } from "@/data/blog";
 import { navPages } from "@/data/style-pages";
 import { homeFaqs } from "@/data/faqs";
 import { CATEGORIES, getStyle, STYLES } from "@/lib/fonts";
@@ -306,7 +307,11 @@ export default function HomePage() {
               <li>
                 <strong>Quadradinhos ou “?”:</strong> aparecem quando o aparelho não tem desenho
                 para aquele caractere. Estilos como negrito, cursiva e versalete são os mais
-                compatíveis; símbolos raros podem falhar em sistemas antigos.
+                compatíveis; símbolos raros podem falhar em sistemas antigos. Entenda o motivo em{" "}
+                <Link href="/blog/letras-diferentes-quadradinhos-unicode">
+                  por que as letras diferentes viram quadradinhos
+                </Link>
+                .
               </li>
               <li>
                 <strong>Campos restritos:</strong> nomes de usuário, e-mails e alguns campos de
@@ -356,6 +361,12 @@ export default function HomePage() {
             label: p.navLabel,
             description: linkDescriptions[p.slug],
           }))}
+        />
+
+        <LinkGrid
+          heading="Do blog"
+          id="do-blog"
+          links={blogPosts.slice(0, 3).map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.description }))}
         />
 
         <section aria-labelledby="conclusao" className="rounded-2xl bg-warm p-6">

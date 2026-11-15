@@ -7,6 +7,7 @@ import { Faq } from "@/components/Faq";
 import { Generator } from "@/components/Generator";
 import { JsonLd } from "@/components/JsonLd";
 import { SymbolGrid } from "@/components/SymbolGrid";
+import { getBlogPost } from "@/data/blog";
 import { getNavPage, getStylePage, stylePages } from "@/data/style-pages";
 import { buildMetadata, webApplicationSchema } from "@/lib/seo";
 
@@ -30,6 +31,7 @@ export default async function StylePageRoute({ params }: Props) {
   if (!page) notFound();
 
   const related = page.related.map((slug) => getNavPage(slug)!).filter(Boolean);
+  const posts = (page.relatedPosts ?? []).map((slug) => getBlogPost(slug)!).filter(Boolean);
   const path = `/${page.slug}`;
 
   return (
@@ -70,14 +72,19 @@ export default async function StylePageRoute({ params }: Props) {
         <Sections sections={page.sections} />
       </div>
 
+      {posts.length > 0 && (
+        <LinkGrid
+          heading="Leia no blog"
+          id="leia-no-blog"
+          links={posts.map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.description }))}
+        />
+      )}
+
       <Faq items={page.faqs} />
 
       <LinkGrid
         heading="Veja também"
-        links={[
-          ...related.map((p) => ({ href: `/${p.slug}`, label: p.navLabel, description: p.description })),
-          { href: "/", label: "Gerador completo", description: "Todos os estilos de letras em uma só página." },
-        ]}
+        links={related.map((p) => ({ href: `/${p.slug}`, label: p.navLabel, description: p.description }))}
       />
 
       <JsonLd

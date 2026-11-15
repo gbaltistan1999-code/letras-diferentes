@@ -50,6 +50,8 @@ A bio do Instagram tem só 150 caracteres para dizer quem você é. Uma frase cu
 
 ## Frases engraçadas para bio
 
+Dica: o [texto riscado](/letras-riscadas) rende boas piadas, como “estou de d̶i̶e̶t̶a̶ férias”.
+
 + Formado em adiar o despertador.
 + Profissional em pedir “só mais cinco minutinhos”.
 + Sigo a dieta: de segunda a segunda-feira.
@@ -70,7 +72,7 @@ Em perfis de trabalho, a frase deve explicar o que você faz. Prefira texto norm
 
 ## Frases com letras diferentes
 
-Use um estilo só em parte da bio, como o seu nome ou uma palavra-chave, para destacar sem atrapalhar a leitura.
+Use um estilo só em parte da bio, como o seu nome ou uma palavra-chave, para destacar sem atrapalhar a leitura. Veja mais opções em [letras cursivas](/letras-cursivas) e [letras bonitas](/letras-bonitas).
 
 + ${t("cursiva-negrito", "Gratidão")} sempre.
 + ${t("versalete", "Menos é mais")}
@@ -95,6 +97,6 @@ Use um estilo só em parte da bio, como o seu nome ou uma palavra-chave, para de
 - **Acessibilidade:** leitores de tela podem ler letras estilizadas de forma confusa. Use os estilos como enfeite.
 - **Compatibilidade:** se algum estilo virar quadradinho, entenda o porquê em [por que as letras diferentes viram quadradinhos](/blog/letras-diferentes-quadradinhos-unicode).
 
-Quer testar outros estilos? Digite sua frase no [gerador de letras diferentes](/) e escolha entre dezenas de opções.
+Quer testar outros estilos? Digite sua frase no [gerador de letras diferentes](/) e escolha entre dezenas de opções. E se a frase for virar tatuagem, compare as fontes em [letras para tatuagem](/letras-para-tatuagem).
 `,
 };

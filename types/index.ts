@@ -82,6 +82,8 @@ export interface StylePage {
   sections: ContentSection[];
   faqs: FaqItem[];
   related: string[];
+  /** Blog post slugs shown in a "Leia no blog" box (data/blog). */
+  relatedPosts?: string[];
   /** Optional copyable symbol collections (used by /simbolos). */
   symbolGroups?: { title: string; symbols: string[] }[];
 }

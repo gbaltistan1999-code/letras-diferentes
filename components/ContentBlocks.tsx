@@ -71,17 +71,19 @@ export function LinkGrid({
       </h2>
       <ul className="mt-5 grid gap-3 sm:grid-cols-2">
         {links.map((l) => (
-          <li key={l.href}>
-            <Link
-              href={l.href}
-              className="group flex h-full items-start justify-between gap-3 rounded-xl border border-line bg-surface p-4 transition-colors hover:border-accent"
-            >
-              <span>
-                <span className="font-semibold">{l.label}</span>
-                {l.description && <span className="mt-1 block text-sm text-ink-soft">{l.description}</span>}
-              </span>
-              <ArrowRight size={18} aria-hidden className="mt-0.5 shrink-0 text-accent transition-transform group-hover:translate-x-0.5" />
-            </Link>
+          // Only the label is the link (clean anchor text for SEO); the
+          // stretched ::after makes the whole card clickable.
+          <li
+            key={l.href}
+            className="group relative flex h-full items-start justify-between gap-3 rounded-xl border border-line bg-surface p-4 transition-colors hover:border-accent"
+          >
+            <span>
+              <Link href={l.href} className="font-semibold after:absolute after:inset-0 after:rounded-xl">
+                {l.label}
+              </Link>
+              {l.description && <span className="mt-1 block text-sm text-ink-soft">{l.description}</span>}
+            </span>
+            <ArrowRight size={18} aria-hidden className="mt-0.5 shrink-0 text-accent transition-transform group-hover:translate-x-0.5" />
           </li>
         ))}
       </ul>

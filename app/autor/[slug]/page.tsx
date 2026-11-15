@@ -74,15 +74,12 @@ export default async function AuthorPage({ params }: Props) {
         ) : (
           <ul className="mt-5 grid gap-3">
             {posts.map((p) => (
-              <li key={p.slug}>
-                <Link
-                  href={`/blog/${p.slug}`}
-                  className="block rounded-xl border border-line bg-surface p-4 transition-colors hover:border-accent"
-                >
-                  <span className="text-xs text-ink-soft">{formatDate(p.datePublished)}</span>
-                  <span className="mt-1 block font-semibold">{p.title}</span>
-                  <span className="mt-1 block text-sm text-ink-soft">{p.description}</span>
+              <li key={p.slug} className="relative rounded-xl border border-line bg-surface p-4 transition-colors hover:border-accent">
+                <span className="text-xs text-ink-soft">{formatDate(p.datePublished)}</span>
+                <Link href={`/blog/${p.slug}`} className="mt-1 block font-semibold after:absolute after:inset-0 after:rounded-xl">
+                  {p.title}
                 </Link>
+                <span className="mt-1 block text-sm text-ink-soft">{p.description}</span>
               </li>
             ))}
           </ul>

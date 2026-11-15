@@ -74,7 +74,7 @@ export const stylePages: StylePage[] = [
           "Para documentos de texto, como Word ou Google Docs, é melhor usar uma fonte cursiva de verdade no próprio editor. Os caracteres deste gerador são símbolos e podem atrapalhar a busca, a correção ortográfica e a leitura por leitores de tela.",
       },
     ],
-    related: ["letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem"],
+    related: ["letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem", "letras-riscadas"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -152,7 +152,7 @@ export const stylePages: StylePage[] = [
           "Sim. Depois de colar, apague os símbolos que não quiser. Ou volte à página inicial e escolha um estilo sem enfeites, como a cursiva ou o negrito.",
       },
     ],
-    related: ["letras-cursivas", "simbolos", "letras-para-instagram"],
+    related: ["letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -282,7 +282,7 @@ export const stylePages: StylePage[] = [
           "Sim, os acentos nunca somem. Por padrão, letras como “ã” e “ç” ficam na forma normal, porque o Unicode não tem versões pequenas delas. Marcando “Estilizar também as letras com acento”, a letra fica pequena e o acento é encaixado sobre ela, o que pode sair do lugar em algumas fontes.",
       },
     ],
-    related: ["letras-para-instagram", "letras-bonitas", "simbolos"],
+    related: ["letras-para-instagram", "letras-bonitas", "simbolos", "letras-para-tatuagem"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -365,7 +365,8 @@ export const stylePages: StylePage[] = [
           "Isso acontece quando o aparelho não tem desenho para aquele caractere. Escolha outro estilo, como o negrito sem serifa ou o versalete, que costumam ser mais compatíveis.",
       },
     ],
-    related: ["letras-bonitas", "letras-pequenas", "letras-cursivas"],
+    related: ["letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
+    relatedPosts: ["frases-para-bio-do-instagram", "letras-diferentes-quadradinhos-unicode"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -456,6 +457,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["simbolos", "letras-goticas", "letras-pequenas"],
+    relatedPosts: ["nomes-para-free-fire", "letras-diferentes-quadradinhos-unicode"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -581,6 +583,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["letras-para-free-fire", "letras-bonitas", "letras-goticas"],
+    relatedPosts: ["nomes-para-free-fire"],
   },
 ];
 

@@ -35,7 +35,7 @@ Molduras como ꧁ ꧂, o símbolo 亗 e estrelas ★彡 estão entre os enfeites
 
 ## Nomes masculinos para Free Fire
 
-Estilos de traço forte, como a letra gótica em negrito, passam a ideia de força.
+Estilos de traço forte, como a [letra gótica em negrito](/letras-goticas), passam a ideia de força.
 
 + ${t("gotica-negrito", "Matador")}
 + ${t("gotica-negrito", "Rei do Gelo")}
@@ -48,7 +48,7 @@ Estilos de traço forte, como a letra gótica em negrito, passam a ideia de for�
 
 ## Nomes femininos para Free Fire
 
-Cursivas, corações e letras pequenas deixam o nick mais delicado, sem perder a personalidade.
+[Cursivas](/letras-cursivas), corações e [letras pequenas](/letras-pequenas) deixam o nick mais delicado, sem perder a personalidade.
 
 + ${t("coracoes", "Princesa")}
 + ${t("cursiva-negrito", "Diva")}
