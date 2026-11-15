@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { Logo } from "@/components/Logo";
-import { stylePages } from "@/data/style-pages";
+import { navPages } from "@/data/style-pages";
 import { legalNav, siteConfig } from "@/lib/site-config";
 
 export function Footer() {
@@ -18,7 +18,7 @@ export function Footer() {
         <nav aria-label="Estilos de letras">
           <p className="text-sm font-semibold">Estilos de letras</p>
           <ul className="mt-3 space-y-2 text-sm">
-            {stylePages.map((p) => (
+            {navPages.map((p) => (
               <li key={p.slug}>
                 <Link href={`/${p.slug}`} className="text-ink-soft underline-offset-4 hover:text-ink hover:underline">
                   {p.navLabel}

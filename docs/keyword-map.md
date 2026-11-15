@@ -22,6 +22,7 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 | `/letras-pequenas` | letras pequenas | letras pequenas para nick, versalete, letras sobrescritas | Small caps / superscript / subscript |
 | `/letras-para-instagram` | letras para Instagram | como colocar letras diferentes no Instagram, letras para bio | Platform how-to + rules |
 | `/letras-para-free-fire` | letras para Free Fire | nick para Free Fire, letras diferentes para nick, como mudar o nick no Free Fire | Game nick how-to + symbols |
+| `/letras-para-tatuagem` | letras para tatuagem | fontes de letras para tatuagem, letras de tatuagem, tatuagem escrita, tipos de letras para tatuagem, letras para tatuagem masculina, lettering tattoo | Tattoo font picker with real-font preview on skin tone |
 | `/letras-riscadas` | letras riscadas | texto riscado, letra sublinhada, como riscar texto no WhatsApp | Combining-mark styles |
 | `/simbolos` | símbolos para copiar | símbolos para nick, ꧁꧂ para copiar, símbolos para bio | Symbol picker (not letters) |
 | `/perguntas-frequentes` | — | o que são letras diferentes, por que aparece quadradinho | Support questions |
@@ -36,6 +37,9 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 - **"letras diferentes" vs "letras bonitas"**: the homepage is the complete tool;
   `/letras-bonitas` only shows decorated combinations and is written around
   using them in bios/messages. Do not add the full style list there.
+- **"letras para tatuagem" vs `/letras-goticas`**: the gothic page keeps one short
+  tattoo-reference section and links to `/letras-para-tatuagem`, which owns the
+  tattoo intent. Don't expand tattoo content on the gothic page.
 - **"letras diferentes para nick"** is assigned to `/letras-para-free-fire`
   (the dominant nick use case in Brazil) rather than a separate page.
 

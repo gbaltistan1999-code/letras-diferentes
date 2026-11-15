@@ -74,7 +74,7 @@ export const stylePages: StylePage[] = [
           "Para documentos de texto, como Word ou Google Docs, é melhor usar uma fonte cursiva de verdade no próprio editor. Os caracteres deste gerador são símbolos e podem atrapalhar a busca, a correção ortográfica e a leitura por leitores de tela.",
       },
     ],
-    related: ["letras-bonitas", "letras-para-instagram", "letras-goticas"],
+    related: ["letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -220,7 +220,7 @@ export const stylePages: StylePage[] = [
           "Não existem letras góticas acentuadas no Unicode. Por isso, por padrão, letras como “ã” e “é” ficam na forma normal, para aparecerem certas em qualquer aparelho. Se quiser, marque “Estilizar também as letras com acento”: a letra vira gótica e o acento é encaixado sobre ela, mas algumas fontes o posicionam fora do lugar.",
       },
     ],
-    related: ["letras-para-free-fire", "simbolos", "letras-cursivas"],
+    related: ["letras-para-tatuagem", "letras-para-free-fire", "simbolos", "letras-cursivas"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -586,4 +586,30 @@ export const stylePages: StylePage[] = [
 
 export function getStylePage(slug: string): StylePage | undefined {
   return stylePages.find((p) => p.slug === slug);
+}
+
+/** A page linked from the menu, footer, homepage, 404 and sitemap. */
+export interface NavPage {
+  slug: string;
+  navLabel: string;
+  description: string;
+}
+
+/** Pages with their own route (not generated from `stylePages`). */
+export const tattooPage: NavPage = {
+  slug: "letras-para-tatuagem",
+  navLabel: "Letras para tatuagem",
+  description: "Fontes para tatuagem com prévia em tom de pele: gótica, cursiva, caligrafia e mais.",
+};
+
+/** Every style/guide page, in menu order. */
+export const navPages: NavPage[] = (() => {
+  const pages = stylePages.map((p) => ({ slug: p.slug, navLabel: p.navLabel, description: p.metaDescription }));
+  const afterGothic = pages.findIndex((p) => p.slug === "letras-goticas") + 1;
+  pages.splice(afterGothic, 0, tattooPage);
+  return pages;
+})();
+
+export function getNavPage(slug: string): NavPage | undefined {
+  return navPages.find((p) => p.slug === slug);
 }

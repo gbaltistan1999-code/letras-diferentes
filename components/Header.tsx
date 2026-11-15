@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { SiteNav } from "@/components/SiteNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { stylePages } from "@/data/style-pages";
+import { navPages } from "@/data/style-pages";
 import { mainNav, siteConfig } from "@/lib/site-config";
 
 export function Header() {
-  const styleLinks = stylePages.map((p) => ({ href: `/${p.slug}`, label: p.navLabel }));
+  const styleLinks = navPages.map((p) => ({ href: `/${p.slug}`, label: p.navLabel }));
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-surface/85 backdrop-blur-md supports-[backdrop-filter]:bg-surface/75">
       <div className="relative mx-auto flex h-16 max-w-5xl items-center justify-between gap-2 px-4">

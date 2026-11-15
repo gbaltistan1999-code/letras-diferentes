@@ -26,7 +26,7 @@ export function CopyButton({ text, label }: { text: string; label: string }) {
     setState(ok ? "copied" : "error");
     announce(ok ? "Copiado!" : "Não foi possível copiar. Selecione o texto e copie manualmente.");
     window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(() => setState("idle"), 1600);
+    timer.current = window.setTimeout(() => setState("idle"), 1500);
   }
 
   const copied = state === "copied";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { stylePages } from "@/data/style-pages";
+import { navPages } from "@/data/style-pages";
 
 export const metadata: Metadata = {
   title: "Página não encontrada",
@@ -25,7 +25,7 @@ export default function NotFound() {
         Ir para o gerador de letras diferentes
       </Link>
       <ul className="mt-10 flex flex-wrap justify-center gap-2">
-        {stylePages.map((p) => (
+        {navPages.map((p) => (
           <li key={p.slug}>
             <Link
               href={`/${p.slug}`}

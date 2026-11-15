@@ -7,7 +7,7 @@ import { Faq } from "@/components/Faq";
 import { Generator } from "@/components/Generator";
 import { JsonLd } from "@/components/JsonLd";
 import { SymbolGrid } from "@/components/SymbolGrid";
-import { getStylePage, stylePages } from "@/data/style-pages";
+import { getNavPage, getStylePage, stylePages } from "@/data/style-pages";
 import { buildMetadata, webApplicationSchema } from "@/lib/seo";
 
 // Only the slugs in data/style-pages.ts exist; anything else is a 404.
@@ -29,7 +29,7 @@ export default async function StylePageRoute({ params }: Props) {
   const page = getStylePage((await params).estilo);
   if (!page) notFound();
 
-  const related = page.related.map((slug) => getStylePage(slug)!).filter(Boolean);
+  const related = page.related.map((slug) => getNavPage(slug)!).filter(Boolean);
   const path = `/${page.slug}`;
 
   return (
@@ -75,7 +75,7 @@ export default async function StylePageRoute({ params }: Props) {
       <LinkGrid
         heading="Veja também"
         links={[
-          ...related.map((p) => ({ href: `/${p.slug}`, label: p.navLabel, description: p.metaDescription })),
+          ...related.map((p) => ({ href: `/${p.slug}`, label: p.navLabel, description: p.description })),
           { href: "/", label: "Gerador completo", description: "Todos os estilos de letras em uma só página." },
         ]}
       />

@@ -3,7 +3,7 @@ import { Examples, LinkGrid } from "@/components/ContentBlocks";
 import { Faq } from "@/components/Faq";
 import { Generator } from "@/components/Generator";
 import { JsonLd } from "@/components/JsonLd";
-import { stylePages } from "@/data/style-pages";
+import { navPages } from "@/data/style-pages";
 import { homeFaqs } from "@/data/faqs";
 import { CATEGORIES, STYLES } from "@/lib/fonts";
 import { buildMetadata, webApplicationSchema } from "@/lib/seo";
@@ -17,6 +17,7 @@ const linkDescriptions: Record<string, string> = {
   "letras-cursivas": "Estilo manuscrito, cursiva em negrito e itálico.",
   "letras-bonitas": "Combinações com molduras, corações e estrelas.",
   "letras-goticas": "Fraktur clássica e em negrito.",
+  "letras-para-tatuagem": "Fontes para tatuagem com prévia em tom de pele.",
   "letras-pequenas": "Versalete, sobrescrito e subscrito.",
   "letras-para-instagram": "Bio, nome e legendas — com passo a passo.",
   "letras-para-free-fire": "Nicks com ꧁꧂, 亗 e como trocar no jogo.",
@@ -241,7 +242,7 @@ export default function HomePage() {
         <LinkGrid
           heading="Estilos e guias por tema"
           id="estilos"
-          links={stylePages.map((p) => ({
+          links={navPages.map((p) => ({
             href: `/${p.slug}`,
             label: p.navLabel,
             description: linkDescriptions[p.slug],
