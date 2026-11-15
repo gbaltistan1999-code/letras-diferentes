@@ -49,6 +49,8 @@ export interface BlogPost {
   /** ISO date (YYYY-MM-DD). */
   datePublished: string;
   dateModified?: string;
+  /** Author slug from data/authors.ts (defaults to DEFAULT_AUTHOR). */
+  author?: string;
   /** 1200×630 cover in public/blog (create with scripts/blog-cover.mjs). */
   cover: { src: string; alt: string };
   /** Tool page this post supports; shown as a call to action. */

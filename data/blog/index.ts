@@ -12,8 +12,6 @@ import { frasesParaBio } from "./frases-para-bio-do-instagram";
 import { quadradinhosUnicode } from "./letras-diferentes-quadradinhos-unicode";
 import { nomesParaFreeFire } from "./nomes-para-free-fire";
 
-export const BLOG_AUTHOR = "Equipe Letras Diferentes";
-
 /** Newest first. */
 export const blogPosts: BlogPost[] = [nomesParaFreeFire, frasesParaBio, quadradinhosUnicode].sort((a, b) =>
   b.datePublished.localeCompare(a.datePublished),

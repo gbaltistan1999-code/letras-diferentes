@@ -104,13 +104,23 @@ export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
   })),
 });
 
+/** schema.org Person for a blog author (no @context: embed it in other entities). */
+export const personSchema = (a: { name: string; path: string; jobTitle: string; sameAs: string[]; description?: string }) => ({
+  "@type": "Person",
+  name: a.name,
+  url: absoluteUrl(a.path),
+  jobTitle: a.jobTitle,
+  ...(a.description ? { description: a.description } : {}),
+  ...(a.sameAs.length ? { sameAs: a.sameAs } : {}),
+});
+
 export const blogPostingSchema = (opts: {
   title: string;
   description: string;
   path: string;
   datePublished: string;
   dateModified?: string;
-  author: string;
+  author: { name: string; path: string; jobTitle: string; sameAs: string[] };
   image: string;
 }) => ({
   "@context": "https://schema.org",
@@ -123,7 +133,7 @@ export const blogPostingSchema = (opts: {
   dateModified: opts.dateModified ?? opts.datePublished,
   inLanguage: siteConfig.language,
   image: { "@type": "ImageObject", url: absoluteUrl(opts.image), width: 1200, height: 630 },
-  author: { "@type": "Organization", name: opts.author, url: siteConfig.url },
+  author: personSchema(opts.author),
   publisher: {
     "@type": "Organization",
     name: siteConfig.name,

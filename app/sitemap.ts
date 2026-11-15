@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { authorPath, authors } from "@/data/authors";
 import { blogPosts } from "@/data/blog";
 import { navPages } from "@/data/style-pages";
 import { absoluteUrl } from "@/lib/seo";
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...navPages.map((p) => ({ path: `/${p.slug}`, priority: 0.8 })),
     { path: "/blog", priority: 0.6, lastModified: blogPosts[0]?.dateModified ?? blogPosts[0]?.datePublished },
     ...blogPosts.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.6, lastModified: p.dateModified ?? p.datePublished })),
+    ...authors.map((a) => ({ path: authorPath(a), priority: 0.4 })),
     { path: "/perguntas-frequentes", priority: 0.6 },
     { path: "/sobre-nos", priority: 0.4 },
     { path: "/contato", priority: 0.3 },

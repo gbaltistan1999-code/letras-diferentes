@@ -7,7 +7,10 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LinkGrid } from "@/components/ContentBlocks";
 import { JsonLd } from "@/components/JsonLd";
 import { Markdown } from "@/components/Markdown";
-import { BLOG_AUTHOR, blogPosts, formatDate, getBlogPost } from "@/data/blog";
+import { AuthorAvatar } from "@/components/AuthorAvatar";
+import { AuthorBox } from "@/components/AuthorBox";
+import { authorPath, getAuthor } from "@/data/authors";
+import { blogPosts, formatDate, getBlogPost } from "@/data/blog";
 import { parseMarkdown, readingMinutes } from "@/lib/markdown";
 import { blogPostingSchema, buildMetadata } from "@/lib/seo";
 
@@ -26,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
-    article: { publishedTime: post.datePublished, modifiedTime: post.dateModified, author: BLOG_AUTHOR },
+    article: { publishedTime: post.datePublished, modifiedTime: post.dateModified, author: getAuthor(post.author).name },
     image: post.cover,
   });
 }
@@ -36,6 +39,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const path = `/blog/${post.slug}`;
+  const author = getAuthor(post.author);
   const blocks = parseMarkdown(post.body);
   const toc = blocks.flatMap((b) => (b.type === "h2" ? [b] : []));
   const others = blogPosts.filter((p) => p.slug !== post.slug);
@@ -52,17 +56,24 @@ export default async function BlogPostPage({ params }: Props) {
       <article>
         <header className="mb-6">
           <h1 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">{post.title}</h1>
-          <p className="mt-3 text-sm text-ink-soft">
-            Por <span className="font-medium text-ink">{BLOG_AUTHOR}</span> ·{" "}
-            <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time>
-            {post.dateModified && post.dateModified !== post.datePublished && (
-              <>
-                {" "}
-                · Atualizado em <time dateTime={post.dateModified}>{formatDate(post.dateModified)}</time>
-              </>
-            )}{" "}
-            · {readingMinutes(post.body)} min de leitura
-          </p>
+          <div className="mt-4 flex items-center gap-3 text-sm text-ink-soft">
+            <AuthorAvatar author={author} size={40} />
+            <p>
+              Por{" "}
+              <Link href={authorPath(author)} rel="author" className="font-semibold text-ink hover:text-accent hover:underline">
+                {author.name}
+              </Link>
+              <br />
+              <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time>
+              {post.dateModified && post.dateModified !== post.datePublished && (
+                <>
+                  {" "}
+                  · Atualizado em <time dateTime={post.dateModified}>{formatDate(post.dateModified)}</time>
+                </>
+              )}{" "}
+              · {readingMinutes(post.body)} min de leitura
+            </p>
+          </div>
         </header>
 
         <Image
@@ -99,6 +110,8 @@ export default async function BlogPostPage({ params }: Props) {
           {post.relatedTool.label}
           <ArrowRight size={18} aria-hidden />
         </Link>
+
+        <AuthorBox author={author} />
       </article>
 
       {others.length > 0 && (
@@ -116,7 +129,12 @@ export default async function BlogPostPage({ params }: Props) {
           path,
           datePublished: post.datePublished,
           dateModified: post.dateModified,
-          author: BLOG_AUTHOR,
+          author: {
+            name: author.name,
+            path: authorPath(author),
+            jobTitle: author.role,
+            sameAs: author.links.map((l) => l.href),
+          },
           image: post.cover.src,
         })}
       />

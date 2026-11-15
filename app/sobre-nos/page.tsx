@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { ContactEmail } from "@/components/ContactEmail";
 import { TextPage } from "@/components/TextPage";
+import { authorPath, getAuthor } from "@/data/authors";
 import { STYLES } from "@/lib/fonts";
 import { buildMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 const title = "Sobre nós";
 const description =
@@ -54,6 +56,15 @@ export default function AboutPage() {
           Free Fire, WhatsApp, Discord ou qualquer outra plataforma mencionada no site.
         </li>
       </ul>
+
+      <h2>Quem faz o site?</h2>
+      <p>
+        O {siteConfig.name} é criado e mantido por{" "}
+        <Link href={authorPath(getAuthor())}>{getAuthor().name}</Link>, que trabalha com{" "}
+        {getAuthor().role.toLowerCase()} e cria ferramentas online gratuitas de texto e fontes. Os
+        artigos do <Link href="/blog">blog</Link>, com dicas de letras diferentes, nicks e redes
+        sociais, também são escritos por {getAuthor().name}.
+      </p>
 
       <h2>Fale com a gente</h2>
       <p>

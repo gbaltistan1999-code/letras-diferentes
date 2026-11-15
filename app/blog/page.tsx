@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { getAuthor } from "@/data/authors";
 import { blogPosts, formatDate } from "@/data/blog";
 import { readingMinutes } from "@/lib/markdown";
 import { absoluteUrl, buildMetadata } from "@/lib/seo";
@@ -52,6 +53,7 @@ export default function BlogIndexPage() {
                 </div>
                 <div className="p-5">
                   <p className="text-xs text-ink-soft">
+                    Por {getAuthor(post.author).name} ·{" "}
                     <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time> ·{" "}
                     {readingMinutes(post.body)} min de leitura
                   </p>
