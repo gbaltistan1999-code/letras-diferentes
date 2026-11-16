@@ -18,8 +18,14 @@ export function ResultCard({
   /** Extra vertical room for styles with stacked marks (Zalgo/glitch). */
   tall?: boolean;
 }) {
+  // content-visibility skips layout of off-screen cards: laying out dozens of
+  // exotic Unicode glyphs (font fallback lookups) was most of the load time.
   return (
-    <li className="flex min-h-[5.25rem] items-center gap-3 overflow-hidden rounded-xl border border-line bg-surface px-4 py-3 transition-colors hover:border-ink-soft/40">
+    <li
+      className={`[content-visibility:auto] ${
+        tall ? "[contain-intrinsic-size:auto_9rem]" : "[contain-intrinsic-size:auto_5.25rem]"
+      } flex min-h-[5.25rem] items-center gap-3 overflow-hidden rounded-xl border border-line bg-surface px-4 py-3 transition-colors hover:border-ink-soft/40`}
+    >
       <div className="min-w-0 flex-1">
         <p className="relative z-10 text-xs font-medium uppercase tracking-wide text-ink-soft">{name}</p>
         <p
