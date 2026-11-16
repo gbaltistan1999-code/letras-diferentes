@@ -16,7 +16,7 @@ export const stylePages: StylePage[] = [
   {
     slug: "letras-cursivas",
     navLabel: "Letras cursivas",
-    metaTitle: "Letras Cursivas para Copiar e Colar (Gerador Online)",
+    metaTitle: "Letras Cursivas para Copiar e Colar",
     metaDescription:
       "Gere letras cursivas para copiar e colar: estilo manuscrito, cursiva em negrito e itálico. Funciona com acentos e ç. Grátis, sem cadastro.",
     h1: "Letras cursivas para copiar e colar",
@@ -86,6 +86,7 @@ export const stylePages: StylePage[] = [
     slug: "letras-bonitas",
     navLabel: "Letras bonitas",
     metaTitle: "Letras Bonitas para Copiar e Colar: Molduras e Corações",
+    absoluteTitle: true,
     metaDescription:
       "Letras bonitas com molduras, corações e estrelas para bio, nome e mensagens. Copie e cole com um toque. Gratuito e funciona no celular.",
     h1: "Letras bonitas para copiar",
@@ -370,6 +371,7 @@ export const stylePages: StylePage[] = [
     slug: "letras-pequenas",
     navLabel: "Letras pequenas",
     metaTitle: "Letras Pequenas para Copiar e Colar (ᴠᴇʀsᴀʟᴇᴛᴇ e ˢᵒᵇʳᵉˢᶜʳⁱᵗᵒ)",
+    absoluteTitle: true,
     metaDescription:
       "Gere letras pequenas para copiar e colar: versalete (ᴀʙᴄ), sobrescrito (ᵃᵇᶜ) e subscrito. Ótimo para bios e nicks discretos. Grátis.",
     h1: "Letras pequenas para copiar e colar",
@@ -516,6 +518,7 @@ export const stylePages: StylePage[] = [
     slug: "letras-para-free-fire",
     navLabel: "Letras para Free Fire",
     metaTitle: "Letras para Free Fire: Nick com Letras Diferentes",
+    absoluteTitle: true,
     metaDescription:
       "Crie seu nick para Free Fire com letras diferentes e símbolos (꧁꧂, 亗, ★). Veja como trocar o nick no jogo e o que testar antes de confirmar.",
     h1: "Letras para Free Fire: crie seu nick com letras diferentes",

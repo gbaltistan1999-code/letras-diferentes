@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
   return buildMetadata({
     title: post.title,
+    // Long headlines would be cut off in Google with the " | Letras Diferentes" suffix.
+    absoluteTitle: post.title.length > 42,
     description: post.description,
     path: `/blog/${post.slug}`,
     article: { publishedTime: post.datePublished, modifiedTime: post.dateModified, author: getAuthor(post.author).name },

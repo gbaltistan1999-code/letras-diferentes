@@ -8,7 +8,7 @@ export const nomesParaFreeFire: BlogPost = {
   slug: "nomes-para-free-fire",
   title: "Nomes para Free Fire: 40 ideias de nick com letras diferentes",
   description:
-    "40 ideias de nomes para Free Fire prontas para copiar: nicks com letras diferentes e símbolos, femininos, masculinos, curtos e engraçados. Dicas para criar o seu.",
+    "40 ideias de nomes para Free Fire prontas para copiar: nicks com letras diferentes e símbolos, femininos, masculinos, curtos e engraçados.",
   datePublished: "2026-11-15",
   cover: {
     src: "/blog/nomes-para-free-fire.png",

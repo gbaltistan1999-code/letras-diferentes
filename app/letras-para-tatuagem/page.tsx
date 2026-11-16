@@ -11,7 +11,7 @@ import type { FaqItem } from "@/types";
 const path = `/${tattooPage.slug}`;
 const title = "Letras para Tatuagem: Gerador de Fontes para Tatuagem Online";
 const description =
-  "Gerador de letras para tatuagem grátis: digite um nome, data ou frase e veja em fontes góticas, cursivas, caligrafia e minimalistas. Copie ou visualize antes de tatuar.";
+  "Gerador de letras para tatuagem grátis: digite um nome, data ou frase e veja em fontes góticas, cursivas, caligrafia e minimalistas antes de tatuar.";
 
 export const metadata = buildMetadata({ title, description, path, absoluteTitle: true });
 

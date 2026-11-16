@@ -7,7 +7,7 @@ export const frasesParaBio: BlogPost = {
   slug: "frases-para-bio-do-instagram",
   title: "Frases para bio do Instagram: 40 ideias curtas para copiar",
   description:
-    "40 frases para bio do Instagram curtas e prontas para copiar: de fé, amor-próprio, engraçadas, profissionais e com letras diferentes. Veja dicas para montar a sua bio.",
+    "40 frases para bio do Instagram curtas e prontas para copiar: de fé, amor-próprio, engraçadas, profissionais e com letras diferentes.",
   datePublished: "2026-11-15",
   cover: {
     src: "/blog/frases-para-bio-do-instagram.png",
