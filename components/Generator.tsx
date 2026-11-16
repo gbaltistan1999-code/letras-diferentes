@@ -15,6 +15,8 @@ interface GeneratorProps {
   styleIds?: string[];
   /** Show category filter chips (only useful when several categories are present). */
   showFilter?: boolean;
+  /** Show styles from these categories first (others keep their order after). */
+  categoryOrder?: CategoryId[];
   label?: string;
 }
 
@@ -23,6 +25,7 @@ export function Generator({
   categories,
   styleIds,
   showFilter = true,
+  categoryOrder,
   label = "Digite seu texto",
 }: GeneratorProps) {
   const inputId = useId();
@@ -37,11 +40,21 @@ export function Generator({
   const isSample = deferredText.trim() === "";
   const source = isSample ? sampleText : deferredText;
 
-  const styles = useMemo(() => selectStyles({ categories, styleIds }), [categories, styleIds]);
-  const availableCategories = useMemo(
-    () => CATEGORIES.filter((c) => styles.some((s) => s.category === c.id)),
-    [styles],
-  );
+  const styles = useMemo(() => {
+    const selected = selectStyles({ categories, styleIds });
+    if (!categoryOrder?.length) return selected;
+    const rank = (c: CategoryId) => {
+      const i = categoryOrder.indexOf(c);
+      return i === -1 ? categoryOrder.length : i;
+    };
+    // Array.prototype.sort is stable, so styles keep their order within a category.
+    return [...selected].sort((a, b) => rank(a.category) - rank(b.category));
+  }, [categories, styleIds, categoryOrder]);
+  const availableCategories = useMemo(() => {
+    const present = CATEGORIES.filter((c) => styles.some((s) => s.category === c.id));
+    // Filter chips follow the same order as the results.
+    return [...new Map(styles.map((s) => [s.category, present.find((c) => c.id === s.category)!])).values()];
+  }, [styles]);
   const visible = filter === "todos" ? styles : styles.filter((s) => s.category === filter);
 
   const results = useMemo(() => {

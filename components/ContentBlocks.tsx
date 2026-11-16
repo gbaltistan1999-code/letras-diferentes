@@ -1,31 +1,70 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { CopyButton } from "@/components/CopyButton";
+import { InlineContent } from "@/components/Markdown";
 import { ResultCard } from "@/components/ResultCard";
 import { getStyle } from "@/lib/fonts";
+import { parseInline } from "@/lib/markdown";
 import type { ContentSection } from "@/types";
 
-/** Renders data-driven content sections (paragraphs, bullet lists, numbered steps). */
+const Text = ({ text }: { text: string }) => <InlineContent content={parseInline(text)} />;
+
+/**
+ * Renders data-driven content sections. Text supports **bold** and
+ * [links](/path); `copy` lines get a "Copiar" button.
+ */
 export function Sections({ sections }: { sections: ContentSection[] }) {
   return (
     <div className="prose-content">
       {sections.map((section) => (
         <section key={section.heading}>
           <h2 className="text-ink">{section.heading}</h2>
-          {section.paragraphs?.map((p) => <p key={p}>{p}</p>)}
+          {section.paragraphs?.map((p) => (
+            <p key={p}>
+              <Text text={p} />
+            </p>
+          ))}
           {section.steps && (
             <ol>
               {section.steps.map((step) => (
-                <li key={step}>{step}</li>
+                <li key={step}>
+                  <Text text={step} />
+                </li>
               ))}
             </ol>
           )}
           {section.list && (
             <ul>
               {section.list.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>
+                  <Text text={item} />
+                </li>
               ))}
             </ul>
           )}
+          {section.copy && (
+            <ul className="my-5 grid gap-2 !list-none !pl-0">
+              {section.copy.map((item) => (
+                <li
+                  key={item.text}
+                  className="!mb-0 flex items-center justify-between gap-3 rounded-xl border border-line bg-surface px-4 py-2.5"
+                >
+                  <span className="min-w-0">
+                    {item.label && <span className="block text-xs font-medium text-ink-soft">{item.label}</span>}
+                    <span className="block font-[family-name:var(--font-symbols)] text-lg text-ink [overflow-wrap:anywhere]">
+                      {item.text}
+                    </span>
+                  </span>
+                  <CopyButton text={item.text} label={`Copiar ${item.label ?? item.text}`} />
+                </li>
+              ))}
+            </ul>
+          )}
+          {section.outro?.map((p) => (
+            <p key={p}>
+              <Text text={p} />
+            </p>
+          ))}
         </section>
       ))}
     </div>

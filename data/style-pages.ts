@@ -1,4 +1,8 @@
+import { getStyle, STYLES } from "@/lib/fonts";
 import type { StylePage } from "@/types";
+
+/** Styled example text from the site's own generator (always matches the tool). */
+const t = (styleId: string, text: string) => getStyle(styleId).transform(text);
 
 /**
  * Content for the dedicated style / use-case pages. Each page targets its own
@@ -81,10 +85,10 @@ export const stylePages: StylePage[] = [
   {
     slug: "letras-bonitas",
     navLabel: "Letras bonitas",
-    metaTitle: "Letras Bonitas e Estilosas para Copiar e Colar",
+    metaTitle: "Letras Bonitas para Copiar e Colar: Molduras e Corações",
     metaDescription:
-      "Letras bonitas e estilosas com molduras, corações e estrelas para bio, nome e mensagens. Copie e cole com um toque. Gratuito e funciona no celular.",
-    h1: "Letras bonitas e estilosas para copiar",
+      "Letras bonitas com molduras, corações e estrelas para bio, nome e mensagens. Copie e cole com um toque. Gratuito e funciona no celular.",
+    h1: "Letras bonitas para copiar",
     intro:
       "Uma seleção de estilos pensada para enfeitar: letras com molduras, corações, estrelas e combinações delicadas para usar em bios, legendas, nomes e mensagens especiais.",
     generator: {
@@ -152,7 +156,144 @@ export const stylePages: StylePage[] = [
           "Sim. Depois de colar, apague os símbolos que não quiser. Ou volte à página inicial e escolha um estilo sem enfeites, como a cursiva ou o negrito.",
       },
     ],
-    related: ["letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem"],
+    related: ["letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: "fontes-de-letras-estilosas",
+    navLabel: "Fontes estilosas",
+    metaTitle: "Fontes de Letras Estilosas para Copiar e Colar (Grátis)",
+    absoluteTitle: true,
+    metaDescription:
+      "Fontes de letras estilosas para Instagram, WhatsApp, Free Fire e TikTok. Digite seu texto, escolha o estilo e copie grátis, sem cadastro.",
+    h1: "Fontes de Letras Estilosas – Copie e Cole",
+    intro:
+      "Quer deixar seu perfil com mais personalidade? Aqui você encontra fontes de letras estilosas para usar no Instagram, WhatsApp, TikTok e Free Fire. Digite seu texto, veja dezenas de estilos na hora e toque em Copiar. Funciona no celular e no computador, é grátis e não precisa baixar nada.",
+    generator: {
+      sampleText: "Fontes Estilosas",
+      categoryOrder: ["cursivas", "goticas", "decorativas", "glitch"],
+      showFilter: true,
+    },
+    examples: [],
+    sections: [
+      {
+        heading: "O que são fontes de letras estilosas?",
+        paragraphs: [
+          "Fontes de letras estilosas são versões decoradas das letras comuns: cursivas, góticas, em negrito, com bolhas, riscadas e muito mais. Elas não são fontes instaladas no aparelho. São caracteres especiais do padrão Unicode, que já existem em quase todos os celulares e computadores. Por isso, você copia de um lugar e cola em outro, e o estilo continua lá.",
+          `Com elas, um simples “Estilosa” vira ${t("cursiva-negrito", "Estilosa")}, ${t("gotica", "Estilosa")} ou ${t("bolhas", "Estilosa")}.`,
+        ],
+      },
+      {
+        heading: "Fontes estilosas mais usadas",
+        paragraphs: ["Veja os estilos favoritos com a palavra “Estilosa” como exemplo:"],
+        copy: [
+          { label: "Cursiva — elegante, ótima para bio e nome", text: t("cursiva-negrito", "Estilosa") },
+          { label: "Gótica — forte e marcante", text: t("gotica", "Estilosa") },
+          { label: "Gótica negrito — ainda mais impacto", text: t("gotica-negrito", "Estilosa") },
+          { label: "Negrito — destaque sem exagero", text: t("negrito", "Estilosa") },
+          { label: "Itálico — leve e moderno", text: t("italico-sem-serifa", "Estilosa") },
+          { label: "Contorno — visual de letreiro", text: t("contorno", "Estilosa") },
+          { label: "Letras pequenas — minimalista", text: t("versalete", "Estilosa") },
+          { label: "Bolhas — divertido", text: t("bolhas", "Estilosa") },
+          { label: "Quadrados — chama atenção", text: t("quadrados-pretos", "Estilosa") },
+          { label: "Sobrescrito — discreto, ótimo para detalhes", text: t("sobrescrito", "Estilosa") },
+          { label: "Riscada — efeito criativo", text: t("riscado", "Estilosa") },
+        ],
+        outro: [
+          "Quer ver mais? Explore as [Letras cursivas](/letras-cursivas) e as [Letras góticas](/letras-goticas).",
+        ],
+      },
+      {
+        heading: "Letras estilosas para Instagram",
+        paragraphs: [
+          "No Instagram, as letras estilosas ficam ótimas no campo Nome, na bio, nas legendas e nos títulos dos destaques. Uma dica: use o estilo em uma ou duas palavras e deixe o resto em letra normal. Assim o perfil fica bonito e continua fácil de ler.",
+        ],
+        copy: [{ label: "Exemplo de bio", text: `${t("cursiva-negrito", "Ana Carolina")} ✿ | Fotografia | SP` }],
+        outro: [
+          "Lembre-se: o nome de usuário (@) só aceita letras comuns, números, ponto e sublinhado. Mais ideias em [Letras para Instagram](/letras-para-instagram).",
+        ],
+      },
+      {
+        heading: "Letras estilosas para WhatsApp",
+        paragraphs: [
+          "No WhatsApp, você pode colar letras estilosas no nome do perfil, no recado, no nome dos grupos e nas mensagens. Fica ótimo para destacar avisos no grupo ou deixar o nome do grupo da família mais divertido.",
+        ],
+        copy: [{ label: "Exemplo de nome de grupo", text: `☀ ${t("negrito", "Família Silva")} ☀` }],
+      },
+      {
+        heading: "Letras estilosas para Free Fire",
+        paragraphs: [
+          `No Free Fire, uma fonte estilosa deixa seu nick e o nome da guilda com cara de profissional. Estilos que costumam funcionar bem: letras pequenas (${t("versalete", "pro")}), quadrados (${t("quadrados-pretos", "pro")}) e cursivas com símbolos (꧁${t("cursiva-negrito", "Rei")}꧂).`,
+          "O nick tem limite de caracteres e nem todo símbolo aparece no jogo, então teste antes de trocar. Veja mais em [Letras para Free Fire](/letras-para-free-fire) e nas nossas [ideias de nomes para Free Fire](/blog/nomes-para-free-fire).",
+        ],
+      },
+      {
+        heading: "Como colocar letras estilosas na bio?",
+        steps: [
+          "Digite seu nome ou a frase da bio no gerador acima.",
+          "Escolha a fonte estilosa que mais combina com você.",
+          "Toque em Copiar.",
+          "Abra o app, vá em Editar perfil e cole no campo de nome ou bio.",
+          "Salve e confira como ficou.",
+        ],
+      },
+      {
+        heading: "Frases estilosas prontas para copiar",
+        copy: [
+          { text: `✨ ${t("cursiva-negrito", "Bem-vindos")} ✨` },
+          { text: `꧁ ${t("cursiva-negrito", "Amor")} ꧂` },
+          { text: `☾ ${t("gotica", "Boa noite")} ☽` },
+          { text: `★ ${t("negrito", "Siga-me")} ★` },
+          { text: `♡ ${t("italico-sem-serifa", "Feliz")} ♡` },
+          { text: t("versalete", "Vida louca") },
+          { text: t("quadrados-pretos", "Gamer") },
+          { text: `✦ ${t("contorno", "Estilosa")} ✦` },
+        ],
+        outro: ["Para enfeitar ainda mais, combine com os [Símbolos para copiar](/simbolos)."],
+      },
+      {
+        heading: "Antes de usar: limites das letras estilosas",
+        list: [
+          "**Acentos:** o Unicode não tem versões estilizadas de letras com acento (á, ã, ç). Por isso, no gerador, as letras acentuadas ficam na forma normal por padrão e aparecem certas em qualquer aparelho. Se preferir, ative a opção para estilizá-las também.",
+          "**Quadrados (□):** se aparecer um quadrado, o aparelho de quem está vendo não tem aquele caractere. Prefira estilos populares como negrito, cursiva e letras pequenas. Entenda [por que isso acontece](/blog/letras-diferentes-quadradinhos-unicode).",
+          "**Acessibilidade:** leitores de tela podem ler letras estilosas de forma estranha. Use com moderação, principalmente em informações importantes.",
+        ],
+      },
+      {
+        heading: "Deixe seu texto mais estiloso agora",
+        paragraphs: [
+          `Volte ao gerador no topo da página, digite o que quiser e escolha sua fonte estilosa favorita. Quer ver todos os ${STYLES.length} estilos organizados de outro jeito? Acesse nosso gerador completo de [fontes de letras](/).`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "As fontes de letras estilosas são grátis?",
+        answer: "Sim. Você pode gerar e copiar quantas quiser, sem cadastro e sem baixar aplicativo.",
+      },
+      {
+        question: "As letras estilosas funcionam no Instagram e no WhatsApp?",
+        answer:
+          "Sim. Funcionam no nome, na bio, nas legendas, nos recados e nas mensagens. Só não funcionam no nome de usuário (@).",
+      },
+      {
+        question: "Por que algumas letras aparecem como quadrados?",
+        answer:
+          "Isso acontece quando o celular ou o app não tem aquele caractere. Escolha outro estilo, de preferência um mais comum.",
+      },
+      {
+        question: "Posso baixar essas fontes para usar no Word ou no Canva?",
+        answer:
+          "Não é preciso baixar. Estas não são arquivos de fonte para instalar, e sim letras Unicode para copiar e colar. Você pode colar o texto direto no Word ou no Canva, mas, para designs mais elaborados, o ideal é usar as fontes próprias desses programas.",
+      },
+      {
+        question: "Vocês salvam o texto que eu digito?",
+        answer: "Não. A conversão acontece no seu navegador, e o texto não é enviado nem guardado.",
+      },
+    ],
+    related: ["letras-cursivas", "letras-goticas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
+    relatedPosts: ["frases-para-bio-do-instagram", "nomes-para-free-fire"],
   },
 
   /* ------------------------------------------------------------------ */

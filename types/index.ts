@@ -59,24 +59,43 @@ export interface BlogPost {
   body: string;
 }
 
+/**
+ * A content block on a style page. Text supports **bold** and
+ * [links](/path) (see lib/markdown.ts). Rendered in this order:
+ * paragraphs → steps → list → copy → outro.
+ */
 export interface ContentSection {
   heading: string;
   paragraphs?: string[];
   list?: string[];
   steps?: string[];
+  /** Copyable lines, each with a "Copiar" button and an optional label. */
+  copy?: { text: string; label?: string }[];
+  /** Paragraphs shown after the lists. */
+  outro?: string[];
 }
 
 export interface StylePage {
   slug: string;
   /** <title> without the site name suffix. */
   metaTitle: string;
+  /** Use metaTitle exactly, without appending " | Letras Diferentes". */
+  absoluteTitle?: boolean;
   metaDescription: string;
   h1: string;
   /** Short label used in navigation, breadcrumbs and link lists. */
   navLabel: string;
   intro: string;
   /** Which styles the page generator shows. */
-  generator: { categories?: CategoryId[]; styleIds?: string[]; sampleText: string };
+  generator: {
+    categories?: CategoryId[];
+    styleIds?: string[];
+    sampleText: string;
+    /** Show these categories first (all styles still shown). */
+    categoryOrder?: CategoryId[];
+    /** Show the category filter chips (default: off on style pages). */
+    showFilter?: boolean;
+  };
   /** Style ids rendered as static, copyable examples. */
   examples: { styleId: string; text: string }[];
   sections: ContentSection[];

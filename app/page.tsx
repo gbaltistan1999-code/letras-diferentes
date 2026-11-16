@@ -18,6 +18,7 @@ export const metadata = buildMetadata({ title, description, path: "/", absoluteT
 const linkDescriptions: Record<string, string> = {
   "letras-cursivas": "Estilo manuscrito, cursiva em negrito e itálico.",
   "letras-bonitas": "Combinações com molduras, corações e estrelas.",
+  "fontes-de-letras-estilosas": "Os estilos mais estilosos primeiro, com exemplos para copiar.",
   "letras-goticas": "Fraktur clássica e em negrito.",
   "letras-para-tatuagem": "Fontes para tatuagem com prévia em tom de pele.",
   "letras-pequenas": "Versalete, sobrescrito e subscrito.",

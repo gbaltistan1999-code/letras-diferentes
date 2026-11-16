@@ -23,7 +23,12 @@ type Props = { params: Promise<{ estilo: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = getStylePage((await params).estilo);
   if (!page) return {};
-  return buildMetadata({ title: page.metaTitle, description: page.metaDescription, path: `/${page.slug}` });
+  return buildMetadata({
+    title: page.metaTitle,
+    description: page.metaDescription,
+    path: `/${page.slug}`,
+    absoluteTitle: page.absoluteTitle,
+  });
 }
 
 export default async function StylePageRoute({ params }: Props) {
@@ -56,15 +61,19 @@ export default async function StylePageRoute({ params }: Props) {
         sampleText={page.generator.sampleText}
         categories={page.generator.categories}
         styleIds={page.generator.styleIds}
-        showFilter={false}
+        showFilter={page.generator.showFilter ?? false}
+        categoryOrder={page.generator.categoryOrder}
       />
-      <p className="mt-4 text-sm text-ink-soft">
-        Quer ver todos os estilos?{" "}
-        <Link href="/" className="text-accent underline underline-offset-2">
-          Abra o gerador completo de letras diferentes
-        </Link>
-        .
-      </p>
+      {/* Pages that already show every style don't need the "see all styles" link. */}
+      {(page.generator.categories || page.generator.styleIds) && (
+        <p className="mt-4 text-sm text-ink-soft">
+          Quer ver todos os estilos?{" "}
+          <Link href="/" className="text-accent underline underline-offset-2">
+            Abra o gerador completo de letras diferentes
+          </Link>
+          .
+        </p>
+      )}
 
       {page.examples.length > 0 && <Examples examples={page.examples} />}
 

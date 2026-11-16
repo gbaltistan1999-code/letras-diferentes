@@ -16,7 +16,8 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 | Page | Primary target | Secondary / long-tail | Distinct intent |
 |---|---|---|---|
 | `/` | letras diferentes | letras diferentes para copiar, gerador de letras, fontes para copiar e colar, letras estilosas (shared) | The full tool, every style |
-| `/letras-bonitas` | letras bonitas | letras estilosas, letras bonitas para bio | Curated *decorated* combos (frames, hearts, stars) |
+| `/letras-bonitas` | letras bonitas | letras bonitas para bio | Curated *decorated* combos (frames, hearts, stars) |
+| `/fontes-de-letras-estilosas` | fontes de letras estilosas | letras estilosas, fonte estilosa, letras estilosas para copiar, letras estilosas para Instagram, letras estilosas Free Fire, fontes estilosas | All styles, most stylish first, with per-platform examples |
 | `/letras-cursivas` | letras cursivas | letra cursiva para copiar, letra manuscrita | Script/italic styles only |
 | `/letras-goticas` | letras góticas | letra medieval, fraktur, letra gótica para tatuagem | Fraktur styles |
 | `/letras-pequenas` | letras pequenas | letras pequenas para nick, versalete, letras sobrescritas | Small caps / superscript / subscript |
@@ -34,6 +35,8 @@ or an Instagram bio. They expect the tool above the fold, not an article.
   two pages would compete. `/nick-para-free-fire` returns 404. If you later
   have distinct content for it (e.g. a big curated list of ready-made nicks),
   create it then, or add a 301 redirect in `next.config.ts`.
+- **"letras estilosas" moved from `/letras-bonitas` to `/fontes-de-letras-estilosas`**:
+  the bonitas page no longer uses "estilosas" in its title, H1 or description.
 - **"letras diferentes" vs "letras bonitas"**: the homepage is the complete tool;
   `/letras-bonitas` only shows decorated combinations and is written around
   using them in bios/messages. Do not add the full style list there.

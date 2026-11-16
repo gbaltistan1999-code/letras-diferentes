@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
 import type { Block, Inline } from "@/lib/markdown";
 
-function InlineContent({ content }: { content: Inline[] }) {
+export function InlineContent({ content }: { content: Inline[] }) {
   return (
     <>
       {content.map((part, i) => {
