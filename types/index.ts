@@ -95,6 +95,8 @@ export interface StylePage {
     categoryOrder?: CategoryId[];
     /** Show the category filter chips (default: off on style pages). */
     showFilter?: boolean;
+    /** Show the "Estilos aleatórios" section (endless random combos). */
+    showRandom?: boolean;
   };
   /** Style ids rendered as static, copyable examples. */
   examples: { styleId: string; text: string }[];

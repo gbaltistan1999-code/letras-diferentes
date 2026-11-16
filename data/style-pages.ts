@@ -174,6 +174,7 @@ export const stylePages: StylePage[] = [
       sampleText: "Fontes Estilosas",
       categoryOrder: ["cursivas", "goticas", "decorativas", "glitch"],
       showFilter: true,
+      showRandom: true,
     },
     examples: [],
     sections: [

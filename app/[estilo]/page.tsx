@@ -63,6 +63,7 @@ export default async function StylePageRoute({ params }: Props) {
         styleIds={page.generator.styleIds}
         showFilter={page.generator.showFilter ?? false}
         categoryOrder={page.generator.categoryOrder}
+        showRandom={page.generator.showRandom}
       />
       {/* Pages that already show every style don't need the "see all styles" link. */}
       {(page.generator.categories || page.generator.styleIds) && (

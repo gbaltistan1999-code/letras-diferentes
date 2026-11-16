@@ -63,7 +63,7 @@ export function toClusters(text: string): string[] {
  * Map the base of each cluster. Accented clusters are kept as the original
  * letter ("plain", default) or styled with the accent re-attached ("combine").
  */
-function mapCluster(cluster: string, map: CharMap, combine: boolean): string {
+export function mapCluster(cluster: string, map: Record<string, string>, combine: boolean): string {
   const [base, ...marks] = Array.from(cluster);
   const mapped = map[base];
   if (mapped === undefined || (marks.length > 0 && !combine)) return cluster.normalize("NFC");
@@ -199,6 +199,11 @@ export const MAPS = {
     LOWER + UPPER,
     "₳฿₵ĐɆ₣₲ⱧłJ₭Ⱡ₥₦Ø₱QⱤ₴₮ɄV₩ӾɎⱫ".repeat(2),
   ),
+  /** Look-alike letters from Greek, Cyrillic and Latin Extended ("ŁΣƬЯΛ"). */
+  faux: pairMap(
+    LOWER + UPPER,
+    "ΛßƇĐΣƑƓĦƗĴҠŁMŇØƤQЯŞƬƱVŴЖҰƵ".repeat(2),
+  ),
 } satisfies Record<string, CharMap>;
 
 /* -------------------------------------------------------------------------- */
@@ -240,6 +245,17 @@ const between = (separator: string) => (text: string) => {
     })
     .join("");
 };
+
+/** Put a separator before, between and after letters of each word: "ab c" → "░a░b░ ░c░". */
+const interleave = (separator: string) => (text: string) =>
+  text.trim() === ""
+    ? text
+    : text
+        .split(/(\s+)/)
+        .map((part) =>
+          /^\s*$/.test(part) ? part : separator + toClusters(part).map((c) => c.normalize("NFC")).join(separator) + separator,
+        )
+        .join("");
 
 /** Wrap every non-space character: "ab" → "[a][b]". */
 const eachIn = (left: string, right: string) => (text: string) =>
@@ -360,6 +376,8 @@ export const STYLES: TextStyle[] = [
   s("sublinhado-duplo", "Sublinhado duplo", "riscadas", withMark("̳")),
   s("sobrelinhado", "Linha em cima", "riscadas", withMark("̅")),
   s("ondulado", "Ondulado embaixo", "riscadas", withMark("̰")),
+  s("pontos-embaixo", "Pontinhos embaixo", "riscadas", withMark("̤")),
+  s("costurado", "Costurado (xis em cima e embaixo)", "riscadas", withMark("͓̽")),
 
   // Decorativas
   s("moldura-classica", "Moldura clássica ꧁ ꧂", "decorativas", wrap("꧁༺ ", " ༻꧂", applyMap(MAPS.boldScript))),
@@ -374,6 +392,23 @@ export const STYLES: TextStyle[] = [
   s("coracoes-entre-letras", "Corações entre as letras", "decorativas", between("♡")),
   s("brilho-de-fada", "Brilho de fada ✧", "decorativas", wrap("✧･ﾟ: *✧･ﾟ:* ", " *:･ﾟ✧*:･ﾟ✧", applyMap(MAPS.script))),
   s("entre-colchetes", "Letras entre colchetes", "decorativas", eachIn("[", "]")),
+  s("colchetes-grossos", "Cada letra em 【 】", "decorativas", eachIn("【", "】")),
+  s("colchetes-japoneses-letras", "Cada letra em 『 』", "decorativas", eachIn("『", "』")),
+  s("ondas-entre-letras", "Ondas entre as letras ≈", "decorativas", interleave("≈")),
+  s("sombreado", "Sombreado ░", "decorativas", interleave("░")),
+  s("estrelinhas-entre-letras", "Estrelinhas entre as letras ⋆", "decorativas", between("⋆")),
+  s("estilo-faux", "Estilo faux (ŁΣƬЯΛ)", "decorativas", applyMap(MAPS.faux)),
+  s("moldura-ondas", "Moldura ¸,ø¤º°", "decorativas", wrap("¸,ø¤º°`°º¤ø,¸ ", " ¸,ø¤º°`°º¤ø,¸", applyMap(MAPS.boldScript))),
+  s("moldura-pontos", "Moldura •·.·´¯`·.·•", "decorativas", wrap("•·.·´¯`·.·• ", " •·.·´¯`·.·•")),
+  s("moldura-estrelas", "Moldura ★·.·´¯`·.·★", "decorativas", wrap("★·.·´¯`·.·★ ", " ★·.·´¯`·.·★", applyMap(MAPS.sansBold))),
+  s("kaomoji-abraco", "Kaomoji (っ◔◡◔)っ ♥", "decorativas", wrap("(っ◔◡◔)っ ♥ ", " ♥")),
+  s("moldura-musical", "Musical ♩♪♫", "decorativas", wrap("·.¸¸.·♩♪♫ ", " ♫♪♩·.¸¸.·", applyMap(MAPS.script))),
+  s("moldura-blocos", "Blocos ▀▄▀▄", "decorativas", wrap("▀▄▀▄▀▄ ", " ▄▀▄▀▄▀", applyMap(MAPS.sansBold))),
+  s("moldura-floral", "Floral ✿.｡.:*", "decorativas", wrap("✿.｡.:* ☆:**:. ", " .:**:.☆*.:｡.✿", applyMap(MAPS.boldScript))),
+  s("moldura-aspas", "Moldura ~\"*°•", "decorativas", wrap("~\"*°•.~\"*°• ", " •°*\"~.•°*\"~")),
+  s("moldura-flechas", "Flechas »------•", "decorativas", wrap("]|I{•------» ", " «------•}I|[")),
+  s("coroa", "Coroa ♛", "decorativas", wrap("♛ ", " ♛", applyMap(MAPS.boldFraktur))),
+  s("largura-total-colchetes", "Largura total em 【 】", "decorativas", wrap("【", "】", applyMap(MAPS.fullwidth))),
 
   // Glitch e efeitos
   s("zalgo", "Zalgo (glitch leve)", "glitch", zalgo({ up: 1, down: 1, mid: 0 })),

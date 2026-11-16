@@ -74,7 +74,7 @@ export default function HomePage() {
         </p>
       </header>
 
-      <Generator sampleText="Letras Diferentes" />
+      <Generator sampleText="Letras Diferentes" showRandom />
 
       <article className="mt-16 space-y-14">
         <section aria-labelledby="o-que-e-fonte">

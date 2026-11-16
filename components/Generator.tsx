@@ -1,9 +1,10 @@
 "use client";
 
-import { Lock, X } from "lucide-react";
+import { Lock, Plus, Shuffle, X } from "lucide-react";
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ResultCard } from "@/components/ResultCard";
 import { CATEGORIES, selectStyles } from "@/lib/fonts";
+import { randomStyles } from "@/lib/random-styles";
 import type { CategoryId } from "@/types";
 
 const MAX_LENGTH = 300;
@@ -17,8 +18,13 @@ interface GeneratorProps {
   showFilter?: boolean;
   /** Show styles from these categories first (others keep their order after). */
   categoryOrder?: CategoryId[];
+  /** Show the "Estilos aleatórios" section with endless random combinations. */
+  showRandom?: boolean;
   label?: string;
 }
+
+const RANDOM_BATCH = 10;
+const RANDOM_MAX = 200;
 
 export function Generator({
   sampleText,
@@ -26,6 +32,7 @@ export function Generator({
   styleIds,
   showFilter = true,
   categoryOrder,
+  showRandom = false,
   label = "Digite seu texto",
 }: GeneratorProps) {
   const inputId = useId();
@@ -66,6 +73,17 @@ export function Generator({
       output: style.transform(source, options),
     }));
   }, [visible, source, styleAccents]);
+
+  // Random combinations: deterministic per seed, so the first batch matches the server render.
+  const [randomSeed, setRandomSeed] = useState(1);
+  const [randomCount, setRandomCount] = useState(RANDOM_BATCH);
+  const randomResults = useMemo(
+    () =>
+      showRandom
+        ? randomStyles(source, randomSeed, 0, randomCount, { accents: styleAccents ? "combine" : "plain" })
+        : [],
+    [showRandom, source, randomSeed, randomCount, styleAccents],
+  );
 
   return (
     <section aria-label="Gerador de letras" className="w-full">
@@ -153,6 +171,51 @@ export function Generator({
           <ResultCard key={r.id} name={r.name} output={r.output} tall={r.tall} plain={isSample ? undefined : source} />
         ))}
       </ul>
+
+      {showRandom && (
+        <div className="mt-10">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-xl font-semibold tracking-tight">Estilos aleatórios</h2>
+              <p className="mt-1 text-sm text-ink-soft">
+                Combinações únicas com letras misturadas, emojis e símbolos. Gere quantas quiser.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                // New random base seed; only runs after a click, so it never affects hydration.
+                setRandomSeed(Math.floor(Math.random() * 1_000_000) + 2);
+                setRandomCount(RANDOM_BATCH);
+              }}
+              className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-surface px-3.5 text-sm font-semibold hover:border-accent"
+            >
+              <Shuffle size={16} aria-hidden />
+              Embaralhar
+            </button>
+          </div>
+          <ul className="mt-4 grid gap-2.5" aria-label={`${randomResults.length} estilos aleatórios`}>
+            {randomResults.map((output, i) => (
+              <ResultCard
+                key={`${randomSeed}-${i}`}
+                name={`Combinação ${i + 1}`}
+                output={output}
+                plain={isSample ? undefined : source}
+              />
+            ))}
+          </ul>
+          {randomCount < RANDOM_MAX && (
+            <button
+              type="button"
+              onClick={() => setRandomCount((n) => Math.min(n + RANDOM_BATCH, RANDOM_MAX))}
+              className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-ink text-sm font-semibold text-paper transition-opacity hover:opacity-90"
+            >
+              <Plus size={18} aria-hidden />
+              Gerar mais {RANDOM_BATCH} estilos
+            </button>
+          )}
+        </div>
+      )}
     </section>
   );
 }

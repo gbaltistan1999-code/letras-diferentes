@@ -209,6 +209,16 @@ describe("specific outputs", () => {
     expect(t("zalgo", "a b").split(" ")).toHaveLength(2);
   });
 
+  it("new decorative styles", () => {
+    expect(t("sombreado", "ab c")).toBe("░a░b░ ░c░");
+    expect(t("ondas-entre-letras", "oi")).toBe("≈o≈i≈");
+    expect(t("colchetes-grossos", "ab")).toBe("【a】【b】");
+    expect(t("estilo-faux", "Letras")).toBe("ŁΣƬЯΛŞ");
+    expect(t("kaomoji-abraco", "oi")).toBe("(っ◔◡◔)っ ♥ oi ♥");
+    expect(t("costurado", "a")).toBe("a͓̽");
+    expect(t("sombreado", "pão")).toBe("░p░ã░o░");
+  });
+
   it("all maps cover every letter they claim", () => {
     expect(Object.keys(MAPS.bold)).toHaveLength(62);
     expect(Object.keys(MAPS.smallCaps)).toHaveLength(52);
