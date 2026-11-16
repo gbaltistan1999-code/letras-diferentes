@@ -10,8 +10,9 @@ import { CATEGORIES, getStyle, STYLES } from "@/lib/fonts";
 import { buildMetadata, webApplicationSchema } from "@/lib/seo";
 
 const title = "Letras Diferentes: Fonte de Letras para Copiar e Colar";
-const description =
-  "Gerador de letras diferentes e fonte de letras bonitas para copiar e colar no Instagram, WhatsApp, Free Fire e TikTok. Grátis, rápido e sem cadastro.";
+/** Style count rounded down to the nearest ten ("Mais de 60"), so it stays true as styles are added. */
+const styleCountLabel = Math.floor(STYLES.length / 10) * 10;
+const description = `Mais de ${styleCountLabel} estilos de letras diferentes e fonte de letras bonitas para copiar e colar no Instagram, WhatsApp, Free Fire e TikTok. Grátis e sem cadastro.`;
 
 export const metadata = buildMetadata({ title, description, path: "/", absoluteTitle: true });
 
