@@ -128,7 +128,7 @@ Apelidos curtos funcionam bem em qualquer lugar e quase nunca passam do limite d
 
 ## Nome personalizado para WhatsApp
 
-No WhatsApp, o nome aparece para quem não salvou seu contato e nos grupos. Molduras e símbolos delicados ficam ótimos:
+No WhatsApp, o nome aparece para quem não salvou seu contato e nos grupos. Molduras e símbolos delicados ficam ótimos (para o nome do grupo, veja os [nomes para grupo de WhatsApp](/blog/nomes-para-grupo-de-whatsapp)):
 
 + ${t("moldura-ondas", "Fernanda")}
 + ${t("moldura-musical", "Isa")}

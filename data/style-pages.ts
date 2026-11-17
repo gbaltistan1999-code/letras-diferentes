@@ -79,6 +79,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem", "letras-riscadas"],
+    relatedPosts: ["nome-personalizado", "nomes-para-grupo-de-whatsapp"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -158,6 +159,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
+    relatedPosts: ["nomes-para-grupo-de-whatsapp", "nome-personalizado"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -728,7 +730,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["letras-para-free-fire", "letras-bonitas", "letras-goticas"],
-    relatedPosts: ["nomes-para-free-fire"],
+    relatedPosts: ["nomes-para-grupo-de-whatsapp", "nomes-para-free-fire"],
   },
 ];
 
