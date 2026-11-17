@@ -44,8 +44,12 @@ export interface FaqItem {
 export interface BlogPost {
   slug: string;
   title: string;
-  /** Meta description and card excerpt. */
+  /** <title> when it should differ from the H1 (keep it under ~60 characters). */
+  metaTitle?: string;
+  /** Meta description (and card text unless `excerpt` is set). */
   description: string;
+  /** Card text on the blog list, related links and author page. */
+  excerpt?: string;
   /** ISO date (YYYY-MM-DD). */
   datePublished: string;
   dateModified?: string;

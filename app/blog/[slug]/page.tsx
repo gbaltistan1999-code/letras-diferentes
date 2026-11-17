@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost((await params).slug);
   if (!post) return {};
   return buildMetadata({
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     // Long headlines would be cut off in Google with the " | Letras Diferentes" suffix.
-    absoluteTitle: post.title.length > 42,
+    absoluteTitle: (post.metaTitle ?? post.title).length > 42,
     description: post.description,
     path: `/blog/${post.slug}`,
     article: { publishedTime: post.datePublished, modifiedTime: post.dateModified, author: getAuthor(post.author).name },
@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: Props) {
         <LinkGrid
           heading="Leia também"
           id="leia-tambem"
-          links={others.map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.description }))}
+          links={others.map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.excerpt ?? p.description }))}
         />
       )}
 

@@ -368,7 +368,7 @@ export default function HomePage() {
         <LinkGrid
           heading="Do blog"
           id="do-blog"
-          links={blogPosts.slice(0, 3).map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.description }))}
+          links={blogPosts.slice(0, 3).map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.excerpt ?? p.description }))}
         />
 
         <section aria-labelledby="conclusao" className="rounded-2xl bg-warm p-6">

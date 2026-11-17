@@ -295,7 +295,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["letras-cursivas", "letras-goticas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
-    relatedPosts: ["frases-para-bio-do-instagram", "nomes-para-free-fire"],
+    relatedPosts: ["nome-personalizado", "frases-para-bio-do-instagram", "nomes-para-free-fire"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -510,7 +510,7 @@ export const stylePages: StylePage[] = [
       },
     ],
     related: ["letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
-    relatedPosts: ["frases-para-bio-do-instagram", "letras-diferentes-quadradinhos-unicode"],
+    relatedPosts: ["nome-personalizado", "frases-para-bio-do-instagram"],
   },
 
   /* ------------------------------------------------------------------ */

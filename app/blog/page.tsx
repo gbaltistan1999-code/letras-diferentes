@@ -62,7 +62,7 @@ export default function BlogIndexPage() {
                       {post.title}
                     </Link>
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{post.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{post.excerpt ?? post.description}</p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent" aria-hidden="true">
                     Ler artigo
                     <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />

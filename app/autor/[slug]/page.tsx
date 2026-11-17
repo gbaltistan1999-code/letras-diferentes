@@ -79,7 +79,7 @@ export default async function AuthorPage({ params }: Props) {
                 <Link href={`/blog/${p.slug}`} className="mt-1 block font-semibold after:absolute after:inset-0 after:rounded-xl">
                   {p.title}
                 </Link>
-                <span className="mt-1 block text-sm text-ink-soft">{p.description}</span>
+                <span className="mt-1 block text-sm text-ink-soft">{p.excerpt ?? p.description}</span>
               </li>
             ))}
           </ul>

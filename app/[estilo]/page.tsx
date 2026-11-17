@@ -86,7 +86,7 @@ export default async function StylePageRoute({ params }: Props) {
         <LinkGrid
           heading="Leia no blog"
           id="leia-no-blog"
-          links={posts.map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.description }))}
+          links={posts.map((p) => ({ href: `/blog/${p.slug}`, label: p.title, description: p.excerpt ?? p.description }))}
         />
       )}
 
