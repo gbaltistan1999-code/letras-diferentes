@@ -78,8 +78,8 @@ export const stylePages: StylePage[] = [
           "Para documentos de texto, como Word ou Google Docs, é melhor usar uma fonte cursiva de verdade no próprio editor. Os caracteres deste gerador são símbolos e podem atrapalhar a busca, a correção ortográfica e a leitura por leitores de tela.",
       },
     ],
-    related: ["letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem", "letras-riscadas"],
-    relatedPosts: ["nome-personalizado", "nomes-para-grupo-de-whatsapp"],
+    related: ["nome-personalizado", "letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem", "letras-riscadas"],
+    relatedPosts: ["nomes-para-grupo-de-whatsapp"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -158,8 +158,215 @@ export const stylePages: StylePage[] = [
           "Sim. Depois de colar, apague os símbolos que não quiser. Ou volte à página inicial e escolha um estilo sem enfeites, como a cursiva ou o negrito.",
       },
     ],
-    related: ["letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
-    relatedPosts: ["nomes-para-grupo-de-whatsapp", "nome-personalizado"],
+    related: ["nome-personalizado", "letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
+    relatedPosts: ["nomes-para-grupo-de-whatsapp"],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: "nome-personalizado",
+    navLabel: "Nome personalizado",
+    metaTitle: "Nome Personalizado: Crie o Seu com Letras Diferentes",
+    absoluteTitle: true,
+    metaDescription:
+      "Crie seu nome personalizado com letras diferentes e símbolos em segundos. Veja +60 ideias prontas para copiar no Instagram, WhatsApp e Free Fire.",
+    h1: "Nome personalizado: crie o seu com letras diferentes",
+    intro:
+      "Um nome personalizado é a forma mais rápida de deixar seu perfil com a sua cara. Digite seu nome abaixo e veja na hora em dezenas de estilos, como cursiva, gótica, contorno e com símbolos. Toque em Copiar e cole no Instagram, WhatsApp, TikTok ou Free Fire. Mais abaixo você encontra mais de 60 ideias prontas.",
+    generator: {
+      sampleText: "Seu Nome",
+      categoryOrder: ["decorativas", "cursivas", "goticas", "negrito"],
+      showFilter: true,
+      showRandom: true,
+    },
+    examples: [],
+    sections: [
+      {
+        heading: "O que é um nome personalizado?",
+        paragraphs: [
+          `Nome personalizado é o seu nome (ou apelido) escrito com letras diferentes, símbolos e emojis, para ficar único. Em vez de escrever "Ana" com letras comuns, você pode usar ${t("cursiva-negrito", "Ana")}, ${t("gotica-negrito", "Ana")} ou ✧ ${t("contorno", "Ana")} ✧. É o mesmo nome, mas chama muito mais atenção. Ele é muito usado em:`,
+        ],
+        list: [
+          "nome de exibição do Instagram e do TikTok;",
+          "nome e recado do WhatsApp;",
+          "nick de jogos como Free Fire, Roblox e Minecraft;",
+          "legendas, bios e convites.",
+        ],
+        outro: [
+          "Essas letras não são imagens: são caracteres especiais do Unicode. Por isso dá para copiar e colar em praticamente qualquer aplicativo, sem baixar nada.",
+        ],
+      },
+      {
+        heading: "Como criar seu nome personalizado em 3 passos",
+        steps: [
+          "Digite seu nome no gerador no topo desta página.",
+          "Escolha o estilo que combina com você: cursiva, gótica, negrito, contorno e outros. Em **Estilos aleatórios** aparecem combinações prontas com símbolos e emojis.",
+          "Toque em Copiar e cole no aplicativo. Se quiser, adicione símbolos antes e depois do nome (veja a lista abaixo).",
+        ],
+        outro: [
+          "Dica: teste o nome no seu celular antes de salvar. Se aparecerem quadradinhos, troque de estilo. Entenda o motivo em [Por que as letras diferentes viram quadradinhos?](/blog/letras-diferentes-quadradinhos-unicode)",
+        ],
+      },
+      {
+        heading: "O mesmo nome em vários estilos",
+        paragraphs: ["Veja como um nome simples muda de personalidade só trocando o estilo:"],
+        copy: [
+          { text: t("cursiva", "Ana"), label: "Cursiva: perfis delicados e românticos" },
+          { text: t("cursiva-negrito", "Ana"), label: "Cursiva negrito: Instagram e TikTok" },
+          { text: t("gotica-negrito", "Ana"), label: "Gótica: estilo dark, rock e jogos" },
+          { text: t("contorno", "Ana"), label: "Contorno: visual moderno e limpo" },
+          { text: t("negrito", "Ana"), label: "Negrito: destaque forte" },
+          { text: t("negrito-sem-serifa", "Ana"), label: "Sans negrito: perfis profissionais" },
+          { text: t("versalete", "Ana"), label: "Versalete: nicks minimalistas" },
+        ],
+        outro: [
+          "Quer ver mais estilos? Confira as [fontes de letras estilosas](/fontes-de-letras-estilosas), as [letras cursivas](/letras-cursivas) e as [letras góticas](/letras-goticas).",
+        ],
+      },
+      {
+        heading: "Ideias de nome personalizado feminino",
+        copy: [
+          "✧ 𝓐𝓷𝓪 ✧",
+          "♡ ℬ𝒾𝒶 ♡",
+          "𝓙𝓾𝓵𝓲𝓪 🌸",
+          "☁︎ 𝕃𝕒𝕣𝕒 ☁︎",
+          "𝑴𝒂𝒓𝒊𝒂 ❀",
+          "⋆˙⟡ 𝒮ℴ𝒻𝒾𝒶 ⟡˙⋆",
+          "𝗗𝘂𝗱𝗮 ✦",
+          "🦋 𝓙𝓾𝓵𝓲𝓪𝓷𝓪",
+          "꧁ 𝒜𝓃𝒶 ꧂",
+          "❁ ᴀɴᴀ ❁",
+          t("brilho-de-fada", "Luiza"),
+          t("coracoes", "Bela"),
+          t("moldura-floral", "Alice"),
+          `✿ ${t("cursiva-negrito", "Helena")}`,
+          t("estrelinhas-entre-letras", "Clara"),
+        ].map((text) => ({ text })),
+      },
+      {
+        heading: "Ideias de nome personalizado masculino",
+        copy: [
+          "『𝕷𝖚𝖈𝖆𝖘』",
+          "𝐏𝐞𝐝𝐫𝐨 ⚡",
+          "⚔ 𝔾𝕒𝕓𝕣𝕚𝕖𝕝 ⚔",
+          "☠ 𝕽𝖆𝖋𝖆 ☠",
+          "𝗗𝗮𝘃𝗶 ★",
+          "✠ 𝔗𝔥𝔢𝔬 ✠",
+          "𝐄𝐧𝐳𝐨 ™",
+          "✦ ʟᴜᴄᴀs ✦",
+          "【𝔾𝕒𝕓𝕣𝕚𝕖𝕝】",
+          "♔ 𝕽𝖆𝖋𝖆 ♔",
+          t("coroa", "Arthur"),
+          `${t("gotica-negrito", "Miguel")} ⚔`,
+          `${t("negrito-italico", "Bernardo")} ★`,
+          `${t("contorno", "Heitor")} ⚡`,
+          t("estilo-faux", "Lorenzo"),
+        ].map((text) => ({ text })),
+      },
+      {
+        heading: "Nome personalizado para Free Fire e jogos",
+        paragraphs: [
+          'Nos jogos, o nome personalizado ajuda a ser reconhecido no squad. Os estilos mais usados são gótica, versalete e símbolos de "clã":',
+        ],
+        copy: [
+          "彡𝕷𝖚𝖈𝖆𝖘彡",
+          "☠︎ 𝕽𝖆𝖋𝖆 ☠︎",
+          "꧁𝔗𝔥𝔢𝔬꧂",
+          "★彡ᴀɴᴀ彡★",
+          "乄𝐏𝐞𝐝𝐫𝐨乄",
+          t("moldura-classica", "Kaiser"),
+          t("simbolo-oriental", "Vandal"),
+          t("estrelas", "Ghost"),
+          t("japones", "Nox"),
+          t("estilo-oriental", "Ryu"),
+        ].map((text) => ({ text })),
+        outro: [
+          "Atenção: o Free Fire tem limite de caracteres, e algumas letras especiais contam como mais de um. Se o nome não couber, use um apelido curto. Para mais ideias, veja as [letras para Free Fire](/letras-para-free-fire) e os [40 nomes para Free Fire](/blog/nomes-para-free-fire).",
+        ],
+      },
+      {
+        heading: "Nomes curtos e apelidos",
+        paragraphs: ["Apelidos curtos funcionam bem em qualquer lugar e quase nunca passam do limite de caracteres:"],
+        copy: [
+          t("bolhas", "Lu"),
+          t("quadrados", "Gabi"),
+          t("sobrescrito", "Nina"),
+          `${t("cursiva", "Duda")} ♡`,
+          `${t("negrito", "Léo")} ✦`,
+          t("contorno", "Malu"),
+          t("monoespacada", "Kai"),
+          t("largura-total", "Rafa"),
+          `${t("versalete", "Bia")} ☾`,
+          `${t("negrito-italico-sem-serifa", "Gui")} ⚡`,
+        ].map((text) => ({ text })),
+      },
+      {
+        heading: "Nome personalizado para WhatsApp",
+        paragraphs: [
+          "No WhatsApp, o nome aparece para quem não salvou seu contato e nos grupos. Molduras e símbolos delicados ficam ótimos:",
+        ],
+        copy: [
+          t("moldura-ondas", "Fernanda"),
+          t("moldura-musical", "Isa"),
+          t("moldura-estrelas", "Mari"),
+          t("moldura-pontos", "Carla"),
+          t("moldura-flechas", "Paulo"),
+          t("moldura-blocos", "Rick"),
+          t("kaomoji-abraco", "Vivi"),
+          t("coracoes-entre-letras", "Lia"),
+          t("coroa", "Rainha"),
+          t("brilho-de-fada", "Vitória"),
+        ].map((text) => ({ text })),
+        outro: [
+          "Para o nome do grupo, veja os [nomes para grupo de WhatsApp](/blog/nomes-para-grupo-de-whatsapp).",
+        ],
+      },
+      {
+        heading: "Símbolos para deixar seu nome mais bonito",
+        paragraphs: ["Copie e coloque antes e depois do seu nome:"],
+        copy: [
+          { text: "★ ☆ ✦ ✧ ⋆ ✮ ✩", label: "Estrelas" },
+          { text: "♡ ♥ ❤ ❣ ❥ ღ", label: "Corações" },
+          { text: "❀ ✿ ❁ ⚘ 🌸", label: "Flores" },
+          { text: "『 』 【 】 「 」 ꧁ ꧂", label: "Molduras" },
+          { text: "彡 乄 ☠ ⚔ ♔ ⚡ ✠", label: "Gamer" },
+          { text: "☁︎ ☾ ˚ • ∙ ⋆˙⟡", label: "Delicados" },
+        ],
+        outro: ["Quer mais? Veja a lista completa de [símbolos para copiar e colar](/simbolos)."],
+      },
+      {
+        heading: "Dicas para o seu nome personalizado",
+        steps: [
+          "**Menos é mais.** Um estilo + um ou dois símbolos costuma ficar mais bonito do que misturar tudo.",
+          "**Cuidado com os acentos.** Por padrão, letras como é, ã e ç ficam normais no meio do nome. No gerador dá para marcar a opção de estilizar também os acentos, mas em alguns aparelhos o acento aparece ao lado da letra. Se quiser um visual uniforme, escreva sem acento.",
+          "**Mantenha o @ simples.** No Instagram e no TikTok, use o nome personalizado no nome de exibição e deixe o @usuário com letras comuns, para as pessoas conseguirem te encontrar na busca.",
+          "**Combine com a bio.** Use o mesmo estilo na bio para o perfil ficar harmonioso. Veja as [letras para Instagram](/letras-para-instagram) e as [frases para bio do Instagram](/blog/frases-para-bio-do-instagram).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Como fazer um nome personalizado de graça?",
+        answer:
+          "Digite seu nome no gerador desta página, escolha um estilo e toque em Copiar. É gratuito e não precisa instalar aplicativo.",
+      },
+      {
+        question: "Nome personalizado funciona no WhatsApp?",
+        answer: "Sim. Você pode usar no seu nome, no recado e nas mensagens.",
+      },
+      {
+        question: "Posso usar nome personalizado no Instagram?",
+        answer:
+          "Sim, no nome de exibição e na bio. O @usuário só aceita letras, números, ponto e underline.",
+      },
+      {
+        question: "Por que meu nome personalizado aparece com quadradinhos?",
+        answer:
+          "O celular de quem vê não tem aquele caractere. Use estilos mais comuns, como cursiva negrito ou negrito, que funcionam em quase todos os aparelhos.",
+      },
+    ],
+    related: ["letras-cursivas", "letras-bonitas", "fontes-de-letras-estilosas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
+    relatedPosts: ["nomes-para-grupo-de-whatsapp", "nomes-para-free-fire"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -296,8 +503,8 @@ export const stylePages: StylePage[] = [
         answer: "Não. A conversão acontece no seu navegador, e o texto não é enviado nem guardado.",
       },
     ],
-    related: ["letras-cursivas", "letras-goticas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
-    relatedPosts: ["nome-personalizado", "frases-para-bio-do-instagram", "nomes-para-free-fire"],
+    related: ["nome-personalizado", "letras-cursivas", "letras-goticas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
+    relatedPosts: ["frases-para-bio-do-instagram", "nomes-para-free-fire"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -511,8 +718,8 @@ export const stylePages: StylePage[] = [
           "Isso acontece quando o aparelho não tem desenho para aquele caractere. Escolha outro estilo, como o negrito sem serifa ou o versalete, que costumam ser mais compatíveis.",
       },
     ],
-    related: ["letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
-    relatedPosts: ["nome-personalizado", "frases-para-bio-do-instagram"],
+    related: ["nome-personalizado", "letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
+    relatedPosts: ["frases-para-bio-do-instagram"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -603,7 +810,7 @@ export const stylePages: StylePage[] = [
           "Não. O Letras Diferentes é um site independente, sem qualquer vínculo com a Garena ou com o Free Fire. Nós apenas geramos os caracteres Unicode que você copia.",
       },
     ],
-    related: ["simbolos", "letras-goticas", "letras-pequenas"],
+    related: ["nome-personalizado", "simbolos", "letras-goticas", "letras-pequenas"],
     relatedPosts: ["nomes-para-free-fire", "letras-diferentes-quadradinhos-unicode"],
   },
 

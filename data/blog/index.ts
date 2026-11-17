@@ -8,14 +8,13 @@
  * The blog page, post route, sitemap, share image and structured data update automatically.
  */
 import type { BlogPost } from "@/types";
-import { nomePersonalizado } from "./nome-personalizado";
 import { nomesParaGrupoDeWhatsapp } from "./nomes-para-grupo-de-whatsapp";
 import { frasesParaBio } from "./frases-para-bio-do-instagram";
 import { quadradinhosUnicode } from "./letras-diferentes-quadradinhos-unicode";
 import { nomesParaFreeFire } from "./nomes-para-free-fire";
 
 /** Newest first. */
-export const blogPosts: BlogPost[] = [nomesParaGrupoDeWhatsapp, nomePersonalizado, nomesParaFreeFire, frasesParaBio, quadradinhosUnicode].sort((a, b) =>
+export const blogPosts: BlogPost[] = [nomesParaGrupoDeWhatsapp, nomesParaFreeFire, frasesParaBio, quadradinhosUnicode].sort((a, b) =>
   b.datePublished.localeCompare(a.datePublished),
 );
 

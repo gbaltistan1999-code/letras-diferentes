@@ -184,6 +184,6 @@ Agora é só escolher um dos nomes para grupo de WhatsApp desta lista, copiar e 
 
 > ✨ **Crie o nome do seu grupo agora:** acesse o [gerador de letras diferentes](/) e digite o nome.
 
-Veja também: [Frases para bio do Instagram](/blog/frases-para-bio-do-instagram) · [Nomes para Free Fire](/blog/nomes-para-free-fire) · [Nome personalizado](/blog/nome-personalizado)
+Veja também: [Frases para bio do Instagram](/blog/frases-para-bio-do-instagram) · [Nomes para Free Fire](/blog/nomes-para-free-fire) · [Nome personalizado](/nome-personalizado)
 `,
 };
