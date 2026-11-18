@@ -135,9 +135,10 @@ export function CookieConsent() {
           }}
           className="p-5 sm:p-6"
         >
-          <h2 id="cookie-settings-title" className="text-lg font-semibold">
+          {/* Not a heading: this hidden dialog shouldn't add to every page's outline. aria-labelledby names it. */}
+          <p id="cookie-settings-title" className="text-lg font-semibold">
             Configurações de cookies
-          </h2>
+          </p>
           <p className="mt-1 text-sm text-ink-soft">
             Escolha quais categorias permitir. Você pode mudar de ideia quando quiser pelo link
             “Configurações de cookies” no rodapé.
@@ -146,7 +147,7 @@ export function CookieConsent() {
           <ul className="mt-5 space-y-3">
             <li className="rounded-xl border border-line p-4">
               <div className="flex items-center justify-between gap-3">
-                <h3 className="font-semibold">Necessários</h3>
+                <p className="font-semibold">Necessários</p>
                 <span className="rounded-full bg-warm px-2.5 py-1 text-xs font-medium text-ink-soft">
                   Sempre ativos
                 </span>

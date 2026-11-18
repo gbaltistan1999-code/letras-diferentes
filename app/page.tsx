@@ -19,6 +19,9 @@ export const metadata = buildMetadata({ title, description, path: "/", absoluteT
 const linkDescriptions: Record<string, string> = {
   "letras-cursivas": "Estilo manuscrito, cursiva em negrito e itálico.",
   "letras-bonitas": "Combinações com molduras, corações e estrelas.",
+  "nome-personalizado": "Seu nome em dezenas de estilos, com mais de 60 ideias.",
+  "gerador-de-nick": "Nicks com símbolos: Free Fire, masculino, feminino e clã.",
+  "nome-invisivel": "Espaço invisível para nick em branco e mensagem vazia.",
   "fontes-de-letras-estilosas": "Os estilos mais estilosos primeiro, com exemplos para copiar.",
   "letras-goticas": "Fraktur clássica e em negrito.",
   "letras-para-tatuagem": "Fontes para tatuagem com prévia em tom de pele.",
@@ -88,21 +91,29 @@ export default function HomePage() {
               não um arquivo de fonte, eles viajam junto com o texto.
             </p>
             <p>
-              Por isso, você pode copiar e colar as letras diferentes no Instagram, no WhatsApp, no
+              Por isso, você pode copiar e colar esses estilos no Instagram, no WhatsApp, no
               Facebook, no TikTok, no Free Fire e no Discord sem instalar nada. Basta que o
               aparelho de quem lê consiga exibir esses caracteres, o que acontece na maioria dos
               celulares atuais.
+            </p>
+            <p>
+              O gerador de letras desta página transforma o que você digita em versões
+              estilizadas: letras cursivas, góticas, em negrito, dentro de bolhas, riscadas, de
+              cabeça para baixo e muito mais. Cada resultado sai pronto para colar onde a fonte
+              normal não pode ser trocada, como bios, nomes de perfil, legendas e nicks, sem
+              aplicativo e sem criar conta.
             </p>
           </div>
         </section>
 
         <section aria-labelledby="como-usar-fonte">
-          <H2 id="como-usar-fonte">Como usar a fonte de letras para copiar?</H2>
-          <ol className="mt-5 grid gap-3 sm:grid-cols-3">
+          <H2 id="como-usar-fonte">Como usar a fonte de letras diferentes para copiar?</H2>
+          <ol className="mt-5 grid gap-3 sm:grid-cols-2">
             {[
               ["Digite o texto", "Escreva seu nome, nick ou frase na caixa do gerador, no topo da página."],
-              ["Escolha o estilo", "Veja as letras diferentes e filtre por categoria, se quiser."],
-              ["Copie e cole", "Toque em “Copiar” e cole onde quiser: bio, status, legenda ou nick."],
+              ["Escolha o estilo", "Role a lista ou filtre por categoria até achar o estilo ideal."],
+              ["Copie", "Toque em “Copiar”. A confirmação “Copiado!” aparece no botão."],
+              ["Cole", "No app de destino, pressione o campo de texto e escolha “Colar”: bio, status, legenda ou nick."],
             ].map(([step, text], i) => (
               <li key={step} className="flex gap-3 rounded-xl border border-line bg-surface p-4">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft font-semibold text-accent-strong">
@@ -141,10 +152,23 @@ export default function HomePage() {
         </section>
 
         <section aria-labelledby="onde-usar-fonte">
-          <H2 id="onde-usar-fonte">Onde usar a fonte de letras?</H2>
+          <H2 id="onde-usar-fonte">Onde usar as letras diferentes?</H2>
           <div className="prose-content mt-4">
             <p>
-              <strong>Instagram:</strong> cole as letras diferentes na bio e no nome do perfil para
+              A fonte de letras pode ser colada na maioria dos apps e sites que aceitam texto,
+              incluindo:
+            </p>
+          </div>
+          <ul className="mb-5 mt-1 flex flex-wrap gap-2">
+            {platforms.map((p) => (
+              <li key={p} className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm">
+                {p}
+              </li>
+            ))}
+          </ul>
+          <div className="prose-content">
+            <p>
+              <strong>Instagram:</strong> cole os estilos na bio e no nome do perfil para
               destacar sua apresentação. O nome de usuário (@) não aceita esses caracteres. Veja o
               passo a passo em <Link href="/letras-para-instagram">letras para Instagram</Link>.
             </p>
@@ -153,9 +177,11 @@ export default function HomePage() {
               mensagens. Os estilos aparecem para quem tem um celular atualizado.
             </p>
             <p>
-              <strong>Free Fire:</strong> monte um nick com letras e símbolos e cole na tela de troca
-              de nome. Teste antes de confirmar, porque o jogo pode recusar alguns caracteres — mais
-              dicas em <Link href="/letras-para-free-fire">nicks para Free Fire</Link>.
+              <strong>Free Fire e outros jogos:</strong> monte um nick com letras e símbolos e cole
+              na tela de troca de nome. Teste antes de confirmar, porque o jogo pode recusar alguns
+              caracteres. Crie o seu no <Link href="/gerador-de-nick">gerador de nick</Link> ou veja
+              mais dicas em <Link href="/letras-para-free-fire">letras para Free Fire</Link>. Para um
+              nick em branco, use o <Link href="/nome-invisivel">nome invisível</Link>.
             </p>
             <p>
               <strong>TikTok:</strong> funciona no nome exibido, na bio e nas legendas dos vídeos.
@@ -170,70 +196,10 @@ export default function HomePage() {
               <Link href="/letras-para-tatuagem">fonte de letras para tatuagem</Link>, com prévia
               das letras em tom de pele.
             </p>
-          </div>
-        </section>
-
-        <section aria-labelledby="o-que-e">
-          <H2 id="o-que-e">O que este gerador de letras faz?</H2>
-          <div className="prose-content mt-4">
             <p>
-              O gerador transforma o texto que você digita em versões estilizadas: letras
-              cursivas, góticas, em negrito, dentro de bolhas, riscadas, de cabeça para baixo e
-              muito mais. Cada resultado já sai pronto para copiar e colar onde as fontes
-              normais não podem ser trocadas, como bios, nomes de perfil, legendas e nicks.
-            </p>
-            <p>
-              Não é preciso instalar aplicativo nem criar conta: o gerador de letras diferentes
-              funciona direto nesta página, no seu navegador, no celular ou no computador.
-            </p>
-          </div>
-        </section>
-
-        <section aria-labelledby="como-usar">
-          <H2 id="como-usar">Como usar, em 4 passos</H2>
-          <ol className="mt-5 grid gap-3 sm:grid-cols-2">
-            {[
-              ["Digite", "Escreva seu nome, nick ou frase na caixa do topo."],
-              ["Escolha", "Role a lista ou filtre por categoria até achar o estilo ideal."],
-              ["Copie", "Toque em “Copiar”. A confirmação “Copiado!” aparece no botão."],
-              ["Cole", "No app de destino, pressione o campo de texto e escolha “Colar”."],
-            ].map(([step, text], i) => (
-              <li key={step} className="flex gap-3 rounded-xl border border-line bg-surface p-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft font-semibold text-accent-strong">
-                  {i + 1}
-                </span>
-                <span>
-                  <span className="font-semibold">{step}</span>
-                  <span className="mt-0.5 block text-sm text-ink-soft">{text}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section aria-labelledby="onde-funciona">
-          <H2 id="onde-funciona">Onde as letras diferentes funcionam?</H2>
-          <div className="prose-content mt-4">
-            <p>
-              Os estilos podem ser colados na maioria dos apps e sites que aceitam texto,
-              incluindo:
-            </p>
-          </div>
-          <ul className="mt-1 flex flex-wrap gap-2">
-            {platforms.map((p) => (
-              <li key={p} className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm">
-                {p}
-              </li>
-            ))}
-          </ul>
-          <div className="prose-content mt-4">
-            <p>
-              Há exceções: campos de nome de usuário (como o @ do Instagram e do TikTok)
-              geralmente aceitam só letras comuns, números e alguns sinais, e jogos podem
-              recusar certos símbolos no nick. Veja os guias de{" "}
-              <Link href="/letras-para-instagram">letras para Instagram</Link> e de{" "}
-              <Link href="/letras-para-free-fire">nicks para Free Fire</Link> para os detalhes de
-              cada plataforma.
+              <strong>Atenção às exceções:</strong> campos de nome de usuário (como o @ do Instagram
+              e do TikTok) geralmente aceitam só letras comuns, números e alguns sinais, e jogos
+              podem recusar certos símbolos no nick.
             </p>
           </div>
         </section>
@@ -274,7 +240,7 @@ export default function HomePage() {
         </section>
 
         <section aria-labelledby="categorias">
-          <H2 id="categorias">Categorias de estilos</H2>
+          <H2 id="categorias">Categorias de letras diferentes</H2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {categoryCounts.map((c) => {
               const sample = STYLES.find((s) => s.category === c.id)!;
@@ -293,7 +259,7 @@ export default function HomePage() {
         </section>
 
         <Examples
-          heading="Exemplos para copiar agora"
+          heading="Letras diferentes para copiar agora"
           examples={[
             { styleId: "cursiva-negrito", text: "Coração" },
             { styleId: "gotica", text: "Lenda" },

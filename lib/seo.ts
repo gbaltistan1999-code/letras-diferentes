@@ -61,12 +61,29 @@ export function buildMetadata(opts: {
 
 /* ---------------------------- Structured data ---------------------------- */
 
+const ORGANIZATION_ID = `${siteConfig.url}/#organization`;
+
+/** Site-wide graph: the WebSite and the Organization behind it (name + logo for Google). */
 export const websiteSchema = () => ({
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  inLanguage: siteConfig.language,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      inLanguage: siteConfig.language,
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      // Square, ≥112 px (Google's logo requirement). Served from app/icon.png.
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/icon.png`, width: 256, height: 256 },
+    },
+  ],
 });
 
 export const webPageSchema = (opts: { name: string; description: string; path: string }) => ({
