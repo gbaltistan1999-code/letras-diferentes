@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { Logo } from "@/components/Logo";
@@ -54,10 +55,16 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-line">
-        <p className="mx-auto max-w-5xl px-4 py-4 text-xs text-ink-soft">
-          © {new Date().getFullYear()} {siteConfig.name}. Instagram, Free Fire, TikTok, WhatsApp e
-          Discord são marcas de seus respectivos donos.
-        </p>
+        <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-ink-soft">
+            © {new Date().getFullYear()} {siteConfig.name}. Instagram, Free Fire, TikTok, WhatsApp e
+            Discord são marcas de seus respectivos donos.
+          </p>
+          {/* Directory badge. Self-hosted so no visitor data goes to a third party (see privacy policy). */}
+          <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="shrink-0 self-start sm:self-auto">
+            <Image src="/badges/sellwithboost.svg" alt="Listed on Sell With Boost" width={160} height={40} unoptimized className="h-10 w-auto" />
+          </a>
+        </div>
       </div>
     </footer>
   );
