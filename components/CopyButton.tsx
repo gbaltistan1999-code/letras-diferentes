@@ -15,7 +15,19 @@ function announce(message: string) {
   }, 50);
 }
 
-export function CopyButton({ text, label }: { text: string; label: string }) {
+export function CopyButton({
+  text,
+  label,
+  idleText = "Copiar",
+  large = false,
+}: {
+  text: string;
+  label: string;
+  /** Visible text before copying (default "Copiar"). */
+  idleText?: string;
+  /** Full-width, taller primary button. */
+  large?: boolean;
+}) {
   const [state, setState] = useState<"idle" | "copied" | "error">("idle");
   const timer = useRef<number | undefined>(undefined);
 
@@ -36,16 +48,20 @@ export function CopyButton({ text, label }: { text: string; label: string }) {
       type="button"
       onClick={handleClick}
       aria-label={label}
-      className={`inline-flex h-10 min-w-[6.5rem] shrink-0 items-center justify-center gap-1.5 rounded-lg px-3 text-sm font-semibold transition-colors ${
+      className={`inline-flex shrink-0 items-center justify-center gap-1.5 font-semibold transition-colors ${
+        large ? "h-12 w-full rounded-xl px-4 text-base" : "h-10 min-w-[6.5rem] rounded-lg px-3 text-sm"
+      } ${
         copied
           ? "bg-accent text-on-accent"
           : state === "error"
             ? "bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-200"
-            : "bg-accent-soft text-accent-strong hover:bg-accent hover:text-on-accent"
+            : large
+              ? "bg-accent text-on-accent hover:opacity-90"
+              : "bg-accent-soft text-accent-strong hover:bg-accent hover:text-on-accent"
       }`}
     >
-      {copied ? <Check size={16} aria-hidden /> : <Copy size={16} aria-hidden />}
-      <span aria-hidden>{copied ? "Copiado!" : state === "error" ? "Erro" : "Copiar"}</span>
+      {copied ? <Check size={large ? 18 : 16} aria-hidden /> : <Copy size={large ? 18 : 16} aria-hidden />}
+      <span aria-hidden>{copied ? "Copiado!" : state === "error" ? "Erro" : idleText}</span>
     </button>
   );
 }

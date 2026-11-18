@@ -365,7 +365,7 @@ export const stylePages: StylePage[] = [
           "O celular de quem vê não tem aquele caractere. Use estilos mais comuns, como cursiva negrito ou negrito, que funcionam em quase todos os aparelhos.",
       },
     ],
-    related: ["letras-cursivas", "letras-bonitas", "fontes-de-letras-estilosas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
+    related: ["nome-invisivel", "letras-cursivas", "letras-bonitas", "fontes-de-letras-estilosas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
     relatedPosts: ["nomes-para-grupo-de-whatsapp", "nomes-para-free-fire"],
   },
 
@@ -810,7 +810,7 @@ export const stylePages: StylePage[] = [
           "Não. O Letras Diferentes é um site independente, sem qualquer vínculo com a Garena ou com o Free Fire. Nós apenas geramos os caracteres Unicode que você copia.",
       },
     ],
-    related: ["nome-personalizado", "simbolos", "letras-goticas", "letras-pequenas"],
+    related: ["nome-invisivel", "nome-personalizado", "simbolos", "letras-goticas", "letras-pequenas"],
     relatedPosts: ["nomes-para-free-fire", "letras-diferentes-quadradinhos-unicode"],
   },
 
@@ -936,7 +936,7 @@ export const stylePages: StylePage[] = [
           "Na maioria dos jogos e redes sociais, sim, porque são caracteres Unicode comuns. Ainda assim, cada plataforma tem suas regras, então teste antes de confirmar uma troca de nome.",
       },
     ],
-    related: ["letras-para-free-fire", "letras-bonitas", "letras-goticas"],
+    related: ["nome-invisivel", "letras-para-free-fire", "letras-bonitas", "letras-goticas"],
     relatedPosts: ["nomes-para-grupo-de-whatsapp", "nomes-para-free-fire"],
   },
 ];
@@ -959,11 +959,19 @@ export const tattooPage: NavPage = {
   description: "Fontes para tatuagem com prévia em tom de pele: gótica, cursiva, caligrafia e mais.",
 };
 
+export const invisiblePage: NavPage = {
+  slug: "nome-invisivel",
+  navLabel: "Nome invisível",
+  description: "Copie o espaço invisível (Hangul Filler) e deixe seu nick em branco no Free Fire, WhatsApp e Instagram.",
+};
+
 /** Every style/guide page, in menu order. */
 export const navPages: NavPage[] = (() => {
   const pages = stylePages.map((p) => ({ slug: p.slug, navLabel: p.navLabel, description: p.metaDescription }));
   const afterGothic = pages.findIndex((p) => p.slug === "letras-goticas") + 1;
   pages.splice(afterGothic, 0, tattooPage);
+  const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;
+  pages.splice(afterFreeFire, 0, invisiblePage);
   return pages;
 })();
 
