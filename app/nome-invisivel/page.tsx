@@ -348,6 +348,7 @@ export default function InvisibleNamePage() {
         <LinkGrid
           heading="Veja também"
           links={[
+            { href: "/gerador-de-nick", label: "Gerador de nick", description: "Nicks com símbolos para Free Fire, clã e mais." },
             { href: "/nome-personalizado", label: "Nome personalizado", description: "Seu nome em dezenas de estilos." },
             { href: "/letras-para-free-fire", label: "Letras para Free Fire", description: "Nicks estilosos para o FF." },
             { href: "/simbolos", label: "Símbolos para copiar", description: "꧁ ꧂ 乂 亗 ★ e muito mais." },

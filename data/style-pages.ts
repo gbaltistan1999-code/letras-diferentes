@@ -8,8 +8,8 @@ const t = (styleId: string, text: string) => getStyle(styleId).transform(text);
  * Content for the dedicated style / use-case pages. Each page targets its own
  * search intent (see docs/keyword-map.md) — avoid copying text between pages.
  *
- * Note: "nick para Free Fire" is intentionally merged into
- * /letras-para-free-fire (same intent; two pages would compete).
+ * Note: "nick para Free Fire" stays on /letras-para-free-fire; /gerador-de-nick
+ * targets the generic "gerador de nick" (all games, categories) and links to it.
  */
 export const stylePages: StylePage[] = [
   /* ------------------------------------------------------------------ */
@@ -365,7 +365,7 @@ export const stylePages: StylePage[] = [
           "O celular de quem vê não tem aquele caractere. Use estilos mais comuns, como cursiva negrito ou negrito, que funcionam em quase todos os aparelhos.",
       },
     ],
-    related: ["nome-invisivel", "letras-cursivas", "letras-bonitas", "fontes-de-letras-estilosas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
+    related: ["gerador-de-nick", "nome-invisivel", "letras-cursivas", "letras-bonitas", "fontes-de-letras-estilosas", "letras-para-instagram", "letras-para-free-fire", "simbolos"],
     relatedPosts: ["nomes-para-grupo-de-whatsapp", "nomes-para-free-fire"],
   },
 
@@ -810,7 +810,7 @@ export const stylePages: StylePage[] = [
           "Não. O Letras Diferentes é um site independente, sem qualquer vínculo com a Garena ou com o Free Fire. Nós apenas geramos os caracteres Unicode que você copia.",
       },
     ],
-    related: ["nome-invisivel", "nome-personalizado", "simbolos", "letras-goticas", "letras-pequenas"],
+    related: ["gerador-de-nick", "nome-invisivel", "nome-personalizado", "simbolos", "letras-goticas", "letras-pequenas"],
     relatedPosts: ["nomes-para-free-fire", "letras-diferentes-quadradinhos-unicode"],
   },
 
@@ -965,13 +965,19 @@ export const invisiblePage: NavPage = {
   description: "Copie o espaço invisível (Hangul Filler) e deixe seu nick em branco no Free Fire, WhatsApp e Instagram.",
 };
 
+export const nickPage: NavPage = {
+  slug: "gerador-de-nick",
+  navLabel: "Gerador de nick",
+  description: "Nicks com letras diferentes e símbolos para Free Fire, PUBG, Roblox e Instagram: masculino, feminino, clã e fofo.",
+};
+
 /** Every style/guide page, in menu order. */
 export const navPages: NavPage[] = (() => {
   const pages = stylePages.map((p) => ({ slug: p.slug, navLabel: p.navLabel, description: p.metaDescription }));
   const afterGothic = pages.findIndex((p) => p.slug === "letras-goticas") + 1;
   pages.splice(afterGothic, 0, tattooPage);
   const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;
-  pages.splice(afterFreeFire, 0, invisiblePage);
+  pages.splice(afterFreeFire, 0, nickPage, invisiblePage);
   return pages;
 })();
 
