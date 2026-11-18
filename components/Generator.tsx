@@ -1,7 +1,7 @@
 "use client";
 
 import { Lock, Plus, Shuffle, X } from "lucide-react";
-import { useDeferredValue, useId, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { ResultCard } from "@/components/ResultCard";
 import { CATEGORIES, selectStyles } from "@/lib/fonts";
 import { randomStyles } from "@/lib/random-styles";
@@ -23,6 +23,12 @@ interface GeneratorProps {
   label?: string;
 }
 
+/**
+ * Cards laid out on first load. The rest are in the HTML (search engines read
+ * them) but display:none until the visitor scrolls near the end: laying out
+ * every card on load was the slowest part of the page on phones.
+ */
+const INITIAL_CARDS = 16;
 const RANDOM_BATCH = 10;
 const RANDOM_MAX = 200;
 
@@ -73,6 +79,20 @@ export function Generator({
       output: style.transform(source, options),
     }));
   }, [visible, source, styleAccents]);
+
+  // Show the first cards, reveal the rest when the visitor scrolls near the end.
+  const [expanded, setExpanded] = useState(false);
+  const collapsed = !expanded && results.length > INITIAL_CARDS;
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!collapsed || !el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) setExpanded(true);
+    }, { rootMargin: "800px 0px" });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [collapsed]);
 
   // Random combinations: deterministic per seed, so the first batch matches the server render.
   const [randomSeed, setRandomSeed] = useState(1);
@@ -167,10 +187,30 @@ export function Generator({
       )}
 
       <ul className="mt-4 grid gap-2.5" aria-label={`${results.length} estilos de letras`}>
-        {results.map((r) => (
-          <ResultCard key={r.id} name={r.name} output={r.output} tall={r.tall} plain={isSample ? undefined : source} />
+        {results.map((r, i) => (
+          <ResultCard
+            key={r.id}
+            name={r.name}
+            output={r.output}
+            tall={r.tall}
+            plain={isSample ? undefined : source}
+            hidden={collapsed && i >= INITIAL_CARDS}
+          />
         ))}
       </ul>
+      {collapsed && (
+        <>
+          {/* Reveals the rest shortly before the visitor reaches the end of the list. */}
+          <div ref={sentinelRef} aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm font-semibold transition-colors hover:border-accent"
+          >
+            Mostrar todos os {results.length} estilos
+          </button>
+        </>
+      )}
 
       {showRandom && (
         <div className="mt-10">
