@@ -6,6 +6,7 @@
  *   - bullet item           1. numbered item
  *   + copyable item         (each line gets a "Copiar" button)
  *   > tip / callout
+ *   ![alt text](/blog/image.webp "caption")   16:9 image (1200×675), caption optional
  *   anything else           paragraph (lines joined with a space)
  *
  * Inline: **bold** and [link text](/url).
@@ -23,7 +24,8 @@ export type Block =
   | { type: "ul"; items: Inline[][] }
   | { type: "ol"; items: Inline[][] }
   | { type: "copy"; items: string[] }
-  | { type: "tip"; content: Inline[] };
+  | { type: "tip"; content: Inline[] }
+  | { type: "img"; src: string; alt: string; caption?: string };
 
 /** URL-safe id from a heading: "Por que o Unicode?" → "por-que-o-unicode". */
 export function slugify(text: string): string {
@@ -61,7 +63,12 @@ export function parseMarkdown(source: string): Block[] {
     const lines = chunk.split("\n").map((l) => l.trim());
     const all = (re: RegExp) => lines.every((l) => re.test(l));
 
-    if (chunk.startsWith("## ")) {
+    // Only site-relative images (starting with "/"), alone in their block.
+    const img = lines.length === 1 ? chunk.match(/^!\[(.+?)\]\((\/[^\s)]+)(?:\s+"(.+?)")?\)$/) : null;
+
+    if (img) {
+      blocks.push({ type: "img", alt: img[1], src: img[2], ...(img[3] ? { caption: img[3] } : {}) });
+    } else if (chunk.startsWith("## ")) {
       const text = chunk.slice(3).trim();
       blocks.push({ type: "h2", text, id: slugify(text) });
     } else if (chunk.startsWith("### ")) {

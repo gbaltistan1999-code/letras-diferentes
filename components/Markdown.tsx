@@ -1,4 +1,5 @@
 import { Lightbulb } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
 import type { Block, Inline } from "@/lib/markdown";
@@ -87,6 +88,20 @@ export function Markdown({ blocks }: { blocks: Block[] }) {
                   <InlineContent content={block.content} />
                 </span>
               </p>
+            );
+          case "img":
+            return (
+              <figure key={i} className="my-6">
+                <Image
+                  src={block.src}
+                  alt={block.alt}
+                  width={1200}
+                  height={675}
+                  sizes="(min-width: 768px) 720px, 100vw"
+                  className="h-auto w-full rounded-2xl border border-line"
+                />
+                {block.caption && <figcaption className="mt-2 text-center text-sm text-ink-soft">{block.caption}</figcaption>}
+              </figure>
             );
           default:
             return (

@@ -30,4 +30,16 @@ describe("markdown subset", () => {
     expect(readingMinutes("palavra ".repeat(400))).toBe(2);
     expect(readingMinutes("oi")).toBe(1);
   });
+
+  it("parses images with an optional caption", () => {
+    expect(parseMarkdown('![Foto de um celular](/blog/a.webp "Legenda aqui")')).toEqual([
+      { type: "img", alt: "Foto de um celular", src: "/blog/a.webp", caption: "Legenda aqui" },
+    ]);
+    expect(parseMarkdown("![Só alt](/blog/b.webp)")).toEqual([{ type: "img", alt: "Só alt", src: "/blog/b.webp" }]);
+  });
+
+  it("does not treat external or inline images as image blocks", () => {
+    expect(parseMarkdown("![x](https://evil.example/a.png)")[0].type).toBe("p");
+    expect(parseMarkdown("texto ![x](/a.webp)")[0].type).toBe("p");
+  });
 });

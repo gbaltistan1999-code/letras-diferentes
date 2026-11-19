@@ -284,7 +284,10 @@ export default function WhatsAppLettersPage() {
 
         <section aria-labelledby="frases">
           <H2 id="frases">Frases prontas para recado e status</H2>
-          <p className="mt-3 text-ink-soft">Toque em Copiar e cole no recado, no status ou em uma mensagem.</p>
+          <p className="mt-3 text-ink-soft">
+            Toque em Copiar e cole no recado, no status ou em uma mensagem. Quer mais ideias? Veja as{" "}
+            <Link href="/blog/frases-para-status-do-whatsapp" className={link}>70 frases para status do WhatsApp</Link>.
+          </p>
           <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
             {phrases.map((p, i) => (
               <li key={p} className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3">
