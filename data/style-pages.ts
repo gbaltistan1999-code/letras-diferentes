@@ -635,7 +635,7 @@ export const stylePages: StylePage[] = [
           "Sim, os acentos nunca somem. Por padrão, letras como “ã” e “ç” ficam na forma normal, porque o Unicode não tem versões pequenas delas. Marcando “Estilizar também as letras com acento”, a letra fica pequena e o acento é encaixado sobre ela, o que pode sair do lugar em algumas fontes.",
       },
     ],
-    related: ["letras-para-instagram", "letras-bonitas", "simbolos", "letras-para-tatuagem"],
+    related: ["letras-para-instagram", "letras-para-tiktok", "letras-bonitas", "simbolos", "letras-para-tatuagem"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -718,7 +718,7 @@ export const stylePages: StylePage[] = [
           "Isso acontece quando o aparelho não tem desenho para aquele caractere. Escolha outro estilo, como o negrito sem serifa ou o versalete, que costumam ser mais compatíveis.",
       },
     ],
-    related: ["letras-para-whatsapp", "nome-personalizado", "letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
+    related: ["letras-para-tiktok", "letras-para-whatsapp", "nome-personalizado", "letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
     relatedPosts: ["frases-para-bio-do-instagram"],
   },
 
@@ -977,13 +977,19 @@ export const whatsappPage: NavPage = {
   description: "Fontes diferentes e formatação do WhatsApp (negrito, itálico, tachado) para mensagens, nome, recado e status.",
 };
 
+export const tiktokPage: NavPage = {
+  slug: "letras-para-tiktok",
+  navLabel: "Letras para TikTok",
+  description: "Fontes diferentes e aesthetic para nome, bio e comentários do TikTok, com contador de caracteres e sugestões de @.",
+};
+
 /** Every style/guide page, in menu order. */
 export const navPages: NavPage[] = (() => {
   const pages = stylePages.map((p) => ({ slug: p.slug, navLabel: p.navLabel, description: p.metaDescription }));
   const afterGothic = pages.findIndex((p) => p.slug === "letras-goticas") + 1;
   pages.splice(afterGothic, 0, tattooPage);
   const afterInstagram = pages.findIndex((p) => p.slug === "letras-para-instagram") + 1;
-  pages.splice(afterInstagram, 0, whatsappPage);
+  pages.splice(afterInstagram, 0, whatsappPage, tiktokPage);
   const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;
   pages.splice(afterFreeFire, 0, nickPage, invisiblePage);
   return pages;

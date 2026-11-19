@@ -244,6 +244,7 @@ export default function InvisibleNamePage() {
             </p>
             <p>
               No TikTok vale a mesma lógica: use no nome de exibição e na bio. O @ do usuário não aceita esses caracteres.
+              Para enfeitar o nome e a bio, veja as <Link href="/letras-para-tiktok">letras para TikTok</Link>.
             </p>
           </div>
         </section>

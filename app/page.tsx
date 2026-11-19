@@ -28,6 +28,7 @@ const linkDescriptions: Record<string, string> = {
   "letras-pequenas": "Versalete, sobrescrito e subscrito.",
   "letras-para-instagram": "Bio, nome e legendas — com passo a passo.",
   "letras-para-whatsapp": "Fontes e formatação para mensagens, nome e recado.",
+  "letras-para-tiktok": "Nome, bio e comentários, com contador e sugestões de @.",
   "letras-para-free-fire": "Nicks com ꧁꧂, 亗 e como trocar no jogo.",
   "letras-riscadas": "Texto riscado, cortado e sublinhado.",
   simbolos: "Estrelas, corações, flechas e enfeites.",

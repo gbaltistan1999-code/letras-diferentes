@@ -346,6 +346,7 @@ export default function WhatsAppLettersPage() {
             { href: "/nome-invisivel", label: "Nome invisível", description: "Nome e mensagem em branco." },
             { href: "/gerador-de-nick", label: "Gerador de nick", description: "Nicks com letras e símbolos." },
             { href: "/letras-para-instagram", label: "Letras para Instagram", description: "Fontes para bio e legenda." },
+            { href: "/letras-para-tiktok", label: "Letras para TikTok", description: "Nome, bio e comentários com contador." },
             { href: "/nome-personalizado", label: "Nome personalizado", description: "Seu nome em dezenas de estilos." },
           ]}
         />
