@@ -220,7 +220,8 @@ export default function InvisibleNamePage() {
             <h3>Nome de perfil em branco</h3>
             <p>
               Vá em <strong>Configurações › Perfil › Nome</strong>, apague o seu nome, cole o espaço invisível e salve. Seus
-              contatos que não têm seu número salvo vão ver o nome em branco.
+              contatos que não têm seu número salvo vão ver o nome em branco. Prefere um nome estiloso? Use as{" "}
+              <Link href="/letras-para-whatsapp">letras para WhatsApp</Link>.
             </p>
             <h3>Mensagem em branco</h3>
             <p>

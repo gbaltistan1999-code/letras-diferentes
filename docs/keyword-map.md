@@ -23,6 +23,7 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 | `/letras-goticas` | letras góticas | letra medieval, fraktur, letra gótica para tatuagem | Fraktur styles |
 | `/letras-pequenas` | letras pequenas | letras pequenas para nick, versalete, letras sobrescritas | Small caps / superscript / subscript |
 | `/letras-para-instagram` | letras para Instagram | como colocar letras diferentes no Instagram, letras para bio | Platform how-to + rules |
+| `/letras-para-whatsapp` | letras para WhatsApp | fontes para WhatsApp, como mudar a letra do WhatsApp, negrito no WhatsApp, letras diferentes WhatsApp, formatação WhatsApp | Two-tab converter: Unicode styles + native WhatsApp codes (*negrito*, _itálico_, ~tachado~, lists, quote) |
 | `/letras-para-free-fire` | letras para Free Fire | nick para Free Fire, letras diferentes para nick, como mudar o nick no Free Fire | Game nick how-to + symbols |
 | `/gerador-de-nick` | gerador de nick | gerador de nick ff, nick com símbolos, nick masculino, nick feminino, nick para clã | Nick generator by category (FF, masc, fem, clã, fofo) with clan tag + invisible separator. "nick para free fire" stays primary on /letras-para-free-fire |
 | `/nome-invisivel` | nome invisível | espaço invisível, nome invisível free fire, nick invisível, letra invisível, mensagem em branco whatsapp | Copy the invisible character (U+3164) + insert/test tools; no styled letters |
@@ -63,4 +64,5 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 - Como mudar o nick no Free Fire com letras diferentes → `/letras-para-free-fire`
 - Por que aparecem quadradinhos → home FAQ + `/perguntas-frequentes`
 - As letras funcionam com acento? → home FAQ
-- Como riscar texto no WhatsApp → `/letras-riscadas`
+- Como riscar texto no WhatsApp → `/letras-riscadas` (the native ~tachado~ code is also in `/letras-para-whatsapp`)
+- Como mudar a letra do WhatsApp / negrito no WhatsApp → `/letras-para-whatsapp`

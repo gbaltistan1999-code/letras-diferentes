@@ -158,7 +158,7 @@ export const stylePages: StylePage[] = [
           "Sim. Depois de colar, apague os símbolos que não quiser. Ou volte à página inicial e escolha um estilo sem enfeites, como a cursiva ou o negrito.",
       },
     ],
-    related: ["nome-personalizado", "letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
+    related: ["nome-personalizado", "letras-para-whatsapp", "letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
     relatedPosts: ["nomes-para-grupo-de-whatsapp"],
   },
 
@@ -718,7 +718,7 @@ export const stylePages: StylePage[] = [
           "Isso acontece quando o aparelho não tem desenho para aquele caractere. Escolha outro estilo, como o negrito sem serifa ou o versalete, que costumam ser mais compatíveis.",
       },
     ],
-    related: ["nome-personalizado", "letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
+    related: ["letras-para-whatsapp", "nome-personalizado", "letras-bonitas", "letras-pequenas", "letras-cursivas", "letras-riscadas"],
     relatedPosts: ["frases-para-bio-do-instagram"],
   },
 
@@ -851,7 +851,7 @@ export const stylePages: StylePage[] = [
       {
         heading: "Alternativa nativa no WhatsApp",
         paragraphs: [
-          "No WhatsApp você também pode riscar texto sem o gerador: escreva a palavra entre tis, assim: ~texto~. A diferença é que essa formatação só funciona dentro do WhatsApp, enquanto o texto deste gerador mantém o risco quando é colado em outros apps.",
+          "No WhatsApp você também pode riscar texto sem o gerador: escreva a palavra entre tis, assim: ~texto~. A diferença é que essa formatação só funciona dentro do WhatsApp, enquanto o texto deste gerador mantém o risco quando é colado em outros apps. Veja todos os códigos de formatação em [letras para WhatsApp](/letras-para-whatsapp).",
         ],
       },
     ],
@@ -872,7 +872,7 @@ export const stylePages: StylePage[] = [
           "Não. O gerador pula os espaços de propósito, para que as palavras continuem separadas e a linha não fique solta entre elas.",
       },
     ],
-    related: ["letras-pequenas", "letras-para-instagram", "letras-bonitas"],
+    related: ["letras-para-whatsapp", "letras-pequenas", "letras-para-instagram", "letras-bonitas"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -971,11 +971,19 @@ export const nickPage: NavPage = {
   description: "Nicks com letras diferentes e símbolos para Free Fire, PUBG, Roblox e Instagram: masculino, feminino, clã e fofo.",
 };
 
+export const whatsappPage: NavPage = {
+  slug: "letras-para-whatsapp",
+  navLabel: "Letras para WhatsApp",
+  description: "Fontes diferentes e formatação do WhatsApp (negrito, itálico, tachado) para mensagens, nome, recado e status.",
+};
+
 /** Every style/guide page, in menu order. */
 export const navPages: NavPage[] = (() => {
   const pages = stylePages.map((p) => ({ slug: p.slug, navLabel: p.navLabel, description: p.metaDescription }));
   const afterGothic = pages.findIndex((p) => p.slug === "letras-goticas") + 1;
   pages.splice(afterGothic, 0, tattooPage);
+  const afterInstagram = pages.findIndex((p) => p.slug === "letras-para-instagram") + 1;
+  pages.splice(afterInstagram, 0, whatsappPage);
   const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;
   pages.splice(afterFreeFire, 0, nickPage, invisiblePage);
   return pages;
