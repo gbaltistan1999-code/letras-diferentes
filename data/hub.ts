@@ -53,6 +53,7 @@ export const hubGroups: HubGroup[] = [
       { slug: "nome-personalizado", example: "moldura-classica", sample: "Seu nome" },
       { slug: "gerador-de-nick", example: "japones", sample: "Nick" },
       { slug: "nomes-para-free-fire-feminino", example: "coracoes", sample: "Luna" },
+      { slug: "nomes-para-free-fire-masculino", example: "gotica-negrito", sample: "Lobo" },
       { slug: "nome-invisivel", example: "espacado", sample: "invisível" },
     ],
   },

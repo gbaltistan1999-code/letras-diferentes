@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LinkGrid } from "@/components/ContentBlocks";
-import { CopyButton } from "@/components/CopyButton";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { NickCard as Nick } from "@/components/NickCard";
 import { NickGenerator } from "@/components/NickGenerator";
 import { femNickPage } from "@/data/style-pages";
 import { getStyle } from "@/lib/fonts";
-import { FF_LIMIT, nickLength } from "@/lib/nick";
 import { buildMetadata, webApplicationSchema } from "@/lib/seo";
 import type { FaqItem } from "@/types";
 
@@ -117,30 +116,6 @@ function H2({ id, children }: { id: string; children: React.ReactNode }) {
     <h2 id={id} className="scroll-mt-24 text-2xl font-semibold tracking-tight">
       {children}
     </h2>
-  );
-}
-
-/** One copyable nick with its length; warns above the Free Fire limit. */
-function Nick({ nick }: { nick: string }) {
-  const len = nickLength(nick);
-  const over = len > FF_LIMIT;
-  return (
-    <li className="flex items-center gap-3 overflow-hidden rounded-xl border border-line bg-surface px-4 py-2.5">
-      <div className="min-w-0 flex-1">
-        {/* ꧁ ꧂ are very tall in some fonts: those nicks get extra room. */}
-        <p
-          className={`font-[family-name:var(--font-symbols)] text-xl [overflow-wrap:anywhere] ${
-            /[꧁꧂]/u.test(nick) ? "pb-3 pt-2 leading-[2.6]" : "py-1 leading-[2]"
-          }`}
-        >
-          {nick}
-        </p>
-        <p className={`text-xs ${over ? "font-medium text-amber-700 dark:text-amber-400" : "text-ink-soft"}`}>
-          {len} caracteres{over ? ": pode passar do limite" : ""}
-        </p>
-      </div>
-      <CopyButton text={nick} label={`Copiar nick ${nick}`} />
-    </li>
   );
 }
 
@@ -265,6 +240,7 @@ export default function FemNickPage() {
         <LinkGrid
           heading="Veja também"
           links={[
+            { href: "/nomes-para-free-fire-masculino", label: "Nomes para Free Fire masculino", description: "Mais de 100 nicks masculinos." },
             { href: "/gerador-de-nick", label: "Gerador de nick", description: "Seu nome com símbolos em vários estilos." },
             { href: "/letras-para-free-fire", label: "Letras para Free Fire", description: "Letras diferentes e como trocar o nick." },
             { href: "/nome-invisivel", label: "Nome invisível", description: "Espaço invisível e nick em branco." },

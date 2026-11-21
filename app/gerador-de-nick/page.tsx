@@ -231,6 +231,15 @@ export default function NickGeneratorPage() {
                   <NickRow key={n} nick={n} />
                 ))}
               </ul>
+              {group.id === "nicks-masculinos" && (
+                <p className="mt-3 text-sm text-ink-soft">
+                  Quer mais? Veja os{" "}
+                  <Link href="/nomes-para-free-fire-masculino" className="text-accent underline underline-offset-2">
+                    nomes para Free Fire masculino
+                  </Link>
+                  , com mais de 100 ideias.
+                </p>
+              )}
               {group.id === "nicks-femininos" && (
                 <p className="mt-3 text-sm text-ink-soft">
                   Quer mais? Veja os{" "}

@@ -46,6 +46,8 @@ Estilos de traço forte, como a [letra gótica em negrito](/letras-goticas), pas
 + ${t("estilo-oriental", "Ninja")}
 + ${t("monoespacada", "Hacker")}
 
+Quer mais opções? Veja mais de 100 [nomes para Free Fire masculino](/nomes-para-free-fire-masculino), separados por estilo: brabos, com símbolos, dark e em inglês.
+
 ## Nomes femininos para Free Fire
 
 [Cursivas](/letras-cursivas), corações e [letras pequenas](/letras-pequenas) deixam o nick mais delicado, sem perder a personalidade.

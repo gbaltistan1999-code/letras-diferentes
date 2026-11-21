@@ -31,7 +31,8 @@ export function NickGenerator({
   /** Name used for the previews while the field is empty. */
   sample?: string;
 } = {}) {
-  const shownCategories = categories ? NICK_CATEGORIES.filter((c) => categories.includes(c.id)) : NICK_CATEGORIES;
+  // Chips follow the order given in `categories`.
+  const shownCategories = categories ? categories.map((id) => NICK_CATEGORIES.find((c) => c.id === id)!) : NICK_CATEGORIES;
   const [name, setName] = useState("");
   const [category, setCategory] = useState<NickCategoryId>(categories?.[0] ?? "freefire");
   const [separator, setSeparator] = useState<NickSeparator>("invisivel");
