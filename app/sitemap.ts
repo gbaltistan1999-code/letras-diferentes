@@ -8,6 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: { path: string; priority: number; lastModified?: string }[] = [
     { path: "/", priority: 1 },
+    { path: "/estilos-de-letras", priority: 0.8 },
     ...navPages.map((p) => ({ path: `/${p.slug}`, priority: 0.8 })),
     { path: "/blog", priority: 0.6, lastModified: blogPosts[0]?.dateModified ?? blogPosts[0]?.datePublished },
     ...blogPosts.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.6, lastModified: p.dateModified ?? p.datePublished })),

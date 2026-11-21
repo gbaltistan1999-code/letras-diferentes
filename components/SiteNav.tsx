@@ -84,6 +84,16 @@ export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styl
                   </Link>
                 </li>
               ))}
+              <li className="mt-1 border-t border-line pt-1">
+                <Link
+                  href="/estilos-de-letras"
+                  onClick={close}
+                  aria-current={isActive("/estilos-de-letras") ? "page" : undefined}
+                  className="block rounded-lg px-3 py-2 text-sm font-semibold text-accent hover:bg-warm"
+                >
+                  Ver todos os estilos
+                </Link>
+              </li>
             </ul>
           )}
         </li>
@@ -126,7 +136,12 @@ export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styl
               </li>
             ))}
           </ul>
-          <p className="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-ink-soft">Estilos de letras</p>
+          <div className="mt-4 flex items-center justify-between px-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Estilos de letras</p>
+            <Link href="/estilos-de-letras" onClick={close} className="text-sm font-semibold text-accent">
+              Ver todos
+            </Link>
+          </div>
           <ul className="mt-1 grid grid-cols-2 gap-1">
             {styleLinks.map((l) => (
               <li key={l.href}>

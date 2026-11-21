@@ -17,7 +17,11 @@ export function Footer() {
           </p>
         </div>
         <nav aria-label="Estilos de letras">
-          <p className="text-sm font-semibold">Estilos de letras</p>
+          <p className="text-sm font-semibold">
+            <Link href="/estilos-de-letras" className="underline-offset-4 hover:underline">
+              Estilos de letras
+            </Link>
+          </p>
           <ul className="mt-3 space-y-2 text-sm">
             {navPages.map((p) => (
               <li key={p.slug}>
