@@ -232,3 +232,21 @@ describe("helpers", () => {
     expect(bases("ação")).toBe("acao");
   });
 });
+
+describe("styles added in November 2026", () => {
+  const S = "Letras Diferentes";
+  const p = (id: string) => getStyle(id).transform(S, { accents: "plain" });
+  it("matches the requested examples", () => {
+    expect(p("russo-falso")).toBe("Lётгаѕ Dїfёгёитёѕ");
+    expect(p("grego-falso")).toBe("ᄂΣƬЯΛƧ DIFΣЯΣПƬΣƧ");
+    expect(p("riscado-x")).toBe([..."Letras"].map((c) => c + "̽").join("") + " " + [..."Diferentes"].map((c) => c + "̽").join(""));
+    expect(p("pontos-em-cima").normalize("NFC")).toBe("L̈ëẗr̈äs̈ D̈ïf̈ër̈ën̈ẗës̈".normalize("NFC"));
+    expect(p("espacado-aesthetic")).toBe("Ｌ ｅ ｔ ｒ ａ ｓ   Ｄ ｉ ｆ ｅ ｒ ｅ ｎ ｔ ｅ ｓ");
+    expect(p("moldura-gamer")).toBe("ᴳᵒᵈ乂ʟᴇᴛʀᴀꜱ ᴅɪꜰᴇʀᴇɴᴛᴇꜱ乂");
+  });
+  it("keeps blank input blank", () => {
+    for (const id of ["russo-falso", "grego-falso", "riscado-x", "pontos-em-cima", "espacado-aesthetic", "moldura-gamer"]) {
+      expect(getStyle(id).transform("   ").trim()).toBe("");
+    }
+  });
+});

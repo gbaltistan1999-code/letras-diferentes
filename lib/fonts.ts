@@ -204,6 +204,13 @@ export const MAPS = {
     LOWER + UPPER,
     "ΛßƇĐΣƑƓĦƗĴҠŁMŇØƤQЯŞƬƱVŴЖҰƵ".repeat(2),
   ),
+  /** Cyrillic look-alikes ("Lётгаѕ"). */
+  russian: pairMap(
+    UPPER + LOWER,
+    "ДБCDЁFGНIJКLМИФPQЯЅТЦVЩЖЧZ" + "авсdёfgнїjкlмиорqгѕтцvшхчz",
+  ),
+  /** Greek and other look-alikes, all capitals ("ᄂΣƬЯΛƧ"). */
+  fakeGreek: pairMap(UPPER + LOWER, "ΛBᄃDΣFGΉIJKᄂMПӨPQЯƧƬЦVЩXYZ".repeat(2)),
 } satisfies Record<string, CharMap>;
 
 /* -------------------------------------------------------------------------- */
@@ -227,6 +234,14 @@ const spaced = (text: string) =>
   toClusters(text)
     .map((c) => c.normalize("NFC"))
     .join(" ");
+
+/** Full-width letters with a space between each one; words stay apart. */
+const spacedWide: Transform = (text, options) =>
+  text
+    .trim()
+    .split(/\s+/)
+    .map((word) => mapClusters(word, MAPS.fullwidth, options).join(" "))
+    .join("   ");
 
 /** Reverse the order of characters, keeping accents attached ("abc" → "cba"). */
 const reversed = (text: string) =>
@@ -377,7 +392,10 @@ export const STYLES: TextStyle[] = [
   s("sobrelinhado", "Linha em cima", "riscadas", withMark("̅")),
   s("ondulado", "Ondulado embaixo", "riscadas", withMark("̰")),
   s("pontos-embaixo", "Pontinhos embaixo", "riscadas", withMark("̤")),
+  s("pontos-em-cima", "Pontinhos em cima", "riscadas", withMark("̈")),
   s("costurado", "Costurado (xis em cima e embaixo)", "riscadas", withMark("͓̽")),
+
+  s("riscado-x", "Riscado com X em cima", "riscadas", withMark("̽")),
 
   // Decorativas
   s("moldura-classica", "Moldura clássica ꧁ ꧂", "decorativas", wrap("꧁༺ ", " ༻꧂", applyMap(MAPS.boldScript))),
@@ -408,6 +426,9 @@ export const STYLES: TextStyle[] = [
   s("moldura-aspas", "Moldura ~\"*°•", "decorativas", wrap("~\"*°•.~\"*°• ", " •°*\"~.•°*\"~")),
   s("moldura-flechas", "Flechas »------•", "decorativas", wrap("]|I{•------» ", " «------•}I|[")),
   s("coroa", "Coroa ♛", "decorativas", wrap("♛ ", " ♛", applyMap(MAPS.boldFraktur))),
+  s("russo-falso", "Russo falso", "decorativas", applyMap(MAPS.russian)),
+  s("grego-falso", "Grego falso", "decorativas", applyMap(MAPS.fakeGreek)),
+  s("moldura-gamer", "Moldura gamer ᴳᵒᵈ乂", "decorativas", wrap("ᴳᵒᵈ乂", "乂", applyMap(MAPS.smallCaps))),
   s("largura-total-colchetes", "Largura total em 【 】", "decorativas", wrap("【", "】", applyMap(MAPS.fullwidth))),
 
   // Glitch e efeitos
@@ -423,6 +444,7 @@ export const STYLES: TextStyle[] = [
   s("largura-total", "Largura total", "especiais", applyMap(MAPS.fullwidth)),
   s("de-cabeca-para-baixo", "De cabeça para baixo", "especiais", upsideDown),
   s("espacado", "Espaçado", "especiais", spaced),
+  s("espacado-aesthetic", "Espaçada aesthetic", "especiais", spacedWide),
   s("letras-emoji", "Letras em emoji 🇦 🇧 🇨", "especiais", emojiLetters),
 ];
 
