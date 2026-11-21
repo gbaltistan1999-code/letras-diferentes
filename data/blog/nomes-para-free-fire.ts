@@ -59,6 +59,8 @@ Estilos de traço forte, como a [letra gótica em negrito](/letras-goticas), pas
 + ${t("bolhas", "Fofa")}
 + ${t("coracoes-entre-letras", "Mel")}
 
+Quer mais opções? Veja mais de 100 [nomes para Free Fire feminino](/nomes-para-free-fire-feminino), separados por estilo: fofos, aesthetic, poderosos e para dupla.
+
 ## Nicks curtos
 
 Nomes curtos cabem no limite do jogo com folga e são fáceis de lembrar.

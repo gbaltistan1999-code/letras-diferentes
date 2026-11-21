@@ -21,6 +21,7 @@ const linkDescriptions: Record<string, string> = {
   "letras-bonitas": "Combinações com molduras, corações e estrelas.",
   "nome-personalizado": "Seu nome em dezenas de estilos, com mais de 60 ideias.",
   "gerador-de-nick": "Nicks com símbolos: Free Fire, masculino, feminino e clã.",
+  "nomes-para-free-fire-feminino": "Mais de 100 nicks femininos prontos para copiar.",
   "nome-invisivel": "Espaço invisível para nick em branco e mensagem vazia.",
   "fontes-de-letras-estilosas": "Os estilos mais estilosos primeiro, com exemplos para copiar.",
   "letras-goticas": "Fraktur clássica e em negrito.",

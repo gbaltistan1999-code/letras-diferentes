@@ -22,9 +22,18 @@ const chip = (active: boolean) =>
     active ? "border-accent bg-accent text-on-accent" : "border-line bg-surface hover:border-ink-soft/40"
   }`;
 
-export function NickGenerator() {
+export function NickGenerator({
+  categories,
+  sample = SAMPLE,
+}: {
+  /** Limit the category chips (the first one is selected). Default: all. */
+  categories?: NickCategoryId[];
+  /** Name used for the previews while the field is empty. */
+  sample?: string;
+} = {}) {
+  const shownCategories = categories ? NICK_CATEGORIES.filter((c) => categories.includes(c.id)) : NICK_CATEGORIES;
   const [name, setName] = useState("");
-  const [category, setCategory] = useState<NickCategoryId>("freefire");
+  const [category, setCategory] = useState<NickCategoryId>(categories?.[0] ?? "freefire");
   const [separator, setSeparator] = useState<NickSeparator>("invisivel");
   const [tag, setTag] = useState("");
   const [letterCase, setLetterCase] = useState<NickCase>("original");
@@ -33,7 +42,7 @@ export function NickGenerator() {
   const tagId = useId();
   const sepId = useId();
 
-  const source = name.trim() || SAMPLE;
+  const source = name.trim() || sample;
   const nicks = useMemo(
     () => generateNicks(source, category, seed, { separator, tag, letterCase }),
     [source, category, seed, separator, tag, letterCase],
@@ -51,7 +60,7 @@ export function NickGenerator() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             maxLength={20}
-            placeholder={SAMPLE}
+            placeholder={sample}
             autoComplete="off"
             autoCorrect="off"
             spellCheck={false}
@@ -70,7 +79,7 @@ export function NickGenerator() {
         <fieldset className="mt-4">
           <legend className="mb-2 text-sm font-semibold">Categoria</legend>
           <div className="flex flex-wrap gap-2">
-            {NICK_CATEGORIES.map((c) => (
+            {shownCategories.map((c) => (
               <button
                 key={c.id}
                 type="button"

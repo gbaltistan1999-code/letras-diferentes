@@ -1035,6 +1035,12 @@ export const nickPage: NavPage = {
   description: "Nicks com letras diferentes e símbolos para Free Fire, PUBG, Roblox e Instagram: masculino, feminino, clã e fofo.",
 };
 
+export const femNickPage: NavPage = {
+  slug: "nomes-para-free-fire-feminino",
+  navLabel: "Nomes para Free Fire feminino",
+  description: "Mais de 100 nicks femininos para Free Fire: fofos, com símbolos, aesthetic, curtos e poderosos, com gerador.",
+};
+
 export const whatsappPage: NavPage = {
   slug: "letras-para-whatsapp",
   navLabel: "Letras para WhatsApp",
@@ -1055,7 +1061,7 @@ export const navPages: NavPage[] = (() => {
   const afterInstagram = pages.findIndex((p) => p.slug === "letras-para-instagram") + 1;
   pages.splice(afterInstagram, 0, whatsappPage, tiktokPage);
   const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;
-  pages.splice(afterFreeFire, 0, nickPage, invisiblePage);
+  pages.splice(afterFreeFire, 0, nickPage, femNickPage, invisiblePage);
   return pages;
 })();
 
