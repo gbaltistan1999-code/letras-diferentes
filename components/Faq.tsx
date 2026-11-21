@@ -24,7 +24,8 @@ export function Faq({
         {items.map((item) => (
           <details key={item.question} className="group px-5 py-4">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium [&::-webkit-details-marker]:hidden">
-              {item.question}
+              {/* A real heading, so the outline and search engines see each question. */}
+              <h3 className="text-base font-medium">{item.question}</h3>
               <ChevronDown size={18} aria-hidden className="shrink-0 text-ink-soft transition-transform group-open:rotate-180" />
             </summary>
             <p className="mt-3 leading-relaxed text-ink-soft">{item.answer}</p>
