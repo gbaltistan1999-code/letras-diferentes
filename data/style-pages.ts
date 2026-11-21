@@ -642,18 +642,24 @@ export const stylePages: StylePage[] = [
   {
     slug: "letras-para-instagram",
     navLabel: "Letras para Instagram",
-    metaTitle: "Letras para Instagram: Bio, Nome e Legendas",
+    metaTitle: "Letras para Instagram: +70 Fontes para Copiar e Colar (Bio e Nome)",
+    absoluteTitle: true,
     metaDescription:
-      "Letras diferentes para Instagram: copie e cole na bio, no nome e nas legendas. Veja onde funcionam, o passo a passo e os limites do app.",
-    h1: "Letras para Instagram: bio, nome e legendas",
+      "Letras para Instagram para copiar e colar na bio, no nome e nas legendas. Mais de 70 fontes diferentes, grátis e sem baixar nada.",
+    h1: "Letras para Instagram – Fontes para Bio, Nome e Legendas",
     intro:
-      "Gere letras diferentes para deixar sua bio, seu nome de perfil e suas legendas com mais personalidade. Abaixo você também encontra o passo a passo para colar no Instagram e o que o app aceita ou não.",
+      "Gere letras diferentes para deixar sua bio, seu nome de perfil e suas legendas com mais personalidade. Os 12 estilos que ficam mais bonitos no Instagram aparecem primeiro, e logo abaixo estão todos os outros. Mais para baixo, você encontra ideias de bio, o passo a passo para colar e o que o app aceita ou não.",
     generator: {
-      styleIds: [
-        "negrito-sem-serifa", "cursiva-negrito", "cursiva", "versalete", "italico-sem-serifa",
-        "contorno", "estrelas", "coracoes", "japones", "riscado", "monoespacada", "bolhas",
-      ],
+      // The 12 that look best on Instagram first, then every other style.
+      styleIds: (() => {
+        const featured = [
+          "cursiva-negrito", "negrito-sem-serifa", "cursiva", "versalete", "italico-sem-serifa", "gotica-negrito",
+          "contorno", "largura-total", "bolhas", "coracoes", "estrelas", "japones",
+        ];
+        return [...featured, ...STYLES.map((s) => s.id).filter((id) => !featured.includes(id))];
+      })(),
       sampleText: "Minha bio no Instagram",
+      showFilter: true,
     },
     examples: [
       { styleId: "negrito-sem-serifa", text: "Fotógrafa | Rio de Janeiro" },
@@ -663,13 +669,47 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
-        heading: "Onde as letras diferentes funcionam no Instagram?",
-        list: [
-          "Bio: aceita letras estilizadas e símbolos. É o lugar mais comum para usar.",
-          "Nome (o nome exibido acima da bio): costuma aceitar letras estilizadas.",
-          "Legendas, comentários, Direct e stories: aceitam normalmente.",
-          "Nome de usuário (@): não aceita. O Instagram permite apenas letras comuns, números, ponto e sublinhado.",
+        heading: "Letras para bio do Instagram",
+        paragraphs: [
+          "A bio é o primeiro lugar que as pessoas veem quando entram no seu perfil. Usar letras diferentes ajuda a destacar seu nome, sua profissão ou uma frase curta. O ideal é estilizar só uma parte da bio, como o título ou uma palavra-chave, e deixar o resto em letra normal para facilitar a leitura. Lembre-se de que a bio aceita até 150 caracteres, e algumas letras especiais contam como mais de um caractere.",
         ],
+      },
+      {
+        heading: "Letras para nome do Instagram",
+        paragraphs: [
+          "O campo “Nome” aparece em negrito no topo do perfil e também nas buscas. Você pode usar letras diferentes nele sem problema. O @ (nome de usuário), porém, só aceita letras normais, números, ponto e underline. Uma dica: mantenha seu nome real legível, porque é por ele que as pessoas pesquisam você.",
+        ],
+      },
+      {
+        heading: "Letras para legendas e comentários",
+        paragraphs: [
+          "As letras diferentes também funcionam em legendas, comentários e Stories. Use em títulos de posts, listas ou para destacar uma frase importante. Evite escrever a legenda inteira estilizada, porque fica difícil de ler, principalmente para quem usa leitor de tela.",
+        ],
+      },
+      {
+        heading: "Melhores fontes para Instagram",
+        paragraphs: ["Estas são as fontes que mais aparecem em perfis bonitos:"],
+        copy: [
+          { text: t("cursiva-negrito", "Letras"), label: "Cursiva: elegante, ótima para perfis de moda e beleza" },
+          { text: t("negrito-sem-serifa", "Letras"), label: "Negrito: boa para destacar títulos na bio" },
+          { text: t("versalete", "Letras"), label: "Versalete: minimalista e discreta" },
+          { text: t("gotica-negrito", "Letras"), label: "Gótica: estilo dark e tatuagem" },
+          { text: t("largura-total", "Letras"), label: "Aesthetic: visual vaporwave" },
+          { text: t("bolhas", "Letras"), label: "Bolhas: divertida e fofa" },
+        ],
+      },
+      {
+        heading: "Ideias de bio com letras diferentes",
+        paragraphs: ["Toque em Copiar e cole na sua bio. Para trocar as palavras, escreva a sua frase no gerador acima."],
+        copy: [
+          { text: `✨ ${t("cursiva-negrito", "Criando momentos")} ✨` },
+          { text: `${t("negrito-sem-serifa", "Fotografia | SP")} 📍` },
+          { text: `${t("versalete", "Boas-vindas ao meu mundo")} ♡` },
+          { text: `☾ ${t("gotica-negrito", "Dark soul")} ☽` },
+          { text: `⋆˚✿ ${t("versalete", "Felicidade em pequenas coisas")} ✿˚⋆` },
+          { text: `${t("cursiva", "Seja luz")} 💫` },
+        ],
+        outro: ["Quer mais ideias? Veja as [40 frases para bio do Instagram](/blog/frases-para-bio-do-instagram)."],
       },
       {
         heading: "Como colocar letras diferentes na bio do Instagram?",
@@ -687,25 +727,49 @@ export const stylePages: StylePage[] = [
       {
         heading: "Limite de caracteres e outros cuidados",
         paragraphs: [
-          "A bio do Instagram tem limite de 150 caracteres. Alguns símbolos estilizados podem ocupar mais espaço do que uma letra comum na contagem, então uma frase que cabia em texto normal pode ficar grande demais depois de estilizada.",
+          "Alguns símbolos estilizados ocupam mais espaço do que uma letra comum na contagem, então uma frase que cabia em texto normal pode passar dos 150 caracteres da bio depois de estilizada.",
           "Letras estilizadas não são reconhecidas pela busca como palavras normais. Se você quer ser encontrado pelo nome ou pela profissão, mantenha essas palavras também em texto comum.",
           "Leitores de tela podem ler letras estilizadas de forma confusa. Use os estilos como enfeite, não para a informação principal.",
         ],
       },
       {
-        heading: "Combinações que costumam ficar boas",
-        list: [
-          "Nome em cursiva negrito e o restante da bio em texto normal.",
-          "Títulos curtos em versalete, como “ᴄᴏɴᴛᴀᴛᴏ” ou “ʟɪɴᴋ ɴᴀ ʙɪᴏ”.",
-          "Um símbolo simples (★, ♡, ➳) no início de cada linha para organizar a bio.",
+        heading: "Funciona no Android e no iPhone?",
+        paragraphs: [
+          "Sim. As letras diferentes são caracteres Unicode, e não fontes instaladas, então aparecem tanto no Android quanto no iPhone. Em celulares muito antigos, alguns estilos podem aparecer como quadradinhos. Se isso acontecer, escolha um estilo mais simples, como negrito ou cursiva. Entenda melhor em [por que as letras diferentes viram quadradinhos](/blog/letras-diferentes-quadradinhos-unicode).",
         ],
       },
     ],
     faqs: [
       {
+        question: "Como colocar letras diferentes no Instagram?",
+        answer:
+          "Digite seu texto no gerador acima, toque em “Copiar” no estilo que quiser e cole na bio, no nome ou na legenda.",
+      },
+      {
         question: "Por que não consigo colocar letras diferentes no meu @?",
         answer:
           "O nome de usuário do Instagram aceita apenas letras comuns, números, ponto e sublinhado. As letras estilizadas são outros caracteres Unicode, por isso são recusadas nesse campo. Use-as no nome exibido e na bio.",
+      },
+      {
+        question: "Qual a melhor fonte para bio do Instagram?",
+        answer: "Cursiva e negrito são as mais usadas, porque ficam bonitas e continuam fáceis de ler.",
+      },
+      {
+        question: "Letras diferentes funcionam no Instagram pelo computador?",
+        answer: "Sim. Copie e cole normalmente no Instagram pelo navegador.",
+      },
+      {
+        question: "Posso usar letras diferentes nos Stories?",
+        answer: "Sim. Cole o texto na ferramenta de texto dos Stories.",
+      },
+      {
+        question: "Preciso baixar algum aplicativo?",
+        answer: "Não. Tudo funciona no navegador, de graça.",
+      },
+      {
+        question: "As letras diferentes atrapalham a busca do meu perfil?",
+        answer:
+          "O Instagram pode não reconhecer letras estilizadas na busca. Por isso, deixe seu nome principal em letra normal.",
       },
       {
         question: "As letras diferentes podem prejudicar meu perfil?",
