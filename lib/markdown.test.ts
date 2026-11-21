@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseInline, parseMarkdown, readingMinutes, slugify } from "@/lib/markdown";
+import { faqFromBlocks, parseInline, parseMarkdown, readingMinutes, slugify } from "@/lib/markdown";
 
 describe("markdown subset", () => {
   it("parses headings with ids", () => {
@@ -24,6 +24,27 @@ describe("markdown subset", () => {
       { type: "link", text: "o gerador", href: "/" },
       { type: "text", text: " <b>x</b>" },
     ]);
+  });
+
+  it("parses tables with a header row", () => {
+    const [table] = parseMarkdown("| Estilo | Como digitar |\n|---|---|\n| Negrito | *texto* |\n| Itálico | **_x_** |");
+    expect(table).toEqual({
+      type: "table",
+      head: [[{ type: "text", text: "Estilo" }], [{ type: "text", text: "Como digitar" }]],
+      rows: [
+        [[{ type: "text", text: "Negrito" }], [{ type: "text", text: "*texto*" }]],
+        [[{ type: "text", text: "Itálico" }], [{ type: "bold", text: "_x_" }]],
+      ],
+    });
+    expect(parseMarkdown("| só uma linha |")[0].type).toBe("p");
+  });
+
+  it("extracts FAQ pairs from the Perguntas frequentes section only", () => {
+    const blocks = parseMarkdown(
+      "### Fora\n\nnão\n\n## Perguntas frequentes\n\n### Funciona?\n\nSim, veja o [gerador](/).\n\nMais texto.\n\n### Sem resposta?\n\n## Conclusão\n\nfim",
+    );
+    expect(faqFromBlocks(blocks)).toEqual([{ question: "Funciona?", answer: "Sim, veja o gerador. Mais texto." }]);
+    expect(faqFromBlocks(parseMarkdown("## Outra\n\n### A\n\nb"))).toEqual([]);
   });
 
   it("estimates reading time", () => {

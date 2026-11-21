@@ -144,7 +144,7 @@ Quer que seu status se destaque no meio dos outros? Copie uma destas frases em l
 
 ${styled.map((s) => `+ ${s}`).join("\n")}
 
-Quer escrever a sua própria frase assim? Use o nosso [conversor de letras para WhatsApp](/letras-para-whatsapp): digite o texto, escolha o estilo e copie. Lá você também encontra os códigos de negrito, itálico e tachado do próprio WhatsApp.
+Quer escrever a sua própria frase assim? Use o nosso [conversor de letras para WhatsApp](/letras-para-whatsapp): digite o texto, escolha o estilo e copie. Lá você também encontra os códigos de negrito, itálico e tachado do próprio WhatsApp. Para ver todas as opções, leia o guia de [como mudar a fonte do WhatsApp](/blog/como-mudar-a-fonte-do-whatsapp).
 
 ## Como colocar uma frase no status do WhatsApp
 

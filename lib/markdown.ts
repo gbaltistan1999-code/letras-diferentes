@@ -7,6 +7,7 @@
  *   + copyable item         (each line gets a "Copiar" button)
  *   > tip / callout
  *   ![alt text](/blog/image.webp "caption")   16:9 image (1200×675), caption optional
+ *   | A | B |               table: first row is the header, then a |---|---| row
  *   anything else           paragraph (lines joined with a space)
  *
  * Inline: **bold** and [link text](/url).
@@ -25,7 +26,8 @@ export type Block =
   | { type: "ol"; items: Inline[][] }
   | { type: "copy"; items: string[] }
   | { type: "tip"; content: Inline[] }
-  | { type: "img"; src: string; alt: string; caption?: string };
+  | { type: "img"; src: string; alt: string; caption?: string }
+  | { type: "table"; head: Inline[][]; rows: Inline[][][] };
 
 /** URL-safe id from a heading: "Por que o Unicode?" → "por-que-o-unicode". */
 export function slugify(text: string): string {
@@ -66,7 +68,10 @@ export function parseMarkdown(source: string): Block[] {
     // Only site-relative images (starting with "/"), alone in their block.
     const img = lines.length === 1 ? chunk.match(/^!\[(.+?)\]\((\/[^\s)]+)(?:\s+"(.+?)")?\)$/) : null;
 
-    if (img) {
+    if (lines.length >= 3 && all(/^\|.*\|$/) && /^\|[\s:|-]+\|$/.test(lines[1])) {
+      const cells = (l: string) => l.slice(1, -1).split("|").map((c) => parseInline(c.trim()));
+      blocks.push({ type: "table", head: cells(lines[0]), rows: lines.slice(2).map(cells) });
+    } else if (img) {
       blocks.push({ type: "img", alt: img[1], src: img[2], ...(img[3] ? { caption: img[3] } : {}) });
     } else if (chunk.startsWith("## ")) {
       const text = chunk.slice(3).trim();
@@ -86,6 +91,27 @@ export function parseMarkdown(source: string): Block[] {
     }
   }
   return blocks;
+}
+
+const plain = (content: Inline[]) => content.map((part) => part.text).join("");
+
+/**
+ * Question/answer pairs from a "## Perguntas frequentes" section: each "###" is a
+ * question and the paragraphs under it are the answer. Used for FAQPage data.
+ */
+export function faqFromBlocks(blocks: Block[]): { question: string; answer: string }[] {
+  const start = blocks.findIndex((b) => b.type === "h2" && b.id === "perguntas-frequentes");
+  if (start === -1) return [];
+  const faqs: { question: string; answer: string }[] = [];
+  for (const block of blocks.slice(start + 1)) {
+    if (block.type === "h2") break;
+    if (block.type === "h3") faqs.push({ question: block.text, answer: "" });
+    else if (faqs.length && (block.type === "p" || block.type === "tip")) {
+      const last = faqs[faqs.length - 1];
+      last.answer = (last.answer + " " + plain(block.content)).trim();
+    }
+  }
+  return faqs.filter((f) => f.answer);
 }
 
 /** Rough reading time in minutes (200 words per minute, minimum 1). */

@@ -173,6 +173,10 @@ export default function WhatsAppLettersPage() {
                 fotos), não no nome nem no recado.
               </li>
             </ul>
+            <p>
+              Quer o passo a passo com o menu de formatação no Android e no iPhone e como aumentar o tamanho da letra? Leia o
+              guia <Link href="/blog/como-mudar-a-fonte-do-whatsapp">como mudar a fonte do WhatsApp</Link>.
+            </p>
           </div>
           <Figure
             src="/images/letras-para-whatsapp.webp"

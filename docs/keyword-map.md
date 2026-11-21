@@ -24,7 +24,8 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 | `/letras-goticas` | letras góticas | letra medieval, fraktur, letra gótica para tatuagem | Fraktur styles |
 | `/letras-pequenas` | letras pequenas | letras pequenas para nick, versalete, letras sobrescritas | Small caps / superscript / subscript |
 | `/letras-para-instagram` | letras para Instagram | fontes para Instagram, letras para bio do Instagram, letras para nome do Instagram, como colocar letras diferentes no Instagram | Platform how-to + rules |
-| `/letras-para-whatsapp` | letras para WhatsApp | fontes para WhatsApp, como mudar a letra do WhatsApp, negrito no WhatsApp, letras diferentes WhatsApp, formatação WhatsApp | Two-tab converter: Unicode styles + native WhatsApp codes (*negrito*, _itálico_, ~tachado~, lists, quote) |
+| `/letras-para-whatsapp` | letras para WhatsApp | fontes para WhatsApp, negrito no WhatsApp, letras diferentes WhatsApp, formatação WhatsApp | Two-tab converter: Unicode styles + native WhatsApp codes (*negrito*, _itálico_, ~tachado~, lists, quote) |
+| `/blog/como-mudar-a-fonte-do-whatsapp` | como mudar a fonte do WhatsApp | como mudar a letra do WhatsApp, tamanho da fonte do WhatsApp, negrito itálico riscado WhatsApp (how-to) | Informational guide: native codes, lists/quote/code, format menu on Android/iPhone, Unicode letters, font size. Sends tool intent to `/letras-para-whatsapp` |
 | `/letras-para-tiktok` | letras para TikTok | fontes para TikTok, letras diferentes TikTok, nome para TikTok, bio para TikTok, letras aesthetic TikTok | Converter with field limits (nome 30, bio 80, comentário 150, legenda 2.200), aesthetic presets and @ suggestions |
 | `/letras-para-free-fire` | letras para Free Fire | nick para Free Fire, letras diferentes para nick, como mudar o nick no Free Fire | Game nick how-to + symbols |
 | `/gerador-de-nick` | gerador de nick | gerador de nick ff, nick com símbolos, nick para clã | Nick generator by category (FF, masc, fem, clã, fofo) with clan tag + invisible separator. "nick para free fire" stays primary on /letras-para-free-fire |
@@ -69,4 +70,5 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 - Por que aparecem quadradinhos → home FAQ + `/perguntas-frequentes`
 - As letras funcionam com acento? → home FAQ
 - Como riscar texto no WhatsApp → `/letras-riscadas` (the native ~tachado~ code is also in `/letras-para-whatsapp`)
-- Como mudar a letra do WhatsApp / negrito no WhatsApp → `/letras-para-whatsapp`
+- Como mudar a fonte/letra do WhatsApp (how-to) → `/blog/como-mudar-a-fonte-do-whatsapp`
+- Negrito no WhatsApp / converter text → `/letras-para-whatsapp`

@@ -141,7 +141,7 @@ Quer que o grupo se destaque na lista de conversas? Use letras estilosas e símb
 + ⋆˙⟡ 𝒫𝓇𝒾𝓂ℴ𝓈 ⟡˙⋆
 + ☁︎ 𝔾𝕒𝕝𝕖𝕣𝕒 ☁︎
 
-Para criar com outro nome, use o [gerador de letras diferentes](/) ou veja estilos específicos como [letras cursivas](/letras-cursivas), [letras góticas](/letras-goticas) e [letras bonitas](/letras-bonitas). Para enfeitar ainda mais, pegue um dos nossos [símbolos para copiar](/simbolos).
+Para criar com outro nome, use o [gerador de letras diferentes](/) ou veja estilos específicos como [letras cursivas](/letras-cursivas), [letras góticas](/letras-goticas) e [letras bonitas](/letras-bonitas). Para enfeitar ainda mais, pegue um dos nossos [símbolos para copiar](/simbolos). E se quiser usar negrito, itálico ou riscado nas mensagens do grupo, veja [como mudar a fonte do WhatsApp](/blog/como-mudar-a-fonte-do-whatsapp).
 
 ## Como mudar o nome do grupo no WhatsApp
 

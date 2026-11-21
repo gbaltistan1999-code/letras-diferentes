@@ -89,6 +89,33 @@ export function Markdown({ blocks }: { blocks: Block[] }) {
                 </span>
               </p>
             );
+          case "table":
+            return (
+              <div key={i} className="my-5 overflow-x-auto rounded-xl border border-line">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-warm text-ink">
+                    <tr>
+                      {block.head.map((cell, j) => (
+                        <th key={j} scope="col" className="px-3 py-2.5 font-semibold sm:px-4">
+                          <InlineContent content={cell} />
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.map((row, j) => (
+                      <tr key={j} className="border-t border-line">
+                        {row.map((cell, k) => (
+                          <td key={k} className="px-3 py-2.5 text-ink-soft [overflow-wrap:break-word] sm:px-4">
+                            <InlineContent content={cell} />
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
           case "img":
             return (
               <figure key={i} className="my-6">

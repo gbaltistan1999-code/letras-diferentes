@@ -11,8 +11,8 @@ import { AuthorAvatar } from "@/components/AuthorAvatar";
 import { AuthorBox } from "@/components/AuthorBox";
 import { authorPath, getAuthor } from "@/data/authors";
 import { blogPosts, formatDate, getBlogPost } from "@/data/blog";
-import { parseMarkdown, readingMinutes } from "@/lib/markdown";
-import { blogPostingSchema, buildMetadata } from "@/lib/seo";
+import { faqFromBlocks, parseMarkdown, readingMinutes } from "@/lib/markdown";
+import { blogPostingSchema, buildMetadata, faqSchema } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -43,6 +43,7 @@ export default async function BlogPostPage({ params }: Props) {
   const path = `/blog/${post.slug}`;
   const author = getAuthor(post.author);
   const blocks = parseMarkdown(post.body);
+  const faqs = faqFromBlocks(blocks);
   const toc = blocks.flatMap((b) => (b.type === "h2" ? [b] : []));
   const others = blogPosts.filter((p) => p.slug !== post.slug);
 
@@ -140,6 +141,7 @@ export default async function BlogPostPage({ params }: Props) {
           image: post.cover.src,
         })}
       />
+      {faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
     </div>
   );
 }
