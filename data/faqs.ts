@@ -3,19 +3,14 @@ import type { FaqItem } from "@/types";
 /** FAQs shown on the homepage (focused on the main tool). */
 export const homeFaqs: FaqItem[] = [
   {
-    question: "O que são letras diferentes?",
+    question: "O que são letras diferentes? São fontes?",
     answer:
-      "Letras diferentes são caracteres especiais do padrão Unicode que imitam estilos como cursiva, negrito, gótica ou bolhas. Elas não são fontes: cada letra estilizada é um símbolo próprio, por isso essas diferentes letras mantêm o visual quando você copia e cola em outro app, desde que o aparelho consiga exibir os caracteres.",
+      "Letras diferentes são caracteres especiais do padrão Unicode que imitam estilos como cursiva, negrito, gótica ou bolhas. No dia a dia, “fonte” é o desenho das letras, como Arial ou Times, e só muda a aparência no seu aparelho. Já as letras diferentes não são arquivos de fonte: cada letra estilizada é um símbolo próprio. Por isso elas parecem fontes estilizadas e mantêm o visual quando você copia e cola em outro app, desde que o aparelho consiga exibir os caracteres.",
   },
   {
-    question: "O que é fonte de letras?",
+    question: "Como usar e copiar as letras diferentes?",
     answer:
-      "No dia a dia, “fonte” é o desenho das letras, como Arial ou Times. Neste site, os estilos não são arquivos de fonte: são letras diferentes feitas com caracteres Unicode, que parecem fontes estilizadas e podem ser copiadas e coladas em qualquer app.",
-  },
-  {
-    question: "Como copiar uma fonte de letras diferentes?",
-    answer:
-      "Digite seu texto no gerador, encontre o estilo que você gostou e toque em “Copiar”. O texto vai para a área de transferência do seu aparelho; depois é só pressionar o campo de texto no app desejado e escolher “Colar”.",
+      "Digite seu texto na caixa no topo da página. Os estilos aparecem na hora logo abaixo. Toque em “Copiar” no estilo que quiser: o texto vai para a área de transferência do seu aparelho. Depois, pressione o campo de texto no app de destino, como Instagram, WhatsApp ou o seu jogo, e escolha “Colar”.",
   },
   {
     question: "A fonte de letras funciona no Instagram e no WhatsApp?",
@@ -28,23 +23,9 @@ export const homeFaqs: FaqItem[] = [
       "Não. Como os estilos são caracteres Unicode, e não fontes, você não precisa instalar nada no celular nem no computador. Basta copiar e colar.",
   },
   {
-    question: "A fonte de letras é grátis?",
+    question: "O gerador de letras diferentes é grátis?",
     answer:
-      "Sim. Todos os estilos de letras diferentes são gratuitos, sem cadastro e sem limite de uso. A conversão acontece no seu navegador.",
-  },
-  {
-    question: "Como usar o gerador de letras diferentes?",
-    answer:
-      "Digite seu texto na caixa no topo da página. Os estilos aparecem na hora logo abaixo. Toque em “Copiar” no estilo que quiser e cole no app de destino, como Instagram, WhatsApp ou o seu jogo.",
-  },
-  {
-    question: "As letras diferentes são fontes?",
-    answer:
-      "Não. São caracteres Unicode que se parecem com letras estilizadas. Por isso dá para copiar e colar em outros apps sem instalar nada — e também por isso alguns aparelhos podem não exibir todos os estilos.",
-  },
-  {
-    question: "O gerador é gratuito?",
-    answer: "Sim. O gerador é gratuito, não exige cadastro e não tem limite de uso.",
+      "Sim. O gerador e todos os estilos de letras diferentes são gratuitos, sem cadastro e sem limite de uso. A conversão acontece no seu navegador.",
   },
   {
     question: "Meu texto fica salvo ou é enviado para algum lugar?",
