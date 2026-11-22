@@ -56,15 +56,24 @@ export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styl
             {home.label}
           </Link>
         </li>
-        <li ref={dropdownRef} className="relative">
+        <li ref={dropdownRef} className="relative flex items-center">
+          {/* The label is a real link to the hub; the arrow opens the dropdown. */}
+          <Link
+            href="/estilos-de-letras"
+            onClick={close}
+            aria-current={isActive("/estilos-de-letras") ? "page" : undefined}
+            className={`${linkClass("/estilos-de-letras")} !pr-1`}
+          >
+            Estilos de letras
+          </Link>
           <button
             type="button"
             aria-expanded={stylesOpen}
             aria-controls="menu-estilos"
+            aria-label={stylesOpen ? "Fechar lista de estilos" : "Abrir lista de estilos"}
             onClick={() => setStylesOpen((v) => !v)}
-            className="inline-flex items-center gap-1 rounded-md px-2.5 py-2 text-sm text-ink-soft hover:text-ink"
+            className="inline-flex h-8 w-7 items-center justify-center rounded-md text-ink-soft hover:bg-warm hover:text-ink"
           >
-            Estilos de letras
             <ChevronDown size={15} aria-hidden className={stylesOpen ? "rotate-180" : ""} />
           </button>
           {stylesOpen && (
