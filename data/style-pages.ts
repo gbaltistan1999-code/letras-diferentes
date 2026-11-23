@@ -850,14 +850,15 @@ export const stylePages: StylePage[] = [
   {
     slug: "letras-goticas",
     navLabel: "Letras góticas",
-    metaTitle: "Letras Góticas para Copiar e Colar (Fraktur)",
+    metaTitle: "Letras Góticas para Copiar e Colar (Fraktur e Old English)",
+    absoluteTitle: true,
     metaDescription:
-      "Gerador de letras góticas para copiar e colar, nas versões normal e em negrito. Ideal para nicks, tatuagens de referência e títulos. Grátis.",
+      "Gerador de letras góticas para copiar e colar: fraktur normal e em negrito, com 亗 e coroa. Para nick de Free Fire, Instagram, Discord e ideias de tatuagem.",
     h1: "Letras góticas para copiar e colar",
     intro:
-      "Transforme seu texto em letra gótica — também chamada de fraktur ou letra medieval — e copie com um toque. Há a versão tradicional e uma versão em negrito, mais marcante.",
+      "Transforme seu texto em letra gótica, também chamada de fraktur, letra medieval ou old english, e copie com um toque. Tem a versão tradicional, a versão em negrito (mais marcante) e combinações com 亗 e ♛, muito usadas em nicks de jogos.",
     generator: {
-      styleIds: ["gotica", "gotica-negrito", "simbolo-oriental", "contorno", "negrito"],
+      styleIds: ["gotica", "gotica-negrito", "simbolo-oriental", "coroa", "contorno", "negrito", "versalete"],
       sampleText: "Letras Góticas",
     },
     examples: [
@@ -875,16 +876,73 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "Gótica normal ou em negrito?",
+        heading: "Tipos de letra gótica",
         list: [
-          "Gótica: traço mais fino, parece mais clássica e fica bem em frases curtas.",
-          "Gótica em negrito: mais pesada e legível em tamanhos pequenos, boa para nicks e títulos.",
+          `**Gótica tradicional** (${t("gotica", "Gótica")}): traço mais fino, parece mais clássica e fica bem em frases curtas.`,
+          `**Gótica em negrito** (${t("gotica-negrito", "Gótica")}): mais pesada e legível em tamanhos pequenos, a preferida para nicks e títulos.`,
+          `**Gótica com 亗** (${t("simbolo-oriental", "Lenda")}): o visual mais usado em nicks de Free Fire.`,
+          `**Gótica com coroa** (${t("coroa", "Rei")}): para nomes imponentes, de “rei” ou “rainha” do jogo.`,
+        ],
+        outro: [
+          "Quer o alfabeto completo? Veja o [alfabeto gótico de A a Z](/alfabeto-de-letras-diferentes#alfabeto-gotico) e copie letra por letra.",
+        ],
+      },
+      {
+        heading: "Nomes e nicks em letra gótica",
+        paragraphs: ["Prontos para o jogo, o Discord ou o perfil:"],
+        copy: [
+          t("gotica-negrito", "Lobo"),
+          `☠ ${t("gotica-negrito", "Reaper")} ☠`,
+          `亗 ${t("gotica", "Dark")} 亗`,
+          t("coroa", "Kaiser"),
+          `⚔ ${t("gotica-negrito", "Fúria")} ⚔`,
+          t("gotica", "Sombra"),
+          `乂 ${t("gotica-negrito", "Venom")} 乂`,
+          `☾ ${t("gotica", "Lilith")}`,
+          t("gotica-negrito", "Phantom"),
+          `♱ ${t("gotica-negrito", "Noir")} ♱`,
+          t("simbolo-oriental", "Titan"),
+          `${t("gotica", "Corvo")} †`,
+        ].map((text) => ({ text })),
+        outro: [
+          "Mais ideias nos [nomes para Free Fire masculino](/nomes-para-free-fire-masculino), com uma seção só de nicks dark e góticos, e nos [nomes para Discord](/nomes-para-discord).",
+        ],
+      },
+      {
+        heading: "Frases em letra gótica",
+        copy: [
+          { text: t("gotica-negrito", "Lenda viva"), label: "Bio" },
+          { text: `🖤 ${t("gotica", "Dark side")}`, label: "Bio" },
+          { text: t("gotica-negrito", "Sem medo"), label: "Status" },
+          { text: `${t("gotica", "Família")} acima de tudo`, label: "Bio" },
+          { text: `⚔ ${t("gotica-negrito", "Nunca desista")} ⚔`, label: "Status" },
+          { text: t("gotica", "Rock and roll"), label: "Legenda" },
+          { text: `${t("gotica-negrito", "Fé")} ✝`, label: "Bio" },
+          { text: `☠ ${t("gotica", "Modo sombrio")} ☠`, label: "Nick" },
+        ],
+      },
+      {
+        heading: "Onde usar letras góticas",
+        list: [
+          "**Free Fire e outros jogos:** a gótica em negrito é a mais legível no nick. Cada letra pode contar como mais de um caractere, então prefira nomes curtos. Veja as [letras para Free Fire](/letras-para-free-fire).",
+          "**Discord:** no nome exibido e no apelido do servidor, perfeita para perfis dark.",
+          "**Instagram e TikTok:** no nome e na bio de perfis com estética dark, rock ou metal. Veja as [letras para Instagram](/letras-para-instagram).",
+          "**Títulos e capas:** em posts, capas de destaques e nomes de playlists.",
+          "**Ideias de tatuagem:** para visualizar uma frase, compare com fontes góticas de verdade em [letras para tatuagem](/letras-para-tatuagem).",
         ],
       },
       {
         heading: "Letras que costumam confundir",
         paragraphs: [
-          "Na fraktur, algumas maiúsculas são bem diferentes das letras atuais: o 𝔄 parece um “U”, o ℑ lembra um “J” e o ℭ, o ℌ, o ℜ e o ℨ vêm de um bloco Unicode mais antigo. Se a legibilidade for importante, use a gótica só em letras minúsculas ou em palavras curtas e conhecidas.",
+          `Na fraktur, algumas maiúsculas são bem diferentes das letras atuais. Veja as que mais confundem: ${t("gotica", "A")} (A), ${t("gotica", "I")} (I), ${t("gotica", "J")} (J), ${t("gotica", "R")} (R), ${t("gotica", "C")} (C), ${t("gotica", "H")} (H) e ${t("gotica", "Z")} (Z). O ℭ, o ℌ, o ℜ e o ℨ vêm de um bloco Unicode mais antigo, por isso às vezes aparecem com um desenho levemente diferente.`,
+          "Se a legibilidade for importante, use a gótica só em letras minúsculas ou em palavras curtas e conhecidas. A versão em negrito também ajuda.",
+        ],
+      },
+      {
+        heading: "Letra gótica, fraktur ou old english?",
+        paragraphs: [
+          "São nomes diferentes para a mesma família de letras. “Gótica” e “blackletter” são os nomes gerais. “Fraktur” é a variação alemã, que é a do Unicode. “Old English” é o nome de uma fonte famosa desse estilo, muito pedida em tatuagens e camisetas.",
+          "As letras deste gerador são fraktur, que é bem parecida com a Old English. Para uma tatuagem com a fonte Old English exata, peça a arte ao tatuador.",
         ],
       },
       {
@@ -896,9 +954,14 @@ export const stylePages: StylePage[] = [
     ],
     faqs: [
       {
+        question: "Como escrever em letra gótica no celular?",
+        answer:
+          "Digite seu texto nesta página, escolha a letra gótica que preferir e toque em Copiar. Depois cole no app, no jogo ou na rede social. Não precisa instalar nada.",
+      },
+      {
         question: "Letra gótica é a mesma coisa que letra medieval?",
         answer:
-          "No uso popular, sim. “Gótica”, “medieval”, “fraktur” e “blackletter” costumam se referir ao mesmo estilo de escrita com traços quebrados e angulosos.",
+          "No uso popular, sim. “Gótica”, “medieval”, “fraktur”, “blackletter” e “old english” costumam se referir ao mesmo estilo de escrita com traços quebrados e angulosos.",
       },
       {
         question: "Posso usar letras góticas no nick do jogo?",
@@ -906,12 +969,23 @@ export const stylePages: StylePage[] = [
           "Depende do jogo. Muitos aceitam símbolos Unicode no nome, mas alguns recusam certos caracteres ou contam cada símbolo como mais de um caractere. Teste no campo do jogo antes de confirmar uma troca paga.",
       },
       {
+        question: "As letras góticas funcionam no Instagram?",
+        answer:
+          "Sim. Funcionam no nome do perfil, na bio, nas legendas e nos comentários. Só o nome de usuário (o @) não aceita letras góticas.",
+      },
+      {
         question: "Por que as letras com acento não ficam góticas?",
         answer:
           "Não existem letras góticas acentuadas no Unicode. Por isso, por padrão, letras como “ã” e “é” ficam na forma normal, para aparecerem certas em qualquer aparelho. Se quiser, marque “Estilizar também as letras com acento”: a letra vira gótica e o acento é encaixado sobre ela, mas algumas fontes o posicionam fora do lugar.",
       },
+      {
+        question: "Qual a diferença entre a gótica normal e a em negrito?",
+        answer:
+          "A gótica normal tem traço fino e visual mais clássico. A em negrito é mais grossa e mais fácil de ler em tamanhos pequenos, como no nick de um jogo ou no nome do perfil.",
+      },
     ],
-    related: ["letras-para-tatuagem", "letras-para-free-fire", "letras-em-negrito", "simbolos", "letras-cursivas"],
+    related: ["letras-para-tatuagem", "letras-para-free-fire", "nomes-para-free-fire-masculino", "letras-em-negrito", "simbolos", "alfabeto-de-letras-diferentes", "letras-cursivas"],
+    relatedPosts: ["nomes-para-free-fire"],
   },
 
   /* ------------------------------------------------------------------ */
