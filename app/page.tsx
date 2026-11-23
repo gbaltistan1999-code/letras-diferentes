@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Examples, LinkGrid } from "@/components/ContentBlocks";
 import { Faq } from "@/components/Faq";
@@ -52,6 +53,22 @@ const fontTypes: { name: string; example: string; sample: string; text: string; 
 ];
 
 const platforms = ["Instagram", "TikTok", "WhatsApp", "Facebook", "X (Twitter)", "Free Fire", "Discord", "Telegram"];
+
+function HomeFigure({ src, alt, caption }: { src: string; alt: string; caption: string }) {
+  return (
+    <figure className="mt-6">
+      <Image
+        src={src}
+        alt={alt}
+        width={1200}
+        height={675}
+        sizes="(min-width: 768px) 720px, 100vw"
+        className="h-auto w-full rounded-2xl border border-line"
+      />
+      <figcaption className="mt-2 text-center text-sm text-ink-soft">{caption}</figcaption>
+    </figure>
+  );
+}
 
 function H2({ id, children }: { id: string; children: React.ReactNode }) {
   return (
@@ -111,6 +128,11 @@ export default function HomePage() {
               aplicativo e sem criar conta.
             </p>
           </div>
+          <HomeFigure
+            src="/images/letras-diferentes-estilos.webp"
+            alt="A frase Letras Diferentes escrita em seis estilos: cursiva em negrito, gótica, negrito, bolhas, contorno e com corações"
+            caption="O mesmo texto em seis estilos de letras diferentes. Todos copiam e colam como texto normal."
+          />
         </section>
 
         <section aria-labelledby="como-usar-fonte">
@@ -173,7 +195,12 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <div className="prose-content">
+          <HomeFigure
+            src="/images/onde-usar-letras-diferentes.webp"
+            alt="Exemplos de letras diferentes no nome e na bio de um perfil, em mensagens de um grupo e no nick de um jogo"
+            caption="As letras diferentes funcionam no perfil, nas conversas e no nick dos jogos."
+          />
+          <div className="prose-content mt-6">
             <p>
               <strong>Instagram:</strong> cole os estilos na bio e no nome do perfil para
               destacar sua apresentação. O nome de usuário (@) não aceita esses caracteres. Veja o
