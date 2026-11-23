@@ -10,8 +10,13 @@ interface NavLink {
   label: string;
 }
 
-/** Desktop links + "Estilos de letras" dropdown, and a compact mobile menu. */
-export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styleLinks: NavLink[] }) {
+interface NavGroup {
+  heading: string;
+  links: NavLink[];
+}
+
+/** Desktop links + "Estilos de letras" menu (grouped in columns), and a compact mobile menu. */
+export function SiteNav({ links, styleGroups }: { links: readonly NavLink[]; styleGroups: NavGroup[] }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [stylesOpen, setStylesOpen] = useState(false);
@@ -56,7 +61,7 @@ export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styl
             {home.label}
           </Link>
         </li>
-        <li ref={dropdownRef} className="relative flex items-center">
+        <li ref={dropdownRef} className="flex items-center">
           {/* The label is a real link to the hub; the arrow opens the dropdown. */}
           <Link
             href="/estilos-de-letras"
@@ -77,33 +82,45 @@ export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styl
             <ChevronDown size={15} aria-hidden className={stylesOpen ? "rotate-180" : ""} />
           </button>
           {stylesOpen && (
-            <ul
+            // Full-width panel under the header (positioned against the header's inner container).
+            <div
               id="menu-estilos"
-              className="absolute left-0 top-full z-50 mt-1 w-60 rounded-xl border border-line bg-surface p-1.5 shadow-lg"
+              className="absolute inset-x-4 top-full z-50 mt-1 max-h-[calc(100dvh-5rem)] overflow-y-auto rounded-2xl border border-line bg-surface p-5 shadow-lg"
             >
-              {styleLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    onClick={close}
-                    aria-current={isActive(l.href) ? "page" : undefined}
-                    className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-warm hover:text-ink"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="mt-1 border-t border-line pt-1">
+              <div className="grid grid-cols-4 gap-x-4 gap-y-4">
+                {styleGroups.map((g) => (
+                  <div key={g.heading} className={g.links.length > 7 ? "col-span-2" : ""}>
+                    <p className="px-3 text-xs font-semibold uppercase tracking-wide text-ink-soft">{g.heading}</p>
+                    <ul className={`mt-2 grid gap-0.5 ${g.links.length > 7 ? "grid-cols-2" : ""}`}>
+                      {g.links.map((l) => (
+                        <li key={l.href}>
+                          <Link
+                            href={l.href}
+                            onClick={close}
+                            aria-current={isActive(l.href) ? "page" : undefined}
+                            className={`block rounded-lg px-3 py-1.5 text-sm hover:bg-warm hover:text-ink ${
+                              isActive(l.href) ? "font-semibold text-ink" : "text-ink-soft"
+                            }`}
+                          >
+                            {l.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 border-t border-line pt-3">
                 <Link
                   href="/estilos-de-letras"
                   onClick={close}
                   aria-current={isActive("/estilos-de-letras") ? "page" : undefined}
-                  className="block rounded-lg px-3 py-2 text-sm font-semibold text-accent hover:bg-warm"
+                  className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold text-accent hover:bg-warm"
                 >
-                  Ver todos os estilos
+                  Ver todos os estilos →
                 </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           )}
         </li>
         {rest.map((l) => (
@@ -151,20 +168,25 @@ export function SiteNav({ links, styleLinks }: { links: readonly NavLink[]; styl
               Ver todos
             </Link>
           </div>
-          <ul className="mt-1 grid grid-cols-2 gap-1">
-            {styleLinks.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  onClick={close}
-                  aria-current={isActive(l.href) ? "page" : undefined}
-                  className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-warm hover:text-ink"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {styleGroups.map((g) => (
+            <div key={g.heading} className="mt-3">
+              <p className="px-3 text-[11px] font-medium text-ink-soft">{g.heading}</p>
+              <ul className="mt-1 grid grid-cols-2 gap-1">
+                {g.links.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      onClick={close}
+                      aria-current={isActive(l.href) ? "page" : undefined}
+                      className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-warm hover:text-ink"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       )}
     </nav>
