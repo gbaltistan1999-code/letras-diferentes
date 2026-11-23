@@ -7,7 +7,7 @@ import { mainNav, siteConfig } from "@/lib/site-config";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-line bg-surface/85 backdrop-blur-md supports-[backdrop-filter]:bg-surface/75">
+    <header className="site-header sticky top-0 z-30">
       <div className="relative mx-auto flex h-16 max-w-5xl items-center justify-between gap-2 px-4">
         <Link href="/" aria-label={`${siteConfig.name} — página inicial`} className="shrink-0">
           <Logo priority sizes="180px" className="h-9 w-auto sm:h-10" />
