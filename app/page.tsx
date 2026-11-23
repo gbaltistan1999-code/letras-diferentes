@@ -23,6 +23,7 @@ const linkDescriptions: Record<string, string> = {
   "gerador-de-nick": "Nicks com símbolos: Free Fire, masculino, feminino e clã.",
   "nomes-para-free-fire-feminino": "Mais de 100 nicks femininos prontos para copiar.",
   "nomes-para-free-fire-masculino": "Mais de 100 nicks masculinos brabos para copiar.",
+  "nomes-para-discord": "Mais de 100 nicks e nomes para servidor do Discord.",
   "nome-invisivel": "Espaço invisível para nick em branco e mensagem vazia.",
   "fontes-de-letras-estilosas": "Os estilos mais estilosos primeiro, com exemplos para copiar.",
   "letras-goticas": "Fraktur clássica e em negrito.",

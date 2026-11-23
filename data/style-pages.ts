@@ -1059,6 +1059,12 @@ export const tiktokPage: NavPage = {
   description: "Fontes diferentes e aesthetic para nome, bio e comentários do TikTok, com contador de caracteres e sugestões de @.",
 };
 
+export const discordPage: NavPage = {
+  slug: "nomes-para-discord",
+  navLabel: "Nomes para Discord",
+  description: "Mais de 100 nomes para Discord com letras diferentes: aesthetic, gamer, dark e fofos, nomes para servidor e canais, com gerador.",
+};
+
 export const alphabetPage: NavPage = {
   slug: "alfabeto-de-letras-diferentes",
   navLabel: "Alfabeto de letras diferentes",
@@ -1075,7 +1081,7 @@ export const navPages: NavPage[] = (() => {
   const afterInstagram = pages.findIndex((p) => p.slug === "letras-para-instagram") + 1;
   pages.splice(afterInstagram, 0, whatsappPage, tiktokPage);
   const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;
-  pages.splice(afterFreeFire, 0, nickPage, femNickPage, mascNickPage, invisiblePage);
+  pages.splice(afterFreeFire, 0, nickPage, femNickPage, mascNickPage, discordPage, invisiblePage);
   return pages;
 })();
 

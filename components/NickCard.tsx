@@ -1,10 +1,10 @@
 import { CopyButton } from "@/components/CopyButton";
 import { FF_LIMIT, nickLength } from "@/lib/nick";
 
-/** One ready-made nick with a copy button and its length; warns above the Free Fire limit. */
-export function NickCard({ nick }: { nick: string }) {
+/** One ready-made nick with a copy button and its length; warns above the limit (Free Fire by default). */
+export function NickCard({ nick, limit = FF_LIMIT }: { nick: string; limit?: number }) {
   const len = nickLength(nick);
-  const over = len > FF_LIMIT;
+  const over = len > limit;
   return (
     <li className="flex items-center gap-3 overflow-hidden rounded-xl border border-line bg-surface px-4 py-2.5">
       <div className="min-w-0 flex-1">

@@ -25,17 +25,24 @@ const chip = (active: boolean) =>
 export function NickGenerator({
   categories,
   sample = SAMPLE,
+  limit = FF_LIMIT,
+  limitName = "do Free Fire",
+  defaultSeparator = "invisivel",
 }: {
   /** Limit the category chips (the first one is selected). Default: all. */
   categories?: NickCategoryId[];
   /** Name used for the previews while the field is empty. */
   sample?: string;
+  /** Length warning threshold and the name shown with it. */
+  limit?: number;
+  limitName?: string;
+  defaultSeparator?: NickSeparator;
 } = {}) {
   // Chips follow the order given in `categories`.
   const shownCategories = categories ? categories.map((id) => NICK_CATEGORIES.find((c) => c.id === id)!) : NICK_CATEGORIES;
   const [name, setName] = useState("");
   const [category, setCategory] = useState<NickCategoryId>(categories?.[0] ?? "freefire");
-  const [separator, setSeparator] = useState<NickSeparator>("invisivel");
+  const [separator, setSeparator] = useState<NickSeparator>(defaultSeparator);
   const [tag, setTag] = useState("");
   const [letterCase, setLetterCase] = useState<NickCase>("original");
   const [seed, setSeed] = useState(1);
@@ -169,8 +176,8 @@ export function NickGenerator({
                 <p aria-hidden className="py-1.5 text-xl leading-[2.1] [overflow-wrap:anywhere]">
                   {nick}
                 </p>
-                <p className={`text-xs ${len > FF_LIMIT ? "font-medium text-amber-700 dark:text-amber-400" : "text-ink-soft"}`}>
-                  {len} caracteres{len > FF_LIMIT ? ": pode passar do limite do Free Fire" : ""}
+                <p className={`text-xs ${len > limit ? "font-medium text-amber-700 dark:text-amber-400" : "text-ink-soft"}`}>
+                  {len} caracteres{len > limit ? `: pode passar do limite ${limitName}` : ""}
                 </p>
               </div>
               <CopyButton text={nick} label={`Copiar nick ${source}, ${len} caracteres`} />

@@ -7,7 +7,7 @@ import { getStyle } from "@/lib/fonts";
 import { HANGUL_FILLER } from "@/lib/invisible";
 import { prng } from "@/lib/random-styles";
 
-export type NickCategoryId = "freefire" | "masculino" | "feminino" | "cla" | "fofo";
+export type NickCategoryId = "freefire" | "masculino" | "feminino" | "cla" | "fofo" | "discord";
 
 export interface NickCategory {
   id: NickCategoryId;
@@ -56,6 +56,13 @@ export const NICK_CATEGORIES: NickCategory[] = [
     symbols: [["ʚ", "ɞ"], ["☁️", ""], ["♡", "♡"], ["🐼", ""], ["✿", "✿"], ["꒰", "꒱"], ["⋆", "⋆"], ["ᰔ", "ᰔ"], ["🌸", ""], ["🍓", ""]],
     ideas: ["Mel", "Nuvem", "Pudim", "Panda", "Mimi", "Kiwi", "Docinho", "Bubu", "Fofa", "Moranguinho"],
   },
+  {
+    id: "discord",
+    label: "Discord",
+    styles: ["versalete", "cursiva-negrito", "negrito-sem-serifa", "gotica-negrito", "largura-total", "monoespacada"],
+    symbols: [["✦", "✦"], ["꒰", "꒱"], ["⋆", "⋆"], ["☾", ""], ["", "ツ"], ["『", "』"], ["✧", "✧"], ["♱", ""], ["〔", "〕"], ["⚡", "⚡"]],
+    ideas: ["Nova", "Pixel", "Nyx", "Echo", "Byte", "Lumi", "Zen", "Kai", "Orbit", "Vibe"],
+  },
 ];
 
 export type NickSeparator = "invisivel" | "nenhum" | "espaco";
@@ -71,6 +78,8 @@ export interface NickOptions {
 export const NICK_BATCH = 12;
 /** Free Fire's usual nickname limit. */
 export const FF_LIMIT = 12;
+/** Discord display name and server nickname limit. */
+export const DISCORD_LIMIT = 32;
 
 export function getNickCategory(id: NickCategoryId): NickCategory {
   const c = NICK_CATEGORIES.find((x) => x.id === id);

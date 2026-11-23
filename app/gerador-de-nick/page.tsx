@@ -305,7 +305,7 @@ export default function NickGeneratorPage() {
               </li>
               <li>
                 <strong>Discord:</strong> o nome de usuário é simples, mas o nome de exibição e o apelido do servidor aceitam
-                fontes e símbolos.
+                fontes e símbolos. Veja mais de 100 <Link href="/nomes-para-discord">nomes para Discord</Link>.
               </li>
               <li>
                 <strong>Instagram e TikTok:</strong> use no campo Nome, não no @. Combine com as{" "}
@@ -337,6 +337,7 @@ export default function NickGeneratorPage() {
             { href: "/nome-personalizado", label: "Nome personalizado", description: "Seu nome em dezenas de estilos." },
             { href: "/letras-para-free-fire", label: "Letras para Free Fire", description: "Fontes para o nick do FF." },
             { href: "/simbolos", label: "Símbolos para copiar", description: "꧁ ꧂ 乂 亗 ★ e muito mais." },
+            { href: "/nomes-para-discord", label: "Nomes para Discord", description: "Nicks, nomes para servidor e canais." },
           ]}
         />
       </article>
