@@ -995,24 +995,93 @@ export const stylePages: StylePage[] = [
     metaTitle: "Letras Pequenas para Copiar e Colar (ᴠᴇʀsᴀʟᴇᴛᴇ e ˢᵒᵇʳᵉˢᶜʳⁱᵗᵒ)",
     absoluteTitle: true,
     metaDescription:
-      "Gere letras pequenas para copiar e colar: versalete (ᴀʙᴄ), sobrescrito (ᵃᵇᶜ) e subscrito. Ótimo para bios e nicks discretos. Grátis.",
+      "Gere letras pequenas para copiar e colar: versalete (ᴀʙᴄ), sobrescrito (ᵃᵇᶜ), subscrito e números pequenos (²). Para bio, nick e tags de clã. Grátis.",
     h1: "Letras pequenas para copiar e colar",
     intro:
-      "Escreva com letras pequenas em três formatos: versalete (maiúsculas em tamanho reduzido), sobrescrito (letrinhas no alto da linha) e subscrito (letrinhas na parte de baixo).",
-    generator: { categories: ["pequenas"], sampleText: "Letras pequenas" },
+      "Escreva com letras pequenas em três formatos: versalete (maiúsculas em tamanho reduzido), sobrescrito (letrinhas no alto da linha) e subscrito (letrinhas na parte de baixo). Também tem números pequenos, como o ² de “ao quadrado”, e tags de clã para nicks.",
+    generator: {
+      styleIds: ["versalete", "sobrescrito", "subscrito", "estrelas", "moldura-gamer"],
+      sampleText: "Letras pequenas",
+    },
     examples: [
       { styleId: "versalete", text: "Menos é mais" },
-      { styleId: "sobrescrito", text: "oi sumida" },
-      { styleId: "estrelas", text: "Sonhadora" },
+      { styleId: "sobrescrito", text: "oi, sumiu?" },
+      { styleId: "estrelas", text: "Sonhar alto" },
       { styleId: "versalete", text: "São Paulo, Brasil" },
     ],
     sections: [
       {
         heading: "Os três tipos de letras pequenas",
         list: [
-          "Versalete (ᴀʙᴄ): letras com formato de maiúscula e altura de minúscula. É o estilo pequeno mais legível e o mais usado em bios.",
-          "Sobrescrito (ᵃᵇᶜ): letrinhas elevadas, como as usadas em notas e expoentes. Bom para comentários curtos e “sussurros” no texto.",
-          "Subscrito (ₐₑₒ): letrinhas abaixo da linha. O Unicode só tem algumas letras nesse formato, por isso as demais continuam normais.",
+          `**Versalete** (${t("versalete", "abc")}): letras com formato de maiúscula e altura de minúscula. É o estilo pequeno mais legível e o mais usado em bios.`,
+          `**Sobrescrito** (${t("sobrescrito", "abc")}): letrinhas elevadas, como as usadas em notas e expoentes. Bom para comentários curtos e “sussurros” no texto.`,
+          `**Subscrito** (${t("subscrito", "aeo")}): letrinhas abaixo da linha. O Unicode só tem algumas letras nesse formato, por isso as demais continuam normais.`,
+        ],
+      },
+      {
+        heading: "Nomes e nicks em letras pequenas",
+        paragraphs: ["O versalete deixa o nome com cara minimalista, ótimo para perfis e nicks discretos:"],
+        copy: [
+          t("versalete", "Luna"),
+          `☾ ${t("versalete", "Kai")}`,
+          `✦ ${t("versalete", "Nina")} ✦`,
+          t("versalete", "Gabriel"),
+          `${t("versalete", "Duda")} ♡`,
+          `⋆ ${t("versalete", "Theo")} ⋆`,
+          t("estrelas", "Mel"),
+          t("moldura-gamer", "Rex"),
+          `${t("versalete", "Alice")} ☁︎`,
+          `乂 ${t("versalete", "Ghost")} 乂`,
+        ].map((text) => ({ text })),
+      },
+      {
+        heading: "Tags de clã em letras pequenas",
+        paragraphs: [
+          "Em jogos como Free Fire, as letrinhas no alto da linha viram tags de clã e títulos antes do nome:",
+        ],
+        copy: [
+          { text: "ᴮᴿ", label: "Brasil" },
+          { text: "ᴳᴼᴰ", label: "God" },
+          { text: "ᴾᴿᴼ", label: "Pro" },
+          { text: "ᴷᴵᴺᴳ", label: "King" },
+          { text: "ⱽᴵᴾ", label: "VIP" },
+          { text: `ᴮᴿ ${t("versalete", "Lobo")}`, label: "Exemplo com nome" },
+        ],
+        outro: [
+          "No [gerador de nick](/gerador-de-nick) você digita a tag do seu clã e ela já aparece pequena antes do nome.",
+        ],
+      },
+      {
+        heading: "Números pequenos para copiar",
+        paragraphs: ["Úteis para escrever “ao quadrado”, notas de rodapé e fórmulas, como m² e H₂O:"],
+        copy: [
+          { text: "⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹", label: "Números sobrescritos" },
+          { text: "₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉", label: "Números subscritos" },
+          { text: "m²", label: "Metro quadrado" },
+          { text: "m³", label: "Metro cúbico" },
+          { text: "H₂O", label: "Água" },
+          { text: "CO₂", label: "Gás carbônico" },
+        ],
+      },
+      {
+        heading: "Frases em letras pequenas",
+        copy: [
+          { text: t("versalete", "Menos é mais"), label: "Bio" },
+          { text: `${t("versalete", "Um dia de cada vez")} 🌿`, label: "Bio" },
+          { text: `📍 ${t("versalete", "Rio de Janeiro")}`, label: "Localização" },
+          { text: `${t("sobrescrito", "só passando")} 👀`, label: "Comentário" },
+          { text: `${t("versalete", "Fotografia")} · ${t("versalete", "Viagens")}`, label: "Bio" },
+          { text: `☁︎ ${t("versalete", "Vivendo o agora")}`, label: "Status" },
+        ],
+      },
+      {
+        heading: "Onde usar letras pequenas",
+        list: [
+          "**Instagram:** na bio, para a localização, a profissão ou uma frase discreta. Veja as [letras para Instagram](/letras-para-instagram).",
+          "**TikTok:** no nome e na bio, para um visual minimalista. Veja as [letras para TikTok](/letras-para-tiktok).",
+          "**Free Fire e jogos:** o versalete é legível no nick, e as tags pequenas indicam o clã. Veja os [nomes para Free Fire masculino](/nomes-para-free-fire-masculino).",
+          "**Discord:** no nome exibido, combinando com símbolos aesthetic. Veja os [nomes para Discord](/nomes-para-discord).",
+          "**Estudos e trabalhos:** os números pequenos ajudam a escrever unidades e fórmulas em mensagens.",
         ],
       },
       {
@@ -1033,6 +1102,21 @@ export const stylePages: StylePage[] = [
     ],
     faqs: [
       {
+        question: "Como fazer letra pequena no celular?",
+        answer:
+          "Digite seu texto nesta página, escolha versalete, sobrescrito ou subscrito e toque em Copiar. Depois cole no app que quiser. Não precisa instalar teclado nem aplicativo.",
+      },
+      {
+        question: "Como escrever o ² de “ao quadrado”?",
+        answer:
+          "Copie o ² da lista de números pequenos desta página. No Windows, também dá para segurar Alt e digitar 0178 no teclado numérico.",
+      },
+      {
+        question: "Letras pequenas funcionam no Free Fire?",
+        answer:
+          "O versalete e as tags pequenas costumam funcionar no nick. Cada caractere conta no limite do jogo, então use nomes curtos e teste antes de confirmar a troca.",
+      },
+      {
         question: "Por que algumas letras pequenas ficam maiores que as outras?",
         answer:
           "Os caracteres pequenos vêm de blocos Unicode diferentes (alfabeto fonético e modificadores), e cada fonte de sistema os desenha de um jeito. Por isso pode haver pequenas diferenças de tamanho entre as letras.",
@@ -1048,7 +1132,7 @@ export const stylePages: StylePage[] = [
           "Sim, os acentos nunca somem. Por padrão, letras como “ã” e “ç” ficam na forma normal, porque o Unicode não tem versões pequenas delas. Marcando “Estilizar também as letras com acento”, a letra fica pequena e o acento é encaixado sobre ela, o que pode sair do lugar em algumas fontes.",
       },
     ],
-    related: ["letras-para-instagram", "letras-para-tiktok", "letras-bonitas", "simbolos", "letras-para-tatuagem"],
+    related: ["letras-para-instagram", "gerador-de-nick", "letras-para-tiktok", "letras-bonitas", "simbolos", "alfabeto-de-letras-diferentes"],
   },
 
   /* ------------------------------------------------------------------ */
@@ -1295,12 +1379,13 @@ export const stylePages: StylePage[] = [
   {
     slug: "letras-riscadas",
     navLabel: "Letras riscadas",
-    metaTitle: "Letras Riscadas e Sublinhadas para Copiar",
+    metaTitle: "Letras Riscadas para Copiar: Texto Riscado e Sublinhado",
+    absoluteTitle: true,
     metaDescription:
-      "Gere texto riscado (t̶a̶c̶h̶a̶d̶o̶), sublinhado, sublinhado duplo e com linha em cima para copiar e colar em qualquer app. Grátis.",
+      "Gere texto riscado (tachado), cortado, sublinhado e com linha em cima: 10 estilos para copiar e colar no Instagram, WhatsApp, TikTok e Discord. Grátis.",
     h1: "Letras riscadas e sublinhadas para copiar",
     intro:
-      "Escreva um texto riscado, cortado, sublinhado ou com linha em cima e cole onde quiser — inclusive em apps que não têm botão de formatação.",
+      "Escreva um texto riscado, cortado, sublinhado ou com linha em cima e cole onde quiser, inclusive em apps que não têm botão de formatação, como a bio do Instagram e o TikTok. São 10 estilos, do risco clássico ao pontilhado e ao ondulado.",
     generator: { categories: ["riscadas"], sampleText: "Texto riscado" },
     examples: [
       { styleId: "riscado", text: "segunda-feira" },
@@ -1310,29 +1395,87 @@ export const stylePages: StylePage[] = [
     ],
     sections: [
       {
+        heading: "Os tipos de letras riscadas e sublinhadas",
+        list: [
+          `**Riscado (tachado)** (${t("riscado", "riscado")}): a linha no meio da palavra, o mais usado.`,
+          `**Cortado com barra** (${t("riscado-barra", "cortado")}): cada letra cortada por uma barra inclinada.`,
+          `**Riscado com X** (${t("riscado-x", "riscado")}): um pequeno x sobre cada letra.`,
+          `**Sublinhado** (${t("sublinhado", "sublinhado")}): uma linha embaixo, para destacar.`,
+          `**Sublinhado duplo** (${t("sublinhado-duplo", "duplo")}): duas linhas embaixo, ainda mais forte.`,
+          `**Linha em cima** (${t("sobrelinhado", "linha")}): a linha passa por cima das letras.`,
+          `**Ondulado e pontilhado** (${t("ondulado", "ondulado")}, ${t("pontos-embaixo", "pontos")}): enfeites discretos embaixo das letras.`,
+        ],
+      },
+      {
+        heading: "Frases engraçadas com texto riscado",
+        paragraphs: ["O truque clássico: riscar uma palavra e escrever a verdade ao lado. Copie e use na bio, no status ou na legenda:"],
+        copy: [
+          { text: `Estou de ${t("riscado", "dieta")} férias` },
+          { text: `${t("riscado", "Segunda-feira")} Sextou! 🎉` },
+          { text: `Meu plano para hoje: ${t("riscado", "academia")} sofá` },
+          { text: `Hoje eu ${t("riscado", "estudo")} durmo 😴` },
+          { text: `${t("riscado", "Acordar cedo")} Só mais 5 minutos` },
+          { text: `${t("riscado", "Vou responder")} Visualizei` },
+          { text: `Fim de semana: ${t("riscado", "descansar")} faxina 🧹` },
+          { text: `Saldo: ${t("riscado", "cheio")} vazio 💸` },
+          { text: `${t("riscado", "Sem tempo")} Com preguiça` },
+          { text: `Modo ${t("riscado", "fitness")} lanche ativado 🍔` },
+        ],
+      },
+      {
+        heading: "Riscado para listas, preços e tarefas",
+        copy: [
+          { text: `✓ ${t("riscado", "Comprar pão")}`, label: "Tarefa feita" },
+          { text: `✓ ${t("riscado", "Pagar contas")}`, label: "Tarefa feita" },
+          { text: `De ${t("riscado", "R$ 120")} por R$ 89`, label: "Promoção" },
+          { text: `${t("riscado", "R$ 59,90")} R$ 39,90 🔥`, label: "Promoção" },
+          { text: `${t("sublinhado", "Importante")}: reunião às 15h`, label: "Aviso" },
+          { text: `${t("sublinhado-duplo", "Última chance")}`, label: "Aviso" },
+        ],
+        outro: [
+          "Em lojas e posts de venda, o preço antigo riscado ao lado do novo é um jeito simples de mostrar o desconto.",
+        ],
+      },
+      {
+        heading: "Onde usar texto riscado",
+        list: [
+          "**Instagram e TikTok:** na bio, nas legendas e nos comentários, onde não existe botão de formatação. Veja as [letras para Instagram](/letras-para-instagram).",
+          "**WhatsApp:** nas mensagens você pode usar o código do próprio app (veja abaixo) ou o texto deste gerador, que também funciona no nome, no recado e no status.",
+          "**Discord:** no nome exibido e nas mensagens. Nas mensagens, o Discord também risca o texto com dois tis de cada lado.",
+          "**X (Twitter), Facebook e LinkedIn:** em posts, para humor ou para mostrar um preço antigo.",
+        ],
+      },
+      {
+        heading: "Alternativa nativa no WhatsApp e no Discord",
+        paragraphs: [
+          "No WhatsApp você também pode riscar texto sem o gerador: escreva a palavra entre tis, assim: ~texto~. No Discord, use dois tis de cada lado. A diferença é que essa formatação só funciona dentro daquele app, enquanto o texto deste gerador mantém o risco quando é colado em outros apps.",
+          "Veja todos os códigos em [letras para WhatsApp](/letras-para-whatsapp) e no guia de [como mudar a fonte do WhatsApp](/blog/como-mudar-a-fonte-do-whatsapp).",
+        ],
+      },
+      {
         heading: "Como o texto riscado funciona?",
         paragraphs: [
           "Estes estilos não trocam as letras. Eles adicionam, depois de cada letra, um sinal combinável do Unicode: uma linha no meio (U+0336), uma barra (U+0338), uma linha embaixo (U+0332) ou em cima (U+0305). O aparelho desenha esse sinal sobre a letra anterior.",
           "Por isso o texto continua legível e os acentos são mantidos. A desvantagem é que a linha pode ficar com pequenas falhas entre as letras, dependendo da fonte.",
         ],
       },
-      {
-        heading: "Usos comuns",
-        list: [
-          "Humor: riscar uma palavra e escrever outra ao lado (“estou de d̶i̶e̶t̶a̶ férias”).",
-          "Listas de tarefas: marcar o que já foi feito.",
-          "Preços: mostrar o valor antigo riscado ao lado do novo.",
-          "Destaque: sublinhar uma palavra em apps sem formatação.",
-        ],
-      },
-      {
-        heading: "Alternativa nativa no WhatsApp",
-        paragraphs: [
-          "No WhatsApp você também pode riscar texto sem o gerador: escreva a palavra entre tis, assim: ~texto~. A diferença é que essa formatação só funciona dentro do WhatsApp, enquanto o texto deste gerador mantém o risco quando é colado em outros apps. Veja todos os códigos de formatação em [letras para WhatsApp](/letras-para-whatsapp).",
-        ],
-      },
     ],
     faqs: [
+      {
+        question: "Como riscar uma palavra no WhatsApp?",
+        answer:
+          "Nas mensagens, escreva a palavra entre tis, assim: ~texto~. Para riscar no nome, no recado ou no status, onde o código não funciona, copie o texto riscado deste gerador.",
+      },
+      {
+        question: "Como fazer texto riscado no Instagram?",
+        answer:
+          "O Instagram não tem opção de riscar. Digite o texto nesta página, copie o estilo riscado e cole na bio, na legenda ou no comentário.",
+      },
+      {
+        question: "Riscado e tachado são a mesma coisa?",
+        answer:
+          "Sim. “Tachado” é o nome usado em editores de texto, como o Word, para o texto com uma linha no meio. “Riscado” é o nome mais comum no dia a dia.",
+      },
       {
         question: "Por que a linha do texto riscado aparece falhada?",
         answer:
@@ -1349,7 +1492,8 @@ export const stylePages: StylePage[] = [
           "Não. O gerador pula os espaços de propósito, para que as palavras continuem separadas e a linha não fique solta entre elas.",
       },
     ],
-    related: ["letras-para-whatsapp", "letras-pequenas", "letras-para-instagram", "letras-bonitas"],
+    related: ["letras-para-whatsapp", "letras-em-negrito", "letras-pequenas", "letras-para-instagram", "letras-bonitas", "simbolos"],
+    relatedPosts: ["como-mudar-a-fonte-do-whatsapp"],
   },
 
   /* ------------------------------------------------------------------ */
