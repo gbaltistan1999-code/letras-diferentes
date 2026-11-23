@@ -194,14 +194,16 @@ export const stylePages: StylePage[] = [
     metaTitle: "Letras Bonitas para Copiar e Colar: Molduras e Corações",
     absoluteTitle: true,
     metaDescription:
-      "Letras bonitas com molduras, corações e estrelas para bio, nome e mensagens. Copie e cole com um toque. Gratuito e funciona no celular.",
-    h1: "Letras bonitas para copiar",
+      "Letras bonitas para copiar e colar com corações, estrelas, molduras e coroas. Mais de 20 estilos para nome, bio do Instagram, WhatsApp e mensagens. Grátis.",
+    h1: "Letras bonitas para copiar e colar",
     intro:
-      "Uma seleção de estilos pensada para enfeitar: letras com molduras, corações, estrelas e combinações delicadas para usar em bios, legendas, nomes e mensagens especiais.",
+      "Aqui ficam as letras mais enfeitadas do site: com corações, estrelas, molduras ꧁ ꧂, coroas, flores e brilhos. Digite seu texto, escolha a combinação mais bonita e toque em Copiar para usar no nome, na bio, nas legendas e nas mensagens especiais.",
     generator: {
       styleIds: [
-        "moldura-classica", "coracoes", "estrelas", "japones", "flechas",
-        "cursiva-negrito", "cursiva", "versalete", "estilo-grego", "bolhas", "contorno", "simbolo-oriental",
+        "moldura-classica", "coracoes", "estrelas", "coroa", "brilho-de-fada", "moldura-floral",
+        "japones", "flechas", "moldura-estrelas", "moldura-ondas", "moldura-musical", "moldura-pontos",
+        "kaomoji-abraco", "coracoes-entre-letras", "estrelinhas-entre-letras", "colchetes-japoneses-letras",
+        "largura-total-colchetes", "cursiva-negrito", "versalete", "bolhas", "estilo-grego",
       ],
       sampleText: "Letras bonitas",
     },
@@ -209,7 +211,7 @@ export const stylePages: StylePage[] = [
       { styleId: "coracoes", text: "Te amo" },
       { styleId: "estrelas", text: "Brilhe sempre" },
       { styleId: "japones", text: "Bom dia" },
-      { styleId: "moldura-classica", text: "Princesa" },
+      { styleId: "moldura-classica", text: "Meu mundo" },
       { styleId: "estilo-grego", text: "Good vibes" },
       { styleId: "bolhas", text: "Fofura" },
     ],
@@ -222,18 +224,95 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
-        heading: "Ideias de uso",
+        heading: "Tipos de letras bonitas",
         list: [
-          "Primeira linha da bio, com o seu nome ou apelido.",
-          "Mensagens de aniversário, Dia dos Namorados ou bom dia.",
-          "Títulos de destaques e legendas curtas.",
-          "Nome em grupos de WhatsApp e servidores do Discord.",
+          `**Com corações** (${t("coracoes", "Amor")}): para mensagens carinhosas, casais e perfis românticos.`,
+          `**Com estrelas** (${t("estrelas", "Brilho")}): alegres e chamativas, ótimas para nomes e nicks.`,
+          `**Com molduras** (${t("moldura-classica", "Lenda")}): o clássico ꧁ ꧂ deixa qualquer nome com cara de destaque.`,
+          `**Com coroa** (${t("coroa", "Rei")}): para quem quer um nome imponente.`,
+          `**Delicadas** (${t("brilho-de-fada", "Sonho")}): brilhos e flores para um visual aesthetic.`,
+          `**Fofas** (${t("bolhas", "Fofura")}): letras em bolhas e carinhas para perfis divertidos.`,
         ],
+      },
+      {
+        heading: "Letras bonitas para nome",
+        paragraphs: ["Nomes já enfeitados, prontos para o perfil, o WhatsApp ou o jogo:"],
+        copy: [
+          t("moldura-classica", "Julia"),
+          t("coracoes", "Pedro"),
+          t("estrelas", "Bia"),
+          t("coroa", "Lucas"),
+          t("brilho-de-fada", "Manu"),
+          t("moldura-floral", "Clara"),
+          t("japones", "Rafa"),
+          `✿ ${t("cursiva-negrito", "Helena")} ✿`,
+          `⋆˙⟡ ${t("versalete", "Gabi")} ⟡˙⋆`,
+          t("estrelinhas-entre-letras", "Leo"),
+        ].map((text) => ({ text })),
+        outro: ["Quer o seu nome assim? Digite no gerador do topo da página ou veja mais ideias no [nome personalizado](/nome-personalizado)."],
+      },
+      {
+        heading: "Frases bonitas para copiar",
+        copy: [
+          { text: t("coracoes", "Te amo"), label: "Amor" },
+          { text: `☀️ ${t("cursiva-negrito", "Bom dia")} ☀️`, label: "Bom dia" },
+          { text: t("estrelas", "Brilhe sempre"), label: "Bio" },
+          { text: `${t("moldura-floral", "Gratidão")}`, label: "Status" },
+          { text: `♡ ${t("versalete", "Você é especial")} ♡`, label: "Mensagem" },
+          { text: t("brilho-de-fada", "Seja luz"), label: "Bio" },
+          { text: `🌙 ${t("cursiva", "Boa noite")} ✨`, label: "Boa noite" },
+          { text: t("moldura-musical", "Good vibes"), label: "Legenda" },
+          { text: `${t("coracoes-entre-letras", "Amor")}`, label: "Casal" },
+          { text: t("kaomoji-abraco", "Abraço"), label: "Mensagem" },
+        ],
+      },
+      {
+        heading: "Letras bonitas para datas especiais",
+        paragraphs: ["Para aniversários, datas comemorativas e mensagens que pedem um capricho a mais:"],
+        copy: [
+          { text: `🎂 ${t("cursiva-negrito", "Feliz aniversário")} 🎉`, label: "Aniversário" },
+          { text: t("coracoes", "Feliz Dia dos Namorados"), label: "Namorados" },
+          { text: `💐 ${t("cursiva", "Feliz Dia das Mães")} 💐`, label: "Dia das Mães" },
+          { text: `👔 ${t("negrito-sem-serifa", "Feliz Dia dos Pais")} 💙`, label: "Dia dos Pais" },
+          { text: `🎄 ${t("cursiva-negrito", "Feliz Natal")} 🎄`, label: "Natal" },
+          { text: `🎆 ${t("moldura-estrelas", "Feliz Ano Novo")}`, label: "Ano Novo" },
+        ],
+        outro: ["Para o fim de ano, veja também as [frases de Natal e Ano Novo](/blog/frases-de-natal-e-ano-novo)."],
+      },
+      {
+        heading: "Onde usar letras bonitas",
+        list: [
+          "**Bio do Instagram:** na primeira linha, com o seu nome ou uma frase curta. Veja as [letras para Instagram](/letras-para-instagram).",
+          "**Títulos dos destaques:** nomes curtos como 『Viagens』 ou ♡ Família ♡ deixam o perfil organizado e bonito.",
+          "**WhatsApp:** no nome, no recado, no status e no nome do grupo. Veja as [letras para WhatsApp](/letras-para-whatsapp) e os [nomes para grupo de WhatsApp](/blog/nomes-para-grupo-de-whatsapp).",
+          "**Mensagens especiais:** aniversário, bom dia, Dia dos Namorados e outras datas.",
+          "**Legendas e posts:** um título enfeitado no começo da legenda chama atenção no feed.",
+          "**Nicks e servidores:** em jogos e no Discord, as molduras e estrelas são as preferidas. Veja os [nomes para Discord](/nomes-para-discord).",
+        ],
+      },
+      {
+        heading: "Monte a sua própria combinação",
+        steps: [
+          "Escolha um estilo de letra no gerador, como a cursiva em negrito ou o versalete.",
+          "Copie um par de símbolos da lista abaixo.",
+          "Cole um símbolo antes e o outro depois do texto.",
+        ],
+        copy: [
+          { text: "♡ ♡", label: "Corações" },
+          { text: "✧ ✧", label: "Brilhos" },
+          { text: "꧁ ꧂", label: "Moldura clássica" },
+          { text: "『 』", label: "Colchetes japoneses" },
+          { text: "⋆˙⟡ ⟡˙⋆", label: "Aesthetic" },
+          { text: "✿ ✿", label: "Flores" },
+          { text: "☾ ☽", label: "Luas" },
+          { text: "★彡 彡★", label: "Estrelas" },
+        ],
+        outro: ["Encontre centenas de outros na página de [símbolos para copiar](/simbolos)."],
       },
       {
         heading: "Como deixar o resultado mais legível?",
         steps: [
-          "Use o estilo decorado em poucas palavras — o nome ou uma frase curta.",
+          "Use o estilo decorado em poucas palavras: o nome ou uma frase curta.",
           "Mantenha o resto do texto em letras normais para facilitar a leitura.",
           "Prefira as versões em negrito em fundos escuros ou imagens.",
           "Confira como ficou no celular de outra pessoa antes de usar em algo importante.",
@@ -248,9 +327,24 @@ export const stylePages: StylePage[] = [
     ],
     faqs: [
       {
+        question: "Quais são as letras mais bonitas para o Instagram?",
+        answer:
+          "As mais usadas são a cursiva em negrito, as letras com corações e as molduras como ꧁ ꧂ e 『 』. Elas ficam bonitas e continuam fáceis de ler no celular. Use na primeira linha da bio ou no nome do perfil.",
+      },
+      {
+        question: "Como colocar letras bonitas no nome do WhatsApp?",
+        answer:
+          "Copie o estilo nesta página, abra o WhatsApp, vá em Configurações, toque no seu nome e cole. As letras bonitas também funcionam no recado, no status e no nome dos grupos.",
+      },
+      {
+        question: "As letras bonitas funcionam no Free Fire?",
+        answer:
+          "Muitas sim, mas o nick tem limite de caracteres e os enfeites contam no total. Molduras grandes podem não caber. Para nicks, prefira um símbolo de cada lado e um nome curto.",
+      },
+      {
         question: "Qual a diferença entre esta página e o gerador da página inicial?",
         answer:
-          "A página inicial mostra todos os estilos disponíveis. Aqui ficam só as combinações decorativas — com molduras, corações e estrelas — para quem quer um resultado mais enfeitado sem procurar entre dezenas de opções.",
+          "A página inicial mostra todos os estilos disponíveis. Aqui ficam só as combinações decorativas, com molduras, corações e estrelas, para quem quer um resultado mais enfeitado sem procurar entre dezenas de opções.",
       },
       {
         question: "Os enfeites como ꧁ ꧂ aparecem em todos os celulares?",
@@ -263,8 +357,8 @@ export const stylePages: StylePage[] = [
           "Sim. Depois de colar, apague os símbolos que não quiser. Ou volte à página inicial e escolha um estilo sem enfeites, como a cursiva ou o negrito.",
       },
     ],
-    related: ["nome-personalizado", "letras-para-whatsapp", "letras-cursivas", "simbolos", "letras-para-instagram", "letras-para-tatuagem", "fontes-de-letras-estilosas"],
-    relatedPosts: ["nomes-para-grupo-de-whatsapp"],
+    related: ["nome-personalizado", "simbolos", "letras-cursivas", "letras-para-instagram", "letras-para-whatsapp", "fontes-de-letras-estilosas", "letras-em-negrito"],
+    relatedPosts: ["frases-de-natal-e-ano-novo", "nomes-para-grupo-de-whatsapp"],
   },
 
   /* ------------------------------------------------------------------ */

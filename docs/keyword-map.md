@@ -16,7 +16,7 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 | Page | Primary target | Secondary / long-tail | Distinct intent |
 |---|---|---|---|
 | `/` | letras diferentes | letras diferentes para copiar, gerador de letras, fontes para copiar e colar, letras estilosas (shared) | The full tool, every style |
-| `/letras-bonitas` | letras bonitas | letras bonitas para bio | Curated *decorated* combos (frames, hearts, stars) |
+| `/letras-bonitas` | letras bonitas | letras bonitas para bio, letras bonitas para nome, letras com coração, letras com moldura, frases bonitas para copiar | 21 *decorated* styles (frames, hearts, stars, crowns), names, phrases, special dates, build-your-own symbol pairs |
 | `/estilos-de-letras` | estilos de letras | tipos de letras, todos os estilos de letras | Hub: links every style/platform/name page with a live preview; no generator of its own |
 | `/fontes-de-letras-estilosas` | fontes de letras estilosas | letras estilosas, fonte estilosa, letras estilosas para copiar, letras estilosas para Instagram, letras estilosas Free Fire, fontes estilosas | All styles, most stylish first, with per-platform examples |
 | `/nome-personalizado` | nome personalizado | nome personalizado para copiar, nome personalizado com símbolos, nome personalizado para Free Fire, nome personalizado Instagram, nome diferente | Your own name styled: generator + 60 ready name ideas (not the blog: it has the tool) |
