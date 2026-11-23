@@ -1059,11 +1059,19 @@ export const tiktokPage: NavPage = {
   description: "Fontes diferentes e aesthetic para nome, bio e comentários do TikTok, com contador de caracteres e sugestões de @.",
 };
 
+export const alphabetPage: NavPage = {
+  slug: "alfabeto-de-letras-diferentes",
+  navLabel: "Alfabeto de letras diferentes",
+  description: "O alfabeto de A a Z em 29 estilos: cursivo, gótico, negrito, bolha e de cabeça para baixo. Toque na letra e copie.",
+};
+
 /** Every style/guide page, in menu order. */
 export const navPages: NavPage[] = (() => {
   const pages = stylePages.map((p) => ({ slug: p.slug, navLabel: p.navLabel, description: p.metaDescription }));
   const afterGothic = pages.findIndex((p) => p.slug === "letras-goticas") + 1;
   pages.splice(afterGothic, 0, tattooPage);
+  const afterSmall = pages.findIndex((p) => p.slug === "letras-pequenas") + 1;
+  pages.splice(afterSmall, 0, alphabetPage);
   const afterInstagram = pages.findIndex((p) => p.slug === "letras-para-instagram") + 1;
   pages.splice(afterInstagram, 0, whatsappPage, tiktokPage);
   const afterFreeFire = pages.findIndex((p) => p.slug === "letras-para-free-fire") + 1;

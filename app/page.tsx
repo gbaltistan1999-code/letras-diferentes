@@ -28,6 +28,7 @@ const linkDescriptions: Record<string, string> = {
   "letras-goticas": "Fraktur clássica e em negrito.",
   "letras-para-tatuagem": "Fontes para tatuagem com prévia em tom de pele.",
   "letras-pequenas": "Versalete, sobrescrito e subscrito.",
+  "alfabeto-de-letras-diferentes": "O alfabeto de A a Z em 29 estilos, letra por letra.",
   "letras-para-instagram": "Bio, nome e legendas — com passo a passo.",
   "letras-para-whatsapp": "Fontes e formatação para mensagens, nome e recado.",
   "letras-para-tiktok": "Nome, bio e comentários, com contador e sugestões de @.",

@@ -30,6 +30,7 @@ export const hubGroups: HubGroup[] = [
       { slug: "letras-goticas", example: "gotica-negrito", sample: "Letras góticas" },
       { slug: "letras-pequenas", example: "versalete", sample: "Letras pequenas" },
       { slug: "letras-riscadas", example: "riscado", sample: "Letras riscadas" },
+      { slug: "alfabeto-de-letras-diferentes", example: "cursiva-negrito", sample: "Abc" },
       { slug: "letras-para-tatuagem", example: "cursiva", sample: "Tatuagem" },
       { slug: "simbolos", example: "estrelas", sample: "Símbolos" },
     ],

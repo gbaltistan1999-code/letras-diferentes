@@ -35,6 +35,7 @@ or an Instagram bio. They expect the tool above the fold, not an article.
 | `/nome-invisivel` | nome invisível | espaço invisível, nome invisível free fire, nick invisível, letra invisível, mensagem em branco whatsapp | Copy the invisible character (U+3164) + insert/test tools; no styled letters |
 | `/letras-para-tatuagem` | letras para tatuagem | fontes de letras para tatuagem, letras de tatuagem, tatuagem escrita, tipos de letras para tatuagem, letras para tatuagem masculina, lettering tattoo | Tattoo font picker with real-font preview on skin tone |
 | `/letras-riscadas` | letras riscadas | texto riscado, letra sublinhada, como riscar texto no WhatsApp | Combining-mark styles |
+| `/alfabeto-de-letras-diferentes` | alfabeto de letras diferentes | letras do alfabeto diferentes, letras do alfabeto bonitas, alfabeto cursivo para copiar, alfabeto gótico, alfabeto bolha, alfabeto de cabeça para baixo | A–Z (and 0–9) in 29 per-letter styles, tap a letter to copy or build a word. Not a text converter: phrases go to `/` |
 | `/simbolos` | símbolos para copiar | símbolos para nick, ꧁꧂ para copiar, símbolos para bio | Symbol picker (not letters) |
 | `/perguntas-frequentes` | — | o que são letras diferentes, por que aparece quadradinho | Support questions |
 
