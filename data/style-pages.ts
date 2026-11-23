@@ -16,13 +16,31 @@ export const stylePages: StylePage[] = [
   {
     slug: "letras-cursivas",
     navLabel: "Letras cursivas",
-    metaTitle: "Letras Cursivas para Copiar e Colar",
+    metaTitle: "Letras Cursivas para Copiar e Colar: Gerador de Letra Cursiva",
+    absoluteTitle: true,
     metaDescription:
-      "Gere letras cursivas para copiar e colar: estilo manuscrito, cursiva em negrito e itálico. Funciona com acentos e ç. Grátis, sem cadastro.",
+      "Gerador de letras cursivas para copiar e colar: cursiva fina, em negrito, itálico e com corações. Para nome, bio do Instagram, WhatsApp e Free Fire. Grátis.",
     h1: "Letras cursivas para copiar e colar",
     intro:
-      "Digite seu texto e veja-o na hora em letra cursiva, cursiva em negrito e itálico. As letras cursivas lembram a escrita à mão e combinam com nomes, bios e mensagens mais delicadas.",
-    generator: { categories: ["cursivas"], sampleText: "Letras cursivas" },
+      "Digite seu texto e veja na hora em letra cursiva: fina e elegante, em negrito, itálica ou com enfeites como corações e molduras. As letras cursivas lembram a escrita à mão e deixam nomes, bios e mensagens mais delicados. Toque em Copiar e cole no Instagram, no WhatsApp, no TikTok ou no seu jogo.",
+    generator: {
+      styleIds: [
+        "cursiva",
+        "cursiva-negrito",
+        "italico",
+        "italico-sem-serifa",
+        "negrito-italico",
+        "negrito-italico-sem-serifa",
+        "coracoes",
+        "moldura-classica",
+        "brilho-de-fada",
+        "moldura-floral",
+        "moldura-musical",
+        "moldura-ondas",
+        "flechas",
+      ],
+      sampleText: "Letras cursivas",
+    },
     examples: [
       { styleId: "cursiva", text: "Bom dia, amor" },
       { styleId: "cursiva-negrito", text: "Ana Clara" },
@@ -34,38 +52,125 @@ export const stylePages: StylePage[] = [
         heading: "O que são letras cursivas no gerador?",
         paragraphs: [
           "Aqui, “letra cursiva” é um conjunto de caracteres Unicode chamado Mathematical Script (escrita matemática cursiva). Ele foi criado para fórmulas, mas como cada letra tem um traço inclinado e arredondado, ficou popular para dar um ar manuscrito a nomes e frases.",
-          "Diferente de uma fonte instalada no computador, esses caracteres viajam junto com o texto. Por isso, quando você cola em outro app, a aparência cursiva continua — desde que o aparelho de quem lê tenha símbolos para exibi-los.",
+          "Diferente de uma fonte instalada no computador, esses caracteres viajam junto com o texto. Por isso, quando você cola em outro app, a aparência cursiva continua, desde que o aparelho de quem lê tenha símbolos para exibi-los.",
         ],
       },
       {
-        heading: "Qual estilo cursivo escolher?",
+        heading: "Os tipos de letra cursiva",
+        paragraphs: ["Cada estilo cursivo combina com um lugar diferente:"],
         list: [
-          "Cursiva: traço fino e elegante, bom para nomes e frases curtas.",
-          "Cursiva em negrito: mais legível em telas pequenas e em fundos escuros, como nos stories.",
-          "Itálico serifado e itálico sem serifa: inclinados, porém mais discretos — úteis para destacar uma palavra no meio de um texto normal.",
+          `**Cursiva fina** (${t("cursiva", "Cursiva")}): traço delicado e elegante. Fica linda em nomes e frases curtas.`,
+          `**Cursiva em negrito** (${t("cursiva-negrito", "Cursiva")}): a mais legível em telas pequenas e em fundos escuros, como nos Stories. É a cursiva mais usada em bios.`,
+          `**Itálico serifado** (${t("italico", "Cursiva")}): inclinado e clássico, discreto o bastante para destacar uma palavra no meio do texto.`,
+          `**Itálico sem serifa** (${t("italico-sem-serifa", "Cursiva")}): inclinado e moderno, bom para legendas.`,
+          `**Negrito itálico** (${t("negrito-italico", "Cursiva")}): inclinado e forte, para chamar atenção.`,
+          `**Cursiva com enfeites** (${t("coracoes", "Cursiva")}): a cursiva com corações, molduras ou brilhos, para nomes e mensagens carinhosas.`,
         ],
+        outro: [
+          "Quer o alfabeto inteiro para copiar letra por letra? Veja o [alfabeto cursivo de A a Z](/alfabeto-de-letras-diferentes#alfabeto-cursivo).",
+        ],
+      },
+      {
+        heading: "Nomes em letra cursiva para copiar",
+        paragraphs: ["Ideias de nomes em cursiva com um enfeite discreto, prontos para o perfil:"],
+        copy: [
+          `${t("cursiva-negrito", "Ana Clara")} ♡`,
+          `✧ ${t("cursiva", "Helena")} ✧`,
+          t("cursiva-negrito", "Gabriel"),
+          `${t("cursiva-negrito", "Sofia")} 🌸`,
+          `${t("cursiva", "Miguel")} ✦`,
+          t("cursiva-negrito", "Valentina"),
+          `☾ ${t("cursiva", "Luna")}`,
+          `${t("cursiva-negrito", "Arthur")} ⚡`,
+          `${t("cursiva", "Alice")} ❀`,
+          t("cursiva-negrito", "Davi"),
+          `${t("cursiva", "Laura")} ♡`,
+          `${t("cursiva-negrito", "Theo")} ☁︎`,
+        ].map((text) => ({ text })),
+        outro: [
+          "Para escrever o seu próprio nome, digite no gerador do topo da página. Mais ideias com símbolos estão no [nome personalizado](/nome-personalizado).",
+        ],
+      },
+      {
+        heading: "Frases em letra cursiva",
+        paragraphs: ["Frases curtas que ficam ainda mais bonitas em cursiva, para bio, recado ou status:"],
+        copy: [
+          { text: `${t("cursiva-negrito", "Gratidão")} por tudo ✨`, label: "Bio" },
+          { text: `${t("cursiva", "Bom dia, amor")} ☀️`, label: "Mensagem" },
+          { text: `${t("cursiva-negrito", "Seja luz")} 💫`, label: "Bio" },
+          { text: `${t("cursiva", "Um dia de cada vez")}`, label: "Recado" },
+          { text: `🌷 ${t("cursiva-negrito", "Amor próprio sempre")}`, label: "Bio" },
+          { text: `${t("italico", "Menos pressa, mais presença")}`, label: "Status" },
+          { text: `${t("cursiva-negrito", "Feliz aniversário")} 🎂`, label: "Mensagem" },
+          { text: `♡ ${t("cursiva", "Para sempre nós")} ♡`, label: "Casal" },
+          { text: `${t("cursiva-negrito", "Deus no comando")} 🙏`, label: "Status" },
+          { text: `${t("cursiva", "Vivendo o agora")} 🌿`, label: "Bio" },
+        ],
+        outro: [
+          "Mais ideias nas [frases para bio do Instagram](/blog/frases-para-bio-do-instagram) e nas [frases para status do WhatsApp](/blog/frases-para-status-do-whatsapp).",
+        ],
+      },
+      {
+        heading: "Onde usar letras cursivas",
+        list: [
+          "**Instagram:** no nome do perfil, na bio, nas legendas e nos Stories. Só o @ não aceita. Veja o passo a passo em [letras para Instagram](/letras-para-instagram).",
+          "**WhatsApp:** no nome, no recado, no status e nas mensagens. Veja as [letras para WhatsApp](/letras-para-whatsapp).",
+          "**TikTok:** no nome, na bio e nas legendas. Veja as [letras para TikTok](/letras-para-tiktok).",
+          "**Free Fire e jogos:** prefira a cursiva em negrito, que fica legível no tamanho pequeno do nick. Veja os [nomes para Free Fire feminino](/nomes-para-free-fire-feminino).",
+          "**Discord:** no nome exibido e no apelido do servidor. Veja os [nomes para Discord](/nomes-para-discord).",
+          "**Tatuagem:** use o gerador para ter uma ideia, mas compare fontes cursivas de verdade em [letras para tatuagem](/letras-para-tatuagem).",
+        ],
+      },
+      {
+        heading: "Letra cursiva ou itálico: qual a diferença?",
         paragraphs: [
-          "Dica: a cursiva fina pode ficar difícil de ler em tamanhos pequenos. Para textos longos, prefira a versão em negrito ou use a cursiva só no nome ou na primeira linha.",
+          "A letra cursiva imita a escrita à mão: tem curvas, laços e traços arredondados. O itálico é a letra de forma comum, só que inclinada para a direita. No gerador, os dois aparecem lado a lado para você comparar.",
+          "Um detalhe importante: na caligrafia de verdade, as letras cursivas se ligam umas às outras. No Unicode, cada letra é um caractere separado, então elas ficam bem próximas, mas não se tocam. Para uma escrita realmente ligada, como em convites impressos ou tatuagens, é preciso uma fonte cursiva instalada no programa de design.",
         ],
       },
       {
         heading: "Acentos e ç nas letras cursivas",
         paragraphs: [
-          "O Unicode não tem versões cursivas de “ã”, “é” ou “ç”. Por padrão, o gerador deixa essas letras na forma normal e escreve o resto da palavra em cursiva — assim a acentuação aparece certa em qualquer aparelho. Se preferir a palavra inteira em cursiva, marque “Estilizar também as letras com acento”: o gerador usa a letra cursiva e encaixa o acento por cima, mas em algumas fontes (como as do Windows) ele pode aparecer ao lado da letra.",
+          "O Unicode não tem versões cursivas de “ã”, “é” ou “ç”. Por padrão, o gerador deixa essas letras na forma normal e escreve o resto da palavra em cursiva, assim a acentuação aparece certa em qualquer aparelho. Se preferir a palavra inteira em cursiva, marque “Estilizar também as letras com acento”: o gerador usa a letra cursiva e encaixa o acento por cima, mas em algumas fontes (como as do Windows) ele pode aparecer ao lado da letra.",
+        ],
+      },
+      {
+        heading: "Dicas para a letra cursiva ficar bonita e legível",
+        list: [
+          "**Use em pouco texto:** a cursiva brilha em um nome ou numa frase curta. Um parágrafo inteiro em cursiva cansa a leitura.",
+          "**Em tela pequena, prefira o negrito:** a cursiva fina pode sumir no celular. A cursiva em negrito é mais fácil de ler.",
+          `**Comece com maiúscula:** as maiúsculas cursivas têm os desenhos mais bonitos, como ${t("cursiva-negrito", "A")}, ${t("cursiva-negrito", "B")} e ${t("cursiva-negrito", "M")}.`,
+          "**Combine com texto normal:** o contraste entre a cursiva e as letras comuns deixa o destaque mais elegante.",
+          "**Teste no modo escuro:** confira se o traço continua visível no tema escuro do app.",
         ],
       },
       {
         heading: "Onde a cursiva pode não funcionar?",
         paragraphs: [
-          "Campos de usuário (o @ do Instagram ou do TikTok, por exemplo) aceitam apenas letras comuns, números e alguns sinais, então as cursivas não são aceitas ali. Também há aparelhos antigos que mostram quadradinhos no lugar de algumas letras. Teste antes de usar em algo importante.",
+          "Campos de usuário (o @ do Instagram, do TikTok ou do Discord, por exemplo) aceitam apenas letras comuns, números e alguns sinais, então as cursivas não são aceitas ali. Alguns jogos também recusam certos caracteres no nick, e aparelhos muito antigos podem mostrar quadradinhos no lugar de algumas letras. Entenda em [por que as letras diferentes viram quadradinhos](/blog/letras-diferentes-quadradinhos-unicode).",
         ],
       },
     ],
     faqs: [
       {
+        question: "Como fazer letra cursiva no celular?",
+        answer:
+          "Abra esta página no navegador do celular, digite o texto, escolha o estilo cursivo e toque em Copiar. Depois é só colar no app que quiser. Não precisa instalar nenhum aplicativo ou teclado.",
+      },
+      {
+        question: "Qual a letra cursiva mais bonita para nome?",
+        answer:
+          "Para nomes, a cursiva em negrito costuma ser a favorita, porque é bonita e fácil de ler no celular. A cursiva fina fica mais delicada, e a cursiva com corações ou molduras é ótima para perfis românticos.",
+      },
+      {
+        question: "As letras cursivas funcionam no Instagram?",
+        answer:
+          "Sim. Funcionam no nome do perfil, na bio, nas legendas, nos comentários e nos Stories. Só o nome de usuário (o @) não aceita letras cursivas.",
+      },
+      {
         question: "As letras cursivas funcionam no WhatsApp?",
         answer:
-          "Sim, na maioria dos celulares atuais. Você pode colar no nome, no recado e nas mensagens. Se a outra pessoa usar um aparelho muito antigo, ela pode ver quadradinhos no lugar de algumas letras.",
+          "Sim, na maioria dos celulares atuais. Você pode colar no nome, no recado, no status e nas mensagens. Se a outra pessoa usar um aparelho muito antigo, ela pode ver quadradinhos no lugar de algumas letras.",
       },
       {
         question: "Por que algumas letras cursivas parecem diferentes das outras?",
@@ -78,8 +183,8 @@ export const stylePages: StylePage[] = [
           "Para documentos de texto, como Word ou Google Docs, é melhor usar uma fonte cursiva de verdade no próprio editor. Os caracteres deste gerador são símbolos e podem atrapalhar a busca, a correção ortográfica e a leitura por leitores de tela.",
       },
     ],
-    related: ["nome-personalizado", "letras-bonitas", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem", "letras-riscadas"],
-    relatedPosts: ["nomes-para-grupo-de-whatsapp"],
+    related: ["nome-personalizado", "letras-bonitas", "letras-em-negrito", "alfabeto-de-letras-diferentes", "letras-para-instagram", "letras-goticas", "letras-para-tatuagem"],
+    relatedPosts: ["frases-para-bio-do-instagram", "nomes-para-grupo-de-whatsapp"],
   },
 
   /* ------------------------------------------------------------------ */
