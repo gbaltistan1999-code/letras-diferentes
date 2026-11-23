@@ -26,6 +26,7 @@ const linkDescriptions: Record<string, string> = {
   "nomes-para-discord": "Mais de 100 nicks e nomes para servidor do Discord.",
   "nome-invisivel": "Espaço invisível para nick em branco e mensagem vazia.",
   "fontes-de-letras-estilosas": "Os estilos mais estilosos primeiro, com exemplos para copiar.",
+  "letras-em-negrito": "6 tipos de negrito para Instagram, WhatsApp e jogos.",
   "letras-goticas": "Fraktur clássica e em negrito.",
   "letras-para-tatuagem": "Fontes para tatuagem com prévia em tom de pele.",
   "letras-pequenas": "Versalete, sobrescrito e subscrito.",
@@ -42,7 +43,7 @@ const linkDescriptions: Record<string, string> = {
 const fontTypes: { name: string; example: string; sample: string; text: string; href?: string }[] = [
   { name: "Cursiva", example: "cursiva", sample: "Bom dia", href: "/letras-cursivas", text: "Lembra a escrita à mão. Ideal para nomes e frases delicadas." },
   { name: "Gótica", example: "gotica", sample: "Lenda", href: "/letras-goticas", text: "Estilo medieval (fraktur), forte e marcante. Muito usada em nicks." },
-  { name: "Negrito", example: "negrito-sem-serifa", sample: "Destaque", text: "Letras grossas para destacar uma palavra na bio ou na legenda." },
+  { name: "Negrito", example: "negrito-sem-serifa", sample: "Destaque", href: "/letras-em-negrito", text: "Letras grossas para destacar uma palavra na bio ou na legenda." },
   { name: "Itálico", example: "italico", sample: "Gratidão", text: "Letras inclinadas e discretas, boas para dar ênfase sem exagero." },
   { name: "Letras pequenas", example: "versalete", sample: "Menos é mais", href: "/letras-pequenas", text: "Versalete e sobrescrito para um visual minimalista." },
   { name: "Contorno", example: "contorno", sample: "Brasil", text: "Letras com traço duplo, de aparência moderna e geométrica." },

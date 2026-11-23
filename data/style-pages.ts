@@ -509,6 +509,146 @@ export const stylePages: StylePage[] = [
 
   /* ------------------------------------------------------------------ */
   {
+    slug: "letras-em-negrito",
+    navLabel: "Letras em negrito",
+    metaTitle: "Letras em Negrito para Copiar e Colar: Gerador de Negrito",
+    absoluteTitle: true,
+    metaDescription:
+      "Gerador de letras em negrito para copiar e colar: negrito com e sem serifa, itálico, cursivo e gótico. Funciona no Instagram, WhatsApp, TikTok e Free Fire.",
+    h1: "Letras em negrito para copiar e colar",
+    intro:
+      "Digite seu texto e copie em letras em negrito para usar onde o app não tem botão de negrito: bio e legendas do Instagram, TikTok, nick de jogo, comentários e posts. São 6 tipos de negrito, do mais discreto ao mais marcante, e todos funcionam com copiar e colar.",
+    generator: {
+      styleIds: [
+        "negrito-sem-serifa",
+        "negrito",
+        "negrito-italico-sem-serifa",
+        "negrito-italico",
+        "cursiva-negrito",
+        "gotica-negrito",
+        "japones",
+        "moldura-estrelas",
+        "moldura-blocos",
+        "bolhas-pretas",
+        "quadrados-pretos",
+      ],
+      sampleText: "Letras em negrito",
+    },
+    examples: [
+      { styleId: "negrito-sem-serifa", text: "Novidade na loja" },
+      { styleId: "negrito", text: "Bom dia" },
+      { styleId: "negrito-italico-sem-serifa", text: "Leia antes de comprar" },
+      { styleId: "cursiva-negrito", text: "Gratidão" },
+      { styleId: "gotica-negrito", text: "Lenda" },
+    ],
+    sections: [
+      {
+        heading: "Os 6 tipos de letras em negrito",
+        paragraphs: [
+          "Todo negrito deixa a letra mais grossa, mas cada tipo passa uma impressão diferente. Escolha pelo lugar onde o texto vai aparecer:",
+        ],
+        list: [
+          `**Negrito sem serifa** (${t("negrito-sem-serifa", "Destaque")}): o mais limpo e legível. É o negrito mais usado em bios, legendas e posts profissionais.`,
+          `**Negrito com serifa** (${t("negrito", "Destaque")}): lembra jornal e livro. Fica elegante em títulos e frases curtas.`,
+          `**Negrito itálico sem serifa** (${t("negrito-italico-sem-serifa", "Destaque")}): inclinado e moderno, bom para chamar atenção para uma palavra.`,
+          `**Negrito itálico com serifa** (${t("negrito-italico", "Destaque")}): inclinado e clássico, ótimo para citações.`,
+          `**Cursiva em negrito** (${t("cursiva-negrito", "Destaque")}): parece escrita à mão, mas com traço forte. A cursiva mais fácil de ler em telas pequenas.`,
+          `**Gótica em negrito** (${t("gotica-negrito", "Destaque")}): estilo medieval pesado, muito usado em nicks de jogos.`,
+        ],
+        outro: [
+          `Só o negrito com e sem serifa têm números em negrito (${t("negrito-sem-serifa", "2026")}). Nos outros estilos, os números ficam normais.`,
+        ],
+      },
+      {
+        heading: "Como escrever em negrito para copiar e colar",
+        steps: [
+          "Digite seu texto na caixa do topo da página.",
+          "Veja o resultado em todos os tipos de negrito, atualizado na hora.",
+          "Toque em **Copiar** no estilo que preferir.",
+          "Cole no Instagram, no WhatsApp, no jogo ou onde quiser.",
+        ],
+        outro: [
+          "Dica: use o negrito só nas palavras que importam, como o título de um post, o nome de um produto ou uma chamada. Um parágrafo inteiro em negrito fica cansativo e ninguém sabe o que é mais importante.",
+        ],
+      },
+      {
+        heading: "Onde as letras em negrito funcionam",
+        list: [
+          "**Instagram:** bio, nome do perfil, legendas, comentários e Stories. Só o nome de usuário (o @) não aceita. Veja mais em [letras para Instagram](/letras-para-instagram).",
+          "**WhatsApp:** em mensagens, nome, recado e status. Nas mensagens, o app também tem o negrito próprio, com *asteriscos*. Veja o guia de [como mudar a fonte do WhatsApp](/blog/como-mudar-a-fonte-do-whatsapp).",
+          "**TikTok:** nome, bio, legendas e comentários. Veja as [letras para TikTok](/letras-para-tiktok).",
+          "**Facebook e LinkedIn:** em posts e comentários, onde não existe botão de negrito. É um jeito comum de destacar títulos em posts profissionais.",
+          "**X (Twitter), Threads e Telegram:** em posts, bio e nome.",
+          "**Free Fire e outros jogos:** muitos jogos aceitam negrito no nick, mas cada letra pode contar como mais de um caractere. Veja os [nomes para Free Fire masculino](/nomes-para-free-fire-masculino) e [feminino](/nomes-para-free-fire-feminino).",
+          "**Discord:** no nome exibido e no apelido do servidor. Nas mensagens, o Discord tem o negrito próprio, com dois asteriscos de cada lado. Veja os [nomes para Discord](/nomes-para-discord).",
+        ],
+      },
+      {
+        heading: "Negrito do gerador ou negrito do próprio app?",
+        paragraphs: [
+          "Alguns apps têm o seu próprio negrito: no WhatsApp você escreve *texto* e, no Discord, coloca dois asteriscos de cada lado. Esse negrito só funciona dentro daquele app. Se você copiar a mensagem e colar no Instagram, os asteriscos aparecem e o negrito some.",
+          "As letras em negrito deste gerador são diferentes: cada letra já é um caractere Unicode em negrito. Por isso o negrito vai junto quando você copia e cola, em qualquer app, e funciona até em campos que não têm formatação, como a bio e o nome do perfil.",
+        ],
+      },
+      {
+        heading: "Frases em negrito para copiar",
+        paragraphs: ["Prontas para usar em bios, posts e mensagens:"],
+        copy: [
+          { text: `✨ ${t("negrito-sem-serifa", "Bom dia")} ✨`, label: "Mensagem" },
+          { text: `${t("negrito-sem-serifa", "NOVIDADE")} na loja 🛍️ Confira no link!`, label: "Loja" },
+          { text: `📢 ${t("negrito-sem-serifa", "Aviso")}: reunião às 15h`, label: "Grupo" },
+          { text: `${t("negrito", "Foco")} · ${t("negrito", "Força")} · ${t("negrito", "Fé")}`, label: "Bio" },
+          { text: `${t("negrito-sem-serifa", "Estou contratando!")} 🚀`, label: "LinkedIn" },
+          { text: `${t("negrito-italico-sem-serifa", "Leia até o final")} 👇`, label: "Legenda" },
+          { text: `${t("cursiva-negrito", "Gratidão")} por mais um dia 🙏`, label: "Status" },
+          { text: `🔥 ${t("negrito-sem-serifa", "PROMOÇÃO")} só hoje`, label: "Loja" },
+          { text: `${t("gotica-negrito", "Modo lenda")} ⚔️`, label: "Nick" },
+          { text: `📍 ${t("negrito-sem-serifa", "Rio de Janeiro")} | ${t("negrito-sem-serifa", "Brasil")}`, label: "Bio" },
+        ],
+      },
+      {
+        heading: "Cuidados ao usar letras em negrito",
+        list: [
+          "**Acentos:** o Unicode não tem letras acentuadas em negrito, então “ã”, “é” e “ç” ficam na forma normal no meio da palavra. Para um visual uniforme, prefira palavras sem acento ou marque a opção de estilizar os acentos.",
+          `**Busca:** o Instagram e o Google não leem ${t("negrito-sem-serifa", "Novidade")} como “Novidade”. Deixe seu nome e as palavras pelas quais quer ser encontrado em texto normal.`,
+          "**Acessibilidade:** leitores de tela podem ler as letras em negrito uma por uma, ou nem ler. Use o negrito como destaque, não no texto inteiro.",
+          "**Quadradinhos:** em celulares muito antigos, algumas letras podem aparecer como quadrados. Entenda em [por que as letras diferentes viram quadradinhos](/blog/letras-diferentes-quadradinhos-unicode).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Como escrever em negrito no Instagram?",
+        answer:
+          "O Instagram não tem botão de negrito. Digite seu texto nesta página, copie o estilo em negrito e cole na bio, no nome, na legenda ou no comentário. Só o nome de usuário (o @) não aceita letras em negrito.",
+      },
+      {
+        question: "Como colocar negrito no WhatsApp?",
+        answer:
+          "Nas mensagens, coloque um asterisco antes e depois da palavra, assim: *texto*. Para o nome, o recado e o status, onde os asteriscos não funcionam, copie as letras em negrito deste gerador.",
+      },
+      {
+        question: "Por que as letras com acento não ficam em negrito?",
+        answer:
+          "Porque o Unicode não tem versões em negrito de letras como á, ã, é e ç. Por padrão, elas ficam na forma normal para o acento nunca sumir. Se quiser, marque “Estilizar também as letras com acento”: a letra fica em negrito e o acento é encaixado sobre ela, mas em alguns aparelhos ele pode sair do lugar.",
+      },
+      {
+        question: "Letras em negrito funcionam no Free Fire?",
+        answer:
+          "Na maioria das vezes, sim. Mas o nick tem limite de caracteres e cada letra em negrito pode contar como mais de uma. Se o jogo recusar, use um nome mais curto.",
+      },
+      {
+        question: "Qual a diferença entre negrito com e sem serifa?",
+        answer:
+          "Serifa são os pequenos traços nas pontas das letras, como em jornais e livros. O negrito com serifa é mais clássico e elegante; o sem serifa é mais moderno e mais fácil de ler em telas pequenas.",
+      },
+    ],
+    related: ["letras-para-instagram", "letras-para-whatsapp", "letras-cursivas", "letras-goticas", "letras-para-tiktok", "alfabeto-de-letras-diferentes"],
+    relatedPosts: ["como-mudar-a-fonte-do-whatsapp", "frases-para-bio-do-instagram"],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
     slug: "letras-goticas",
     navLabel: "Letras góticas",
     metaTitle: "Letras Góticas para Copiar e Colar (Fraktur)",
@@ -572,7 +712,7 @@ export const stylePages: StylePage[] = [
           "Não existem letras góticas acentuadas no Unicode. Por isso, por padrão, letras como “ã” e “é” ficam na forma normal, para aparecerem certas em qualquer aparelho. Se quiser, marque “Estilizar também as letras com acento”: a letra vira gótica e o acento é encaixado sobre ela, mas algumas fontes o posicionam fora do lugar.",
       },
     ],
-    related: ["letras-para-tatuagem", "letras-para-free-fire", "simbolos", "letras-cursivas"],
+    related: ["letras-para-tatuagem", "letras-para-free-fire", "letras-em-negrito", "simbolos", "letras-cursivas"],
   },
 
   /* ------------------------------------------------------------------ */

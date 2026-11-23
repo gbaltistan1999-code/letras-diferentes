@@ -27,6 +27,7 @@ export const hubGroups: HubGroup[] = [
       { slug: "letras-cursivas", example: "cursiva-negrito", sample: "Letras cursivas" },
       { slug: "letras-bonitas", example: "coracoes", sample: "Letras bonitas" },
       { slug: "fontes-de-letras-estilosas", example: "moldura-estrelas", sample: "Estilosas" },
+      { slug: "letras-em-negrito", example: "negrito-sem-serifa", sample: "Negrito" },
       { slug: "letras-goticas", example: "gotica-negrito", sample: "Letras góticas" },
       { slug: "letras-pequenas", example: "versalete", sample: "Letras pequenas" },
       { slug: "letras-riscadas", example: "riscado", sample: "Letras riscadas" },
