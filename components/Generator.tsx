@@ -1,8 +1,9 @@
 "use client";
 
-import { Lock, Plus, Shuffle, X } from "lucide-react";
+import { Heart, Lock, Plus, Shuffle, X } from "lucide-react";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { ResultCard } from "@/components/ResultCard";
+import { readFavorites, toggleFavorite, writeFavorites } from "@/lib/favorites";
 import { CATEGORIES, selectStyles } from "@/lib/fonts";
 import { randomStyles } from "@/lib/random-styles";
 import type { CategoryId } from "@/types";
@@ -21,6 +22,8 @@ interface GeneratorProps {
   /** Show the "Estilos aleatórios" section with endless random combinations. */
   showRandom?: boolean;
   label?: string;
+  /** Wide layout (homepage): results in up to 3 columns, input centered. */
+  wide?: boolean;
 }
 
 /**
@@ -28,7 +31,7 @@ interface GeneratorProps {
  * them) but display:none until the visitor scrolls near the end: laying out
  * every card on load was the slowest part of the page on phones.
  */
-const INITIAL_CARDS = 16;
+const INITIAL_CARDS = 18;
 const RANDOM_BATCH = 10;
 const RANDOM_MAX = 200;
 
@@ -40,11 +43,21 @@ export function Generator({
   categoryOrder,
   showRandom = false,
   label = "Digite seu texto",
+  wide = false,
 }: GeneratorProps) {
   const inputId = useId();
   const hintId = useId();
   const [text, setText] = useState("");
-  const [filter, setFilter] = useState<CategoryId | "todos">("todos");
+  const [filter, setFilter] = useState<CategoryId | "todos" | "favoritos">("todos");
+  // Read after mount so the server render and the first client render match.
+  const [favorites, setFavorites] = useState<string[]>([]);
+  useEffect(() => setFavorites(readFavorites()), []);
+  const onToggleFavorite = (id: string) =>
+    setFavorites((prev) => {
+      const next = toggleFavorite(prev, id);
+      writeFavorites(next);
+      return next;
+    });
   // Off by default: accented letters stay plain so they display correctly everywhere.
   const [styleAccents, setStyleAccents] = useState(false);
 
@@ -68,13 +81,23 @@ export function Generator({
     // Filter chips follow the same order as the results.
     return [...new Map(styles.map((s) => [s.category, present.find((c) => c.id === s.category)!])).values()];
   }, [styles]);
-  const visible = filter === "todos" ? styles : styles.filter((s) => s.category === filter);
+  const favoriteStyles = styles.filter((s) => favorites.includes(s.id));
+  // Leaving the favorites view when the last favorite is removed.
+  const showingFavorites = filter === "favoritos" && favoriteStyles.length > 0;
+  const visible =
+    filter === "todos" || (filter === "favoritos" && !showingFavorites)
+      ? styles
+      : showingFavorites
+        ? favoriteStyles
+        : styles.filter((s) => s.category === filter);
+  const categoryLabel = (id: CategoryId) => CATEGORIES.find((c) => c.id === id)?.label ?? "";
 
   const results = useMemo(() => {
     const options = { accents: styleAccents ? "combine" : "plain" } as const;
     return visible.map((style) => ({
       id: style.id,
       name: style.name,
+      category: style.category,
       tall: style.category === "glitch",
       output: style.transform(source, options),
     }));
@@ -107,7 +130,7 @@ export function Generator({
 
   return (
     <section aria-label="Gerador de letras" className="w-full">
-      <div className="rounded-2xl border border-line bg-surface p-4 shadow-sm sm:p-5">
+      <div className={`rounded-2xl border border-line bg-surface p-4 shadow-sm sm:p-5 ${wide ? "mx-auto max-w-3xl" : ""}`}>
         <label htmlFor={inputId} className="mb-2 block text-sm font-semibold">
           {label}
         </label>
@@ -163,10 +186,18 @@ export function Generator({
         </label>
       </div>
 
-      {showFilter && availableCategories.length > 1 && (
-        <div role="group" aria-label="Filtrar estilos por categoria" className="mt-4 flex flex-wrap gap-2">
-          {[{ id: "todos" as const, label: "Todos" }, ...availableCategories].map((cat) => {
-            const active = filter === cat.id;
+      {((showFilter && availableCategories.length > 1) || favoriteStyles.length > 0) && (
+        <div
+          role="group"
+          aria-label="Filtrar estilos por categoria"
+          className={`mt-4 flex flex-wrap gap-2 ${wide ? "justify-center" : ""}`}
+        >
+          {[
+            { id: "todos" as const, label: "Todos" },
+            ...(favoriteStyles.length > 0 ? [{ id: "favoritos" as const, label: `Favoritos (${favoriteStyles.length})` }] : []),
+            ...(showFilter && availableCategories.length > 1 ? availableCategories : []),
+          ].map((cat) => {
+            const active = cat.id === "favoritos" ? showingFavorites : cat.id === "todos" ? filter === "todos" || (filter === "favoritos" && !showingFavorites) : filter === cat.id;
             return (
               <button
                 key={cat.id}
@@ -179,6 +210,7 @@ export function Generator({
                     : "border-line bg-surface text-ink-soft hover:border-accent hover:text-ink"
                 }`}
               >
+                {cat.id === "favoritos" && <Heart size={13} aria-hidden fill="currentColor" className="-mt-0.5 mr-1 inline" />}
                 {cat.label}
               </button>
             );
@@ -186,13 +218,19 @@ export function Generator({
         </div>
       )}
 
-      <ul className="mt-4 grid gap-2.5" aria-label={`${results.length} estilos de letras`}>
+      <ul
+        className={`mt-4 grid gap-3 sm:grid-cols-2 ${wide ? "lg:grid-cols-3" : ""}`}
+        aria-label={`${results.length} estilos de letras`}
+      >
         {results.map((r, i) => (
           <ResultCard
             key={r.id}
             name={r.name}
+            badge={categoryLabel(r.category)}
             output={r.output}
             tall={r.tall}
+            favorite={favorites.includes(r.id)}
+            onToggleFavorite={() => onToggleFavorite(r.id)}
             plain={isSample ? undefined : source}
             hidden={collapsed && i >= INITIAL_CARDS}
           />
@@ -234,11 +272,15 @@ export function Generator({
               Embaralhar
             </button>
           </div>
-          <ul className="mt-4 grid gap-2.5" aria-label={`${randomResults.length} estilos aleatórios`}>
+          <ul
+            className={`mt-4 grid gap-3 sm:grid-cols-2 ${wide ? "lg:grid-cols-3" : ""}`}
+            aria-label={`${randomResults.length} estilos aleatórios`}
+          >
             {randomResults.map((output, i) => (
               <ResultCard
                 key={`${randomSeed}-${i}`}
                 name={`Combinação ${i + 1}`}
+                badge="Aleatório"
                 output={output}
                 plain={isSample ? undefined : source}
               />

@@ -48,4 +48,4 @@ export const legalNav = [
 ] as const;
 
 /** Date shown on legal pages. Update when their content changes. */
-export const legalLastUpdated = "14 de novembro de 2026";
+export const legalLastUpdated = "23 de novembro de 2026";

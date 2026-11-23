@@ -68,8 +68,8 @@ export default function HomePage() {
   }));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pt-8 sm:pt-12">
-      <header className="mb-6 text-center sm:mb-8">
+    <div className="mx-auto max-w-6xl px-4 pt-8 sm:pt-12">
+      <header className="mx-auto mb-6 max-w-3xl text-center sm:mb-8">
         <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-soft">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
           Grátis · Sem cadastro · Seu texto não sai do navegador
@@ -85,9 +85,9 @@ export default function HomePage() {
         </p>
       </header>
 
-      <Generator sampleText="Letras Diferentes" showRandom />
+      <Generator sampleText="Letras Diferentes" showRandom wide />
 
-      <article className="mt-16 space-y-14">
+      <article className="mx-auto mt-16 max-w-3xl space-y-14">
         <section aria-labelledby="o-que-e-fonte">
           <H2 id="o-que-e-fonte">O que é uma fonte de letras diferentes?</H2>
           <div className="prose-content mt-4">

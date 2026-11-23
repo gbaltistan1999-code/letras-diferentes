@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
 import { InlineContent } from "@/components/Markdown";
 import { ResultCard } from "@/components/ResultCard";
-import { getStyle } from "@/lib/fonts";
+import { CATEGORIES, getStyle } from "@/lib/fonts";
 import { parseInline } from "@/lib/markdown";
 import type { ContentSection } from "@/types";
 
@@ -87,7 +87,15 @@ export function Examples({
       <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
         {examples.map(({ styleId, text }) => {
           const style = getStyle(styleId);
-          return <ResultCard key={styleId + text} name={style.name} output={style.transform(text)} plain={text} />;
+          return (
+            <ResultCard
+              key={styleId + text}
+              name={style.name}
+              badge={CATEGORIES.find((c) => c.id === style.category)?.label}
+              output={style.transform(text)}
+              plain={text}
+            />
+          );
         })}
       </ul>
     </section>
