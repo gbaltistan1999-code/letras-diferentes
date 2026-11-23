@@ -1284,26 +1284,65 @@ export const stylePages: StylePage[] = [
     navLabel: "Símbolos para copiar",
     metaTitle: "Símbolos para Copiar e Colar: ★ ♡ ꧁꧂ 亗 e mais",
     metaDescription:
-      "Símbolos para copiar e colar em nicks, bios e mensagens: estrelas, corações, molduras ꧁꧂, 亗, flechas e divisores. Um toque copia.",
+      "Mais de 260 símbolos para copiar e colar: estrelas, corações, ꧁꧂, 亗, flechas, números, kaomoji e aesthetic. Para nick, bio e mensagens.",
     h1: "Símbolos para copiar e colar",
     intro:
-      "Toque em qualquer símbolo para copiá-lo. Use em nicks de jogos, bios e mensagens, sozinhos ou junto com as letras diferentes do gerador logo abaixo.",
+      "Toque em qualquer símbolo para copiá-lo. São mais de 260 símbolos separados por tipo: estrelas, corações, molduras, símbolos para nick, aesthetic, flechas, números, kaomoji e muito mais. Use em nicks de jogos, bios e mensagens, sozinhos ou junto com as letras diferentes do gerador logo abaixo.",
     generator: { categories: ["decorativas"], sampleText: "Seu nome" },
     examples: [],
     symbolGroups: [
-      { title: "Estrelas e brilhos", symbols: ["★", "☆", "✦", "✧", "✩", "✪", "✫", "✬", "✭", "✮", "✯", "⋆", "✶", "✷", "✸", "✹", "彡"] },
-      { title: "Corações", symbols: ["♡", "♥", "❤", "❥", "❣", "ღ", "❦", "❧", "ɞ"] },
-      { title: "Molduras e colchetes", symbols: ["꧁", "꧂", "༺", "༻", "『", "』", "「", "」", "【", "】", "《", "》", "〖", "〗", "⟦", "⟧"] },
-      { title: "Para nicks e jogos", symbols: ["亗", "乂", "ツ", "么", "〆", "♛", "♚", "♔", "☠", "⚔", "✞", "⚡", "☯", "⛧", "ᴳᴼᴰ", "ᴮᴼˢˢ"] },
-      { title: "Flechas", symbols: ["➳", "➵", "➸", "➼", "➽", "➤", "➜", "⇢", "⇝", "↠", "↬", "⟶"] },
-      { title: "Flores e natureza", symbols: ["✿", "❀", "❁", "✾", "❃", "❋", "☘", "☼", "☾", "☽", "☁", "❄"] },
-      { title: "Divisores e pontos", symbols: ["•", "◦", "°", "·", "∘", "⊹", "⋅", "‧", "─", "━", "┈", "⸻", "︵", "︶"] },
+      { title: "Estrelas e brilhos", symbols: ["★", "☆", "✦", "✧", "✩", "✪", "✫", "✬", "✭", "✮", "✯", "✰", "⋆", "✶", "✷", "✸", "✹", "✺", "✵", "❂", "⭑", "⭒", "彡"] },
+      { title: "Corações", symbols: ["♡", "♥", "❤", "❥", "❣", "ღ", "❦", "❧", "ʚ", "ɞ", "💗", "💖", "💞", "💕", "🤍", "🖤"] },
+      { title: "Molduras e colchetes", symbols: ["꧁", "꧂", "༺", "༻", "『", "』", "「", "」", "【", "】", "《", "》", "〖", "〗", "⟦", "⟧", "꒰", "꒱", "〔", "〕"] },
+      { title: "Para nicks e jogos", symbols: ["亗", "乂", "ツ", "么", "〆", "×͜×", "♛", "♚", "♔", "☠", "⚔", "✞", "✠", "⚡", "☯", "⛧", "࿐", "ᴳᴼᴰ", "ᴮᴼˢˢ", "ᴾᴿᴼ"] },
+      { title: "Aesthetic", symbols: ["⋆｡˚", "˚｡⋆", "✧˖°", "⊹₊", "‧₊˚", "✩₊˚.⋆", "⋆˙⟡", "˚ʚ♡ɞ˚", "·˚ ༘", "⟡", "↷", "⤿", "୨୧", "☁︎", "𓆩♡𓆪"] },
+      { title: "Flechas", symbols: ["➳", "➵", "➸", "➼", "➽", "➤", "➜", "➔", "⇢", "⇝", "↠", "↬", "⟶", "←", "→", "↑", "↓", "↔", "↕", "⤷", "⤴", "↻"] },
+      { title: "Check e X", symbols: ["✓", "✔", "☑", "✗", "✘", "☒", "✅", "❌", "⨯"] },
+      { title: "Números", symbols: ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "❶", "❷", "❸", "❹", "❺", "❻", "❼", "❽", "❾", "❿"] },
+      { title: "Flores e natureza", symbols: ["✿", "❀", "❁", "✾", "❃", "❋", "⚘", "☘", "🌸", "🌷", "🌿", "🍃"] },
+      { title: "Céu e clima", symbols: ["☀", "☼", "☁", "☂", "☔", "❄", "☃", "⚡", "☾", "☽", "🌙", "✩"] },
+      { title: "Natal e fim de ano", symbols: ["❅", "❆", "⛄", "🎄", "🎅", "🎁", "🔔", "⭐", "🎆", "🥂"] },
+      { title: "Música", symbols: ["♩", "♪", "♫", "♬", "♭", "♯", "🎧", "🎵"] },
+      { title: "Cartas e xadrez", symbols: ["♠", "♣", "♥", "♦", "♤", "♧", "♢", "♔", "♕", "♖", "♗", "♘", "♙", "♚", "♛", "♜", "♝", "♞", "♟"] },
+      { title: "Signos do zodíaco", symbols: ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"] },
+      { title: "Matemática e moedas", symbols: ["±", "×", "÷", "≠", "≈", "∞", "√", "π", "°", "%", "‰", "€", "£", "¥", "¢", "₿", "™", "©", "®"] },
+      { title: "Para canais do Discord", symbols: ["・", "┊", "┃", "│", "╭", "╰", "╮", "╯", "⌇", "︰", "┆"] },
+      { title: "Divisores e pontos", symbols: ["•", "◦", "°", "·", "∘", "⊹", "⋅", "‧", "─", "━", "┈", "⸻", "︵", "︶", "〰", "≈"] },
+      { title: "Kaomoji (carinhas)", symbols: ["(◕‿◕)", "ʕ•ᴥ•ʔ", "(｡♥‿♥｡)", "(づ｡◕‿‿◕｡)づ", "¯\\_(ツ)_/¯", "(╯°□°)╯︵ ┻━┻", "ʘ‿ʘ", "(◕‿◕✿)", "ᕙ(⇀‸↼‶)ᕗ", "( ˘ ³˘)♥", "(ᵔᴥᵔ)", "ฅ^•ﻌ•^ฅ"] },
     ],
     sections: [
       {
         heading: "De onde vêm esses símbolos?",
         paragraphs: [
-          "Todos os símbolos desta página são caracteres do padrão Unicode, o mesmo que permite escrever em qualquer idioma no celular. Alguns vêm de blocos de símbolos gráficos (como ★ e ♡), outros de escritas de outros idiomas — o 亗 e o 乂 são caracteres chineses e o ꧁ ꧂ vem do alfabeto javanês.",
+          "Todos os símbolos desta página são caracteres do padrão Unicode, o mesmo que permite escrever em qualquer idioma no celular. Alguns vêm de blocos de símbolos gráficos (como ★ e ♡), outros de escritas de outros idiomas: o 亗 e o 乂 são caracteres chineses e o ꧁ ꧂ vem do alfabeto javanês.",
+        ],
+      },
+      {
+        heading: "Combinações prontas com símbolos",
+        paragraphs: ["Copie a combinação inteira e troque “Nome” pelo seu nome ou apelido:"],
+        copy: [
+          { text: "꧁༺ Nome ༻꧂", label: "Clássica" },
+          { text: "★彡 Nome 彡★", label: "Estrelas" },
+          { text: "⋆˙⟡ Nome ⟡˙⋆", label: "Aesthetic" },
+          { text: "˚ʚ Nome ɞ˚", label: "Fofa" },
+          { text: "亗 Nome 亗", label: "Nick" },
+          { text: "乂 Nome 乂", label: "Nick" },
+          { text: "『 Nome 』", label: "Japonesa" },
+          { text: "♛ Nome ♛", label: "Coroa" },
+          { text: "☾ Nome ☽", label: "Lua" },
+          { text: "✧･ﾟ: Nome :･ﾟ✧", label: "Brilhos" },
+        ],
+        outro: ["Quer o nome com letras diferentes também? Use o gerador mais abaixo ou veja o [nome personalizado](/nome-personalizado)."],
+      },
+      {
+        heading: "Quais símbolos usar em cada lugar",
+        list: [
+          "**Nick de Free Fire e jogos:** 亗, 乂, ×͜×, 么, 〆 e ꧁ ꧂ são os favoritos. Lembre que cada símbolo conta no limite de caracteres. Veja os [nomes para Free Fire masculino](/nomes-para-free-fire-masculino) e [feminino](/nomes-para-free-fire-feminino).",
+          "**Bio do Instagram:** os símbolos aesthetic (⋆｡˚, ✧˖°, ୨୧) e os divisores (•, ─) organizam a bio em linhas. Veja as [letras para Instagram](/letras-para-instagram).",
+          "**WhatsApp:** corações, estrelas e flores no nome, no recado e no status. Veja as [letras para WhatsApp](/letras-para-whatsapp).",
+          "**Discord:** ・, ┊ e ╰ deixam a lista de canais organizada, como em 💬・chat. Veja os [nomes para Discord](/nomes-para-discord).",
+          "**Listas e tarefas:** ✓, ✗, ①, ② e ➤ ajudam a organizar mensagens e posts.",
+          "**Fim de ano:** ❄, ☃ e 🎄 combinam com as [frases de Natal e Ano Novo](/blog/frases-de-natal-e-ano-novo).",
         ],
       },
       {
@@ -1316,9 +1355,19 @@ export const stylePages: StylePage[] = [
         ],
       },
       {
+        heading: "Como digitar símbolos sem copiar",
+        list: [
+          "**Windows:** pressione a tecla Windows + ponto (.) para abrir o painel de emojis e símbolos. Na aba Ω estão os símbolos.",
+          "**Mac:** pressione Control + Command + Espaço para abrir o visualizador de caracteres.",
+          "**Android:** no teclado, toque em ?123 e depois em =\\< para ver mais símbolos. Segurar algumas teclas mostra variações.",
+          "**iPhone:** toque em 123 e depois em #+=. Segurar teclas como o hífen ou o ponto mostra outras opções.",
+        ],
+        outro: ["Os teclados têm só os símbolos mais comuns. Os mais diferentes, como ꧁ ꧂ e 亗, é mais fácil copiar desta página."],
+      },
+      {
         heading: "Compatibilidade",
         paragraphs: [
-          "Símbolos comuns como ★, ♡ e • aparecem em praticamente todos os aparelhos. Caracteres mais raros, como ꧁ ꧂ ou ⛧, podem virar quadradinhos em sistemas antigos. Alguns símbolos, como ❤ e ☁, podem aparecer coloridos como emoji, dependendo do app.",
+          "Símbolos comuns como ★, ♡ e • aparecem em praticamente todos os aparelhos. Caracteres mais raros, como ꧁ ꧂ ou ⛧, podem virar quadradinhos em sistemas antigos. Alguns símbolos, como ❤, ☁ e os signos, podem aparecer coloridos como emoji, dependendo do app. Entenda em [por que as letras diferentes viram quadradinhos](/blog/letras-diferentes-quadradinhos-unicode).",
         ],
       },
     ],
@@ -1327,6 +1376,21 @@ export const stylePages: StylePage[] = [
         question: "Como copio um símbolo no celular?",
         answer:
           "Basta tocar no símbolo: ele é copiado automaticamente e aparece a confirmação “Copiado!”. Depois, pressione o campo de texto no app desejado e escolha “Colar”.",
+      },
+      {
+        question: "Quais símbolos usar no nick do Free Fire?",
+        answer:
+          "Os mais usados são 亗, 乂, ×͜×, 么, 〆, ★ e as molduras ꧁ ꧂. Use um símbolo de cada lado e um nome curto, porque o nick tem limite de caracteres e cada símbolo conta.",
+      },
+      {
+        question: "Os símbolos funcionam no Instagram?",
+        answer:
+          "Sim. Funcionam no nome do perfil, na bio, nas legendas e nos comentários. Só o nome de usuário (o @) não aceita símbolos.",
+      },
+      {
+        question: "Como fazer o símbolo de coração no teclado?",
+        answer:
+          "No celular, o mais fácil é copiar o ♡ desta página. No Windows, segurar Alt e digitar 3 no teclado numérico também gera um ♥.",
       },
       {
         question: "Por que um símbolo virou emoji colorido?",
@@ -1339,8 +1403,8 @@ export const stylePages: StylePage[] = [
           "Na maioria dos jogos e redes sociais, sim, porque são caracteres Unicode comuns. Ainda assim, cada plataforma tem suas regras, então teste antes de confirmar uma troca de nome.",
       },
     ],
-    related: ["nome-invisivel", "letras-para-free-fire", "letras-bonitas", "letras-goticas"],
-    relatedPosts: ["nomes-para-grupo-de-whatsapp", "nomes-para-free-fire"],
+    related: ["nome-invisivel", "letras-bonitas", "nome-personalizado", "letras-para-free-fire", "nomes-para-discord", "letras-goticas"],
+    relatedPosts: ["frases-de-natal-e-ano-novo", "nomes-para-grupo-de-whatsapp"],
   },
 ];
 
