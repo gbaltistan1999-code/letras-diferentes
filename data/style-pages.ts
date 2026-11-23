@@ -709,7 +709,7 @@ export const stylePages: StylePage[] = [
           { text: `⋆˚✿ ${t("versalete", "Felicidade em pequenas coisas")} ✿˚⋆` },
           { text: `${t("cursiva", "Seja luz")} 💫` },
         ],
-        outro: ["Quer mais ideias? Veja as [40 frases para bio do Instagram](/blog/frases-para-bio-do-instagram)."],
+        outro: ["Quer mais ideias? Veja as [70 frases para bio do Instagram](/blog/frases-para-bio-do-instagram), com bios por nicho: moda, fitness, viagens, negócios e comida."],
       },
       {
         heading: "Como colocar letras diferentes na bio do Instagram?",
