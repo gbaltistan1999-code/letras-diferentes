@@ -138,6 +138,8 @@ Uma para cada dia, de segunda a domingo:
 + Sábado é para fazer nada e não sentir culpa.
 + Domingo é dia de família, café e preguiça.
 
+No fim de ano, veja também as [frases de Natal e Ano Novo](/blog/frases-de-natal-e-ano-novo) para o status.
+
 ## Frases para status com letras diferentes
 
 Quer que seu status se destaque no meio dos outros? Copie uma destas frases em letras diferentes:
