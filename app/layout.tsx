@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   formatDetection: { telephone: false, email: false, address: false },
-  verification: { google: siteConfig.googleSiteVerification },
+  verification: { google: [...siteConfig.googleSiteVerification] },
 };
 
 export const viewport: Viewport = {

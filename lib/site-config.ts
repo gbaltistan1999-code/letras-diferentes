@@ -10,8 +10,8 @@ export const siteConfig = {
    * diferentesletras.com and www.diferentesletras.com and redirect www here.
    */
   url: "https://diferentesletras.com",
-  /** Google Search Console ownership verification (public by design). */
-  googleSiteVerification: "sG3CUbiVbemCYQr_PXKtX8J7l2O7fILdFwayOLwdEpg",
+  /** Google Search Console ownership verification codes (public by design). Keep old ones: removing a code can unverify that property. */
+  googleSiteVerification: ["sG3CUbiVbemCYQr_PXKtX8J7l2O7fILdFwayOLwdEpg", "6KFSSqow__XhhAAaVUt7R3odFtEDIk5uZ6EmzvY66kc"],
   locale: "pt_BR",
   language: "pt-BR",
   description:
