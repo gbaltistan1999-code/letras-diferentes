@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { Logo } from "@/components/Logo";
+import { SocialLinks } from "@/components/SocialLinks";
 import { type NavGroup, navGroups } from "@/data/nav-groups";
 import { legalNav, siteConfig } from "@/lib/site-config";
 
@@ -38,6 +39,7 @@ export function Footer() {
           <Link href="/estilos-de-letras" className="mt-4 inline-block text-sm font-semibold text-accent underline-offset-4 hover:underline">
             Ver todos os estilos de letras →
           </Link>
+          <SocialLinks className="mt-5" />
         </div>
 
         <nav aria-label="Estilos de letras" className="contents">

@@ -16,6 +16,18 @@ export const siteConfig = {
   language: "pt-BR",
   description:
     "Gerador de letras diferentes para copiar e colar: digite seu texto e copie em dezenas de estilos para Instagram, Free Fire, WhatsApp, TikTok e Discord.",
+  /**
+   * The site's social profiles: shown as icons in the footer and listed in the
+   * Organization schema (sameAs). Leave a URL empty ("") to hide that icon.
+   */
+  social: {
+    facebook: "",
+    instagram: "https://www.instagram.com/letrasdiferentes2026/",
+    tiktok: "",
+    pinterest: "https://www.pinterest.com/letrasdiferentes2026/",
+    youtube: "",
+    x: "",
+  },
   /** Contact email shown on /contato, /sobre-nos and the legal pages. */
   contactEmail: "alyihemd1999@gmail.com",
   /**

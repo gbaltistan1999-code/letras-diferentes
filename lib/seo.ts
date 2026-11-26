@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { socialLinks } from "@/lib/social";
 import type { FaqItem } from "@/types";
 
 export const absoluteUrl = (path = "/") => (path === "/" ? siteConfig.url : `${siteConfig.url}${path}`);
@@ -82,6 +83,7 @@ export const websiteSchema = () => ({
       url: siteConfig.url,
       // Square, ≥112 px (Google's logo requirement). Served from app/icon.png.
       logo: { "@type": "ImageObject", url: `${siteConfig.url}/icon.png`, width: 256, height: 256 },
+      ...(socialLinks.length ? { sameAs: socialLinks.map((s) => s.href) } : {}),
     },
   ],
 });
