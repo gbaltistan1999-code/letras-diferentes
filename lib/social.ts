@@ -2,6 +2,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const LABELS: Record<keyof typeof siteConfig.social, string> = {
   facebook: "Facebook",
+  linkedin: "LinkedIn",
   instagram: "Instagram",
   tiktok: "TikTok",
   pinterest: "Pinterest",

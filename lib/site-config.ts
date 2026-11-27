@@ -22,6 +22,7 @@ export const siteConfig = {
    */
   social: {
     facebook: "",
+    linkedin: "https://www.linkedin.com/in/letras-diferentes-6bb773452/",
     instagram: "https://www.instagram.com/letrasdiferentes2026/",
     tiktok: "",
     pinterest: "https://www.pinterest.com/letrasdiferentes2026/",
