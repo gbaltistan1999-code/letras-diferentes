@@ -83,10 +83,15 @@ export function Footer() {
             © {new Date().getFullYear()} {siteConfig.name}. Instagram, Free Fire, TikTok, WhatsApp e
             Discord são marcas de seus respectivos donos.
           </p>
-          {/* Directory badge. Self-hosted so no visitor data goes to a third party (see privacy policy). */}
-          <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="shrink-0 self-start sm:self-auto">
-            <Image src="/badges/sellwithboost.svg" alt="Listed on Sell With Boost" width={160} height={40} unoptimized className="h-10 w-auto" />
-          </a>
+          {/* Directory badges. Self-hosted so no visitor data goes to a third party (see privacy policy). */}
+          <div className="flex shrink-0 flex-wrap items-center gap-3 self-start sm:self-auto">
+            <a href="https://aigc160.com/ai/diferentesletras" target="_blank" rel="noopener noreferrer">
+              <Image src="/badges/aigc160.png" alt="AIGC 160" width={164} height={54} unoptimized className="h-10 w-auto" />
+            </a>
+            <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+              <Image src="/badges/sellwithboost.svg" alt="Listed on Sell With Boost" width={160} height={40} unoptimized className="h-10 w-auto" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
