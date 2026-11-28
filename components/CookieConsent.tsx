@@ -68,6 +68,7 @@ export function CookieConsent() {
     saveConsent(choice);
     setPrefs(choice);
     setShowBanner(false);
+    document.documentElement.removeAttribute("data-consent");
     if (dialogRef.current?.open) dialogRef.current.close();
   }
 
@@ -81,46 +82,46 @@ export function CookieConsent() {
 
   return (
     <>
-      {showBanner && (
-        <section
-          ref={bannerRef}
-          aria-labelledby="cookie-banner-title"
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 shadow-[0_-4px_20px_rgb(0_0_0/0.08)] backdrop-blur"
-        >
-          <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:gap-6">
-            <div className="flex-1 text-sm text-ink-soft">
-              <h2 id="cookie-banner-title" className="mb-1 font-semibold text-ink">
-                Cookies e armazenamento
-              </h2>
-              <p>
-                Usamos apenas o armazenamento local do navegador para lembrar suas preferências,
-                como esta escolha e o tema claro ou escuro.{" "}
-                {enabledOptional.length === 0
-                  ? "Não usamos cookies de análise nem de marketing."
-                  : "Cookies opcionais só são ativados com a sua permissão."}{" "}
-                <Link href="/politica-de-privacidade" className="text-accent underline underline-offset-2">
-                  Política de privacidade
-                </Link>
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <button type="button" onClick={acceptAll} className={primary}>
-                Aceitar todos
-              </button>
-              <button type="button" onClick={rejectOptional} className={primary}>
-                Rejeitar opcionais
-              </button>
-              <button
-                type="button"
-                onClick={() => dialogRef.current?.showModal()}
-                className={secondary}
-              >
-                Configurar
-              </button>
-            </div>
+      {/* Always server-rendered so it paints with the page; visibility comes from
+          html[data-consent="pending"] (set by consentInitScript), not from React. */}
+      <section
+        ref={bannerRef}
+        aria-labelledby="cookie-banner-title"
+        className="cookie-banner fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 shadow-[0_-4px_20px_rgb(0_0_0/0.08)] backdrop-blur"
+      >
+        <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:gap-6">
+          <div className="flex-1 text-sm text-ink-soft">
+            <p id="cookie-banner-title" className="mb-1 font-semibold text-ink">
+              Cookies e armazenamento
+            </p>
+            <p>
+              Usamos apenas o armazenamento local do navegador para lembrar suas preferências,
+              como esta escolha e o tema claro ou escuro.{" "}
+              {enabledOptional.length === 0
+                ? "Não usamos cookies de análise nem de marketing."
+                : "Cookies opcionais só são ativados com a sua permissão."}{" "}
+              <Link href="/politica-de-privacidade" className="text-accent underline underline-offset-2">
+                Política de privacidade
+              </Link>
+            </p>
           </div>
-        </section>
-      )}
+          <div className="flex flex-wrap gap-2">
+            <button type="button" onClick={acceptAll} className={primary}>
+              Aceitar todos
+            </button>
+            <button type="button" onClick={rejectOptional} className={primary}>
+              Rejeitar opcionais
+            </button>
+            <button
+              type="button"
+              onClick={() => dialogRef.current?.showModal()}
+              className={secondary}
+            >
+              Configurar
+            </button>
+          </div>
+        </div>
+      </section>
 
       <dialog
         ref={dialogRef}

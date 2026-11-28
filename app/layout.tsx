@@ -4,6 +4,7 @@ import { CopyStatus } from "@/components/CopyButton";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { consentInitScript } from "@/lib/consent";
 import { websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { themeInitScript } from "@/lib/theme";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: consentInitScript }} />
       </head>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <a
