@@ -21,7 +21,7 @@ export const siteConfig = {
    * Organization schema (sameAs). Leave a URL empty ("") to hide that icon.
    */
   social: {
-    facebook: "",
+    facebook: "https://www.facebook.com/letrasdiferetes",
     linkedin: "https://www.linkedin.com/in/letras-diferentes-6bb773452/",
     instagram: "https://www.instagram.com/letrasdiferentes2026/",
     tiktok: "",
